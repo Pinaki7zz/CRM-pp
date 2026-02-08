@@ -1,0 +1,152 @@
+.call-center-container {
+    padding: 2rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    border-top: #059669 3px solid;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), -2px 0 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.call-center-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    border-bottom: #d1d3d3 1px solid;
+}
+
+.header-left h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.back-btn-header, .import-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: white;
+}
+
+.back-btn-header {
+    background-color: #10B981;
+}
+
+.back-btn-header:hover {
+    background-color: #059669;
+}
+
+.import-btn {
+    background-color: #3b82f6;
+}
+
+.import-btn:hover {
+    background-color: #2563eb;
+}
+
+.adapters-list-container {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.adapters-table-header, .adapter-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+}
+
+.adapters-table-header {
+    background-color: #f9fafb;
+    color: #6b7280;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.adapter-row {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.adapter-row:last-child {
+    border-bottom: none;
+}
+
+.row-item {
+    color: #374151;
+}
+
+.cti-package-name {
+    font-weight: 500;
+    color: #111827;
+}
+
+.last-modified-date {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* More specific selectors with !important to override any conflicting styles */
+.call-center-container .adapters-list-container .adapter-row .actions .action-btn {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    color: white !important;
+    transition: opacity 0.2s ease-in-out !important;
+    min-width: 70px !important;
+    text-align: center !important;
+    outline: none !important;
+}
+
+.call-center-container .adapters-list-container .adapter-row .actions .action-btn:hover {
+    opacity: 0.9 !important;
+}
+
+.call-center-container .adapters-list-container .adapter-row .actions .action-btn.display-btn {
+    background-color: #6366f1 !important;
+}
+
+.call-center-container .adapters-list-container .adapter-row .actions .action-btn.delete-btn {
+    background-color: #dc2626 !important;
+}
+
+/* Alternative fallback styles */
+button.display-btn {
+    background-color: #6366f1 !important;
+    color: white !important;
+}
+
+button.delete-btn {
+    background-color: #dc2626 !important;
+    color: white !important;
+}

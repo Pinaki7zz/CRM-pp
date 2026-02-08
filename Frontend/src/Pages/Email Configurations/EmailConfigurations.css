@@ -1,0 +1,155 @@
+
+.email-config-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.email-tabs {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6b7280;
+  /* Add display: flex and align-items: center if you want icons inside tabs too */
+  /* For just text, these are not strictly necessary but good for consistency */
+  display: flex; 
+  align-items: center;
+  white-space: nowrap; /* Prevent text wrapping for tab names */
+}
+
+.tab.active {
+  color: #4f46e5;
+  border-bottom: 2px solid #4f46e5;
+  background-color: #f3f4f6; /* This applies to the active tab's background */
+  border-radius: 4px 4px 0 0;
+}
+
+/* Ensure non-active tabs have a consistent background if active has one */
+.tab:not(.active) {
+    background-color: transparent; /* Or a very light subtle background */
+}
+
+.config-section {
+  /* You might want to add some padding or margin here if it's too close to the tabs */
+  padding-top: 24px; /* Example: add some space below the tabs border */
+}
+
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.config-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.help-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.help-button:hover {
+  background: #f3f4f6; /* Slightly lighter hover */
+  border-color: #d1d5db;
+}
+
+.config-description {
+  color: #4b5563;
+  margin-bottom: 48px;
+  line-height: 1.6; /* Improve readability */
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.feature-card {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: #ffffff; /* Explicitly set background for cards */
+}
+
+/* .feature-card:hover {
+  box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 3px 7px -3px rgba(0, 0, 0, 0.06); /* Slightly more prominent shadow on hover */
+  /* transform: translateY(-2px); /* Slight lift effect */
+/* }  */
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Add a subtle background or border to the icon container if desired */
+  /* background-color: #f0f4f8; */
+  /* border-radius: 50%; */
+}
+
+.card-icon img {
+  max-width: 100%; /* Use max-width to ensure images scale down */
+  max-height: 100%; /* Use max-height to ensure images scale down */
+  object-fit: contain;
+}
+
+.feature-card h3 {
+  font-size: 16px;
+  font-weight: 600; /* Made slightly bolder for emphasis */
+  color: #374151;
+  line-height: 1.5;
+}
+
+.get-started-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding-bottom: 24px; /* Ensure there's space below the button */
+}
+
+.get-started-button {
+  padding: 12px 32px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2); /* Add subtle shadow */
+}
+
+.get-started-button:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.get-started-button:active {
+  background-color: #3730a3;
+  transform: translateY(0); /* Press down effect */
+}

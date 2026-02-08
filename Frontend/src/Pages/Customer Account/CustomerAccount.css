@@ -1,0 +1,695 @@
+/* CustomerAccount.css */
+
+.cap-account-management-container {
+    width: 100%;
+    padding: 30px;
+    padding-bottom: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 60px); 
+}
+
+/* --- Stats Section --- */
+.cap-account-stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0 45px 0;
+}
+
+.cap-stat-item {
+    position: relative;
+    width: 250px;
+    height: 100px;
+    border-radius: 5px;
+    background: #e9f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 10px 2px #7fc7d9;
+    overflow: visible;
+    padding-top: 20px;
+}
+
+.cap-stat-badge {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.cap-stat-badge__inner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(226, 246, 245, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 20px;
+    color: #365486;
+}
+
+.cap-stat-content {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.cap-stat-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #365486;
+    letter-spacing: 0.2px;
+}
+
+/* --- Actions Header --- */
+.cap-account-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+
+.cap-account-dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 35px;
+    padding: 0 12px;
+    background-color: #ffffff;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    min-width: 240px;
+    cursor: pointer;
+}
+
+.dropdown-arrow-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #0f1035;
+    z-index: 1;
+}
+
+.cap-account-dropdown-button {
+    position: absolute;
+    inset: 0;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #0f1035;
+    height: 100%;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    z-index: 2;
+}
+
+.cap-search-container {
+    position: relative;
+    flex: 0 0 250px;
+    width: 250px;
+}
+
+.cap-search-input {
+    width: 100%;
+    height: 35px;
+    padding: 10px 16px 10px 44px;
+    border-radius: 999px;
+    border: 1px solid #0f1035;
+    background: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.cap-search-container .cap-search-icon-small {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #0f1035;
+}
+
+.cap-action-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    margin-left: auto;
+    padding-left: 0;
+}
+
+.cap-account-create-btn {
+    height: 35px;
+    background-color: #365486; /* Primary Color */
+    color: #ffffff;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 20px;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.cap-icon-button-modern {
+    height: 35px;
+    width: 35px;
+    color: #0f1035;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.cap-icon-button-modern:hover,
+.active-filter {
+    background-color: #e9f6f6;
+}
+
+.cap-add-button-container {
+    position: relative;
+    width: 100px;
+    height: 35px;
+    background-color: #365486;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #dcf2f1;
+    display: flex;
+    gap: 4px;
+    justify-content: space-evenly;
+}
+
+.cap-account-action-modal-container {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 180px;
+    z-index: 1000;
+}
+
+.cap-account-action-modal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cap-account-action-modal-list li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0f1035;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.cap-account-action-modal-list li:hover {
+    background-color: #dcf2f1;
+}
+
+/* --- Filters --- */
+.cap-filters-container {
+    background-color: #ffffff;
+    border: 1px solid #0f1035; 
+    border-radius: 5px;
+    padding: 20px 20px 30px 20px;
+    margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.cap-filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0f1035;
+}
+
+.cap-filters-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f1035;
+    margin: 0;
+}
+
+.cap-close-filters {
+    background: none;
+    border: none;
+    color: #0f1035;
+    cursor: pointer;
+}
+
+.cap-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.cap-filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cap-filter-item label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+}
+
+.cap-input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cap-input-group input, 
+.cap-input-group select {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cap-operator-toggle {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+.cap-operator-toggle.include { color: green; background: #dcf2f1; }
+.cap-operator-toggle.exclude { color: red; }
+
+.cap-filter-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cap-footer-left, .cap-footer-right {
+    display: flex;
+    gap: 10px;
+}
+
+.cap-reset-filters,
+.cap-apply-btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cap-reset-filters {
+    background: none;
+    border: none;
+    color: #365486;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cap-apply-btn {
+    background-color: #0f1035;
+    color: white;
+    border: 1px solid #0f1035;
+}
+
+/* --- Table --- */
+.cap-account-table-container {
+    background: transparent;
+    border: none;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    flex: 1;
+    min-height: 400px;
+}
+
+.cap-account-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 14px;
+}
+
+.cap-account-table thead th {
+    background: #ffffff;
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0f1035;
+    white-space: nowrap;
+    border-top: 1px solid #0f1035;
+    border-bottom: 1px solid #0f1035;
+    position: relative;
+}
+
+.cap-account-table thead th:first-child {
+    border-left: 1px solid #0f1035;
+    border-top-left-radius: 12px;
+}
+
+.cap-account-table thead th:last-child {
+    border-right: 1px solid #0f1035;
+    border-top-right-radius: 12px;
+}
+
+.cap-header-menu-btn {
+    opacity: 0.3;
+    transition: opacity 0.2s, background-color 0.2s;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cap-account-table thead th:hover .cap-header-menu-btn,
+.cap-header-menu-btn:hover {
+    opacity: 1;
+    background-color: #f0f0f0;
+}
+
+.cap-header-popup-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 10px;
+    width: 200px;
+}
+
+.cap-header-popup-menu button {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    padding: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+.cap-header-popup-menu button:hover {
+    background-color: #f5f5f5;
+}
+
+.cap-header-search-box {
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.cap-header-search-box input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.sort-icon-active {
+    color: #365486;
+    margin-left: 5px;
+}
+
+.cap-account-table tbody tr {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.cap-account-table tbody td {
+    padding: 10px;
+    font-size: 14px;
+    color: #0f1035;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-top: 1px solid #0f1035;
+    border-bottom: 1px solid #0f1035;
+}
+
+.cap-account-table tbody td:first-child {
+    border-left: 1px solid #0f1035;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.cap-account-table tbody td:last-child {
+    border-right: 1px solid #0f1035;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.cap-custom-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #0f1035;
+    background: #fff;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cap-custom-checkbox:checked {
+    background: #365486;
+}
+
+.cap-custom-checkbox:checked::after {
+    content: "✓";
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.cap-table-action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.cap-view-btn,
+.cap-edit-btn,
+.cap-delete-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #0f1035;
+    padding: 0;
+    transition: transform 0.1s;
+}
+
+.cap-view-btn:hover,
+.cap-edit-btn:hover,
+.cap-delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.cap-empty-state {
+    text-align: center;
+    color: #365486;
+    padding: 30px;
+    font-style: italic;
+}
+
+/* --- Pagination --- */
+.cap-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    background-color: #ffffff; 
+    z-index: 1000;
+    padding: 15px 5px;
+    margin-top: 0;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05); 
+    min-height: 60px; 
+    box-sizing: border-box;
+}
+
+.cap-pagination-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cap-page-btn {
+    height: 35px;
+    width: 35px;
+    border: 1px solid #0f1035;
+    background: #365486;
+    color: #dcf2f1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cap-page-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cap-pagination-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cap-items-per-page {
+    height: 35px;
+    width: 60px;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    color: #0f1035;
+    padding-left: 5px;
+}
+
+.cap-page-input-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 5px;
+}
+
+.cap-page-input {
+    width: 50px;
+    height: 35px;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f1035;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.cap-page-numbers {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0f1035;
+}
+
+/* --- Modals --- */
+.cap-delete-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.cap-delete-confirm-dialog {
+    background: #ffffff;
+    padding: 24px;
+    width: 400px;
+    max-width: 95vw;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cap-dialog-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.cap-dialog-header h3 {
+    margin: 0;
+    color: #0f1035;
+}
+
+.cap-dialog-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cap-yes-button {
+    background: #365486;
+    color: white;
+    border: 1px solid #0f1035;
+    padding: 6px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cap-no-button {
+    background: #ffffff;
+    color: #0f1035;
+    border: 1px solid #0f1035;
+    padding: 6px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rotate-once {
+    animation: rotateOnce 0.5s linear;
+}
+
+@keyframes rotateOnce {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

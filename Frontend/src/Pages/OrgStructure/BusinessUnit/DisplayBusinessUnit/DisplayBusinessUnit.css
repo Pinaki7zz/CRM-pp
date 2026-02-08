@@ -1,0 +1,210 @@
+.business-unit-container-2435 {
+	margin-top: 5vh;
+	padding: 20px;
+	background-color: #fff;
+	min-height: 100vh;
+}
+
+.business-unit-table-wrapper {
+	border-radius: 12px;
+	padding: 20px;
+	box-shadow: 0px 0px 5px 5px #dcf2f1, 6px 8px 5px 0px #dcf2f1;
+}
+
+.business-unit-table {
+	margin: auto;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 12px;
+}
+
+.business-unit-table th {
+	text-align: center;
+	border: 1px solid black;
+	border-right: none;
+	border-left: none;
+}
+
+.business-unit-table th:first-child {
+	border-left: 1px solid black;
+	border-bottom-left-radius: 12px;
+	border-top-left-radius: 12px;
+}
+
+.business-unit-table th:last-child {
+	border-right: 1px solid black;
+	border-bottom-right-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+.business-unit-table td {
+	border: 1px solid black;
+	border-right: none;
+	border-left: none;
+}
+
+.business-unit-table td:first-child {
+	border-left: 1px solid black;
+	border-bottom-left-radius: 12px;
+	border-top-left-radius: 12px;
+}
+
+.business-unit-table td:last-child {
+	border-right: 1px solid black;
+	border-bottom-right-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+.business-unit-table__header {
+	background: white;
+	color: #37474f;
+	font-weight: 600;
+	font-size: 14px;
+	text-align: left;
+	padding: 16px 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.business-unit-table__row {
+	background: white;
+	transition: all 0.2s ease;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	display: table-row;
+}
+
+.business-unit-table__row:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.business-unit-table__cell {
+	padding: 16px 20px;
+	border: none;
+	background: white;
+	color: #37474f;
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.business-unit-table__cell:first-child {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.business-unit-table__cell:last-child {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	position: relative;
+}
+
+.business-unit-code-link {
+	color: #1976d2;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+	transition: color 0.2s ease;
+	display: inline-block;
+}
+
+.business-unit-code-link:hover {
+	color: #1565c0;
+	text-decoration: underline;
+}
+
+.business-unit-table__loading,
+.business-unit-table__error,
+.business-unit-table__no-data {
+	text-align: center;
+	padding: 40px 20px;
+	color: #666;
+	font-style: italic;
+	background: white;
+	border-radius: 8px;
+}
+
+.business-unit-table__error {
+	color: #d32f2f;
+}
+
+@media (max-width: 768px) {
+	.business-unit-container {
+		padding: 12px;
+	}
+
+	.business-unit-table-wrapper {
+		padding: 16px;
+	}
+
+	.business-unit-table__header,
+	.business-unit-table__cell {
+		padding: 12px 16px;
+		font-size: 13px;
+	}
+
+	.business-unit-table__header {
+		display: none;
+	}
+
+	.business-unit-table__row {
+		display: block;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.business-unit-table__cell {
+		display: block;
+		padding: 12px 16px;
+		border-bottom: 1px solid #f0f0f0;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	.business-unit-table__cell:before {
+		content: attr(data-label);
+		position: absolute;
+		left: 16px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		font-weight: 600;
+		color: #666;
+	}
+
+	.business-unit-table__cell:first-child,
+	.business-unit-table__cell:last-child {
+		border-radius: 0;
+	}
+
+	.business-unit-table__cell:first-child {
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+
+	.business-unit-table__cell:last-child {
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+		border-bottom: none;
+	}
+}
+
+/* Scrollbar */
+.business-unit-table-wrapper::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+.business-unit-table-wrapper::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+.business-unit-table-wrapper::-webkit-scrollbar-thumb {
+	background: #1976d2;
+	border-radius: 3px;
+}
+
+.business-unit-table-wrapper::-webkit-scrollbar-thumb:hover {
+	background: #1565c0;
+}

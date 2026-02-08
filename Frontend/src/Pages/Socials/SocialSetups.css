@@ -1,0 +1,273 @@
+.social-setups-container {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+.header-content {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3B82F6;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.header-icon {
+    width: 28px;
+    height: 28px;
+    color: #3B82F6;
+}
+
+.header-title h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.header-description {
+    color: #6b7280;
+    margin: 0;
+    font-size: 14px;
+}
+
+.social-channels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.social-channel-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #356bd8;
+    transition: all 0.2s ease;
+}
+
+.social-channel-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.channel-info {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+}
+
+.channel-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.channel-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.channel-details {
+    flex: 1;
+}
+
+.channel-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+}
+
+.channel-description {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #f3f4f6;
+}
+
+.status-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.status-icon.configured {
+    color: #10b981;
+}
+
+.status-icon.partial {
+    color: #f59e0b;
+}
+
+.status-icon.not-configured {
+    color: #ef4444;
+}
+
+.status-text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-text.configured {
+    color: #10b981;
+}
+
+.status-text.partial {
+    color: #f59e0b;
+}
+
+.status-text.not-configured {
+    color: #ef4444;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.configure-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.configure-btn.setup {
+    background-color: #3B82F6;
+    color: white;
+}
+
+.configure-btn.setup:hover {
+    background-color: #2563eb;
+}
+
+.configure-btn.edit {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.configure-btn.edit:hover {
+    background-color: #e5e7eb;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.arrow-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: 4px;
+}
+
+.setup-summary {
+    margin-top: 32px;
+}
+
+.summary-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.summary-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 16px 0;
+}
+
+.progress-stats {
+    display: flex;
+    gap: 32px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #3B82F6;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .social-channels-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .status-badge {
+        align-self: flex-start;
+    }
+    
+    .progress-stats {
+        justify-content: space-around;
+    }
+}
+
+.chatflow-count {
+    color: #10b981;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+}

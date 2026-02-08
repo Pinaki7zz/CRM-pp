@@ -1,0 +1,79 @@
+/* Center the tips container */
+.content-container {
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Tips Container */
+  .tips-container {
+    grid-area: content;
+    /* background: #16715c67; */
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    max-width: 40rem;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Tip box with slight transparency */
+  .tip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #00879e;
+    border: 2px solid;
+    /* backdrop-filter: blur(8px); */
+  }
+  
+  /* Lightbulb icon styles */
+  .tip-icon {
+    font-size: 26px;
+    color: #faf606;
+    padding: 5px;
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  .tip-icon i {
+    padding: 10px;
+  }
+  
+  /* Tip text */
+  .tip-text {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Glow effect for the icon */
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+      text-shadow: 0 0 12px rgba(255, 255, 255, 1);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .tips-container {
+      max-width: 90%;
+      padding: 15px;
+    }
+    .tip-text {
+      font-size: 16px;
+    }
+    .tip-icon {
+      font-size: 22px;
+    }}

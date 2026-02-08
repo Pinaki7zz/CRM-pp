@@ -1,0 +1,352 @@
+/* Minimalist and Professional Navbar Styles */
+.unique-navbar-container {
+	width: 100%;
+	height: 70px;
+	padding: 15px 30px;
+	border-bottom: 0.5px solid #0f1035;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 80;
+	box-sizing: border-box;
+}
+
+.unique-navbar-left {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex: 1; /* allow search to expand */
+	min-width: 0; /* prevent overflow on small screens */
+}
+
+/* ---------- SEARCH (pill) ---------- */
+.unique-search-container {
+	display: flex;
+	align-items: center;
+	background-color: #ffffff;
+	border: 1px solid #0f1035; /* thin stroke like Image A */
+	border-radius: 9999px; /* full pill */
+	padding: 0 16px;
+	min-width: 200px;
+	width: 400px; /* adjust to taste */
+	max-width: 900px;
+	height: 40px;
+	transition: border 0.2s ease-in-out;
+}
+
+/* Search icon */
+.unique-navbar-search-icon {
+	height: 18px;
+	width: 18px;
+	color: #0f1035;
+	flex-shrink: 0;
+}
+
+/* Input */
+.unique-navbar-search-input {
+	margin-left: 12px;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	color: #0f1035;
+	font-size: 14px;
+	width: 100%;
+	min-width: 50px;
+}
+
+/* Placeholder */
+.unique-navbar-search-input::placeholder {
+	color: #0f1035;
+	opacity: 1;
+}
+
+.unique-navbar-right {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.unique-navbar-icons {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
+
+/* ---------- ICON BUTTON (circular) ---------- */
+.header-icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: none;
+	background: rgba(15, 23, 42, 0.03); /* very light */
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+/* hover & active */
+.header-icon-btn:hover {
+	background-color: #dcf2f1; /* subtle hint of primary */
+	transform: translateY(-1px);
+}
+
+/* SVG color inside header-icon-btn */
+.header-icon-btn svg {
+	height: 18px;
+	width: 18px;
+	color: #0f1035;
+}
+
+/* Notifications button has relative position for badge */
+.notifications-btn {
+	position: relative;
+}
+
+/* notification badge */
+.unique-notification-badge {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	background-color: #ef4444;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+	border-radius: 9999px;
+	padding: 2px 6px;
+	line-height: 1;
+}
+
+/* ---------- PROFILE AVATAR ---------- */
+.unique-navbar-profile {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.unique-navbar-profile-pic {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 1px 3px rgba(12, 15, 30, 0.06);
+	border: 2px solid rgba(255, 255, 255, 0.8);
+	transition: all 0.2s ease-in-out;
+}
+
+/* subtle ring on hover (Image A style) */
+.unique-navbar-profile:hover .unique-navbar-profile-pic,
+.unique-navbar-profile:focus .unique-navbar-profile-pic {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+	outline: 3px solid rgba(79, 70, 229, 0.08);
+	outline-offset: 2px;
+}
+
+/* ---------- DROPDOWNS ---------- */
+/* make sure they sit above the header and align to the icon */
+.unique-profile-dropdown,
+.unique-systems-dropdown,
+.unique-settings-dropdown {
+	position: absolute;
+	top: 70px; /* just below header */
+	right: 20px; /* matches header padding */
+	background-color: #ffffff;
+	border: 1px solid #e6e9ef;
+	box-shadow: 0 12px 30px rgba(12, 15, 30, 0.08);
+	border-radius: 10px;
+	padding: 12px;
+	width: 220px;
+	z-index: 60;
+}
+
+/* dropdown items */
+.unique-profile-dropdown-item {
+	font-size: 14px;
+	color: #111827;
+	padding: 8px 6px;
+	cursor: pointer;
+	border-radius: 6px;
+	transition: background 0.12s ease, color 0.12s ease;
+}
+
+.unique-profile-dropdown-item:hover {
+	background: rgba(79, 70, 229, 0.04);
+	color: #4f46e5;
+}
+
+/* role & email smaller and muted */
+.unique-profile-role-item,
+.unique-profile-email-item {
+	color: #6b7280;
+	font-size: 12px;
+}
+
+/* Settings Icon */
+.unique-navbar-settings {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0.25rem;
+}
+
+.unique-navbar-settings-icon {
+	height: 1.25rem;
+	width: 1.25rem;
+	color: #6b7280;
+	transition: color 0.2s ease;
+}
+
+.header-icon-btn:hover .unique-navbar-settings-icon {
+	color: #0f1035;
+}
+
+/* Notifications Icon */
+.unique-navbar-notifications {
+	position: relative;
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0.25rem;
+}
+
+.unique-navbar-bell-icon {
+	height: 1.25rem;
+	width: 1.25rem;
+	color: #6b7280;
+	transition: color 0.2s ease;
+}
+
+.header-icon-btn:hover .unique-navbar-bell-icon {
+	color: #0f1035;
+}
+
+.unique-notification-badge {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	background-color: #ef4444;
+	color: white;
+	font-size: 0.625rem;
+	font-weight: 600;
+	border-radius: 50%;
+	height: 1rem;
+	width: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Systems (Products) Icon */
+.unique-navbar-systems {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0.25rem;
+}
+
+.unique-navbar-grid-icon {
+	height: 1.25rem;
+	width: 1.25rem;
+	color: #6b7280;
+	transition: color 0.2s ease;
+}
+
+.header-icon-btn:hover .unique-navbar-grid-icon {
+	color: #0f1035;
+}
+
+/* Dropdown Styling */
+.unique-profile-dropdown,
+.unique-systems-dropdown,
+.unique-settings-dropdown {
+	position: absolute;
+	top: 45px;
+	right: 1rem;
+	background-color: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 0.375rem;
+	padding: 0.75rem;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	width: 180px;
+	z-index: 20;
+}
+
+.unique-profile-dropdown-item {
+	font-size: 0.875rem;
+	color: #374151;
+	padding: 0.25rem 0;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.unique-profile-dropdown-item:hover {
+	color: #4f46e5;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #e5e7eb;
+	margin: 0.5rem 0;
+}
+
+.unique-profile-role-item,
+.unique-profile-email-item {
+	color: #6b7280;
+	font-size: 0.75rem;
+	padding: 0.25rem 0;
+}
+
+/* Add to header.css or a modal CSS file */
+.logout-modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+
+.logout-modal {
+	background: white;
+	padding: 2rem;
+	border-radius: 8px;
+	width: 300px;
+	text-align: center;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-actions {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.confirm-btn,
+.cancel-btn {
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.confirm-btn {
+	background-color: #e53e3e;
+	color: white;
+}
+
+.cancel-btn {
+	background-color: #edf2f7;
+	color: #2d3748;
+}

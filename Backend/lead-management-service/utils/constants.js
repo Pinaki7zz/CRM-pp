@@ -1,0 +1,51 @@
+const LEAD_SOURCE_OPTIONS = [
+  'EMAIL',
+  'COLD_CALL',
+  'EMPLOYEE_REFERRAL',
+  'EXTERNAL_REFERRAL',
+  'SOCIAL_MEDIA',
+  'WHATSAPP'
+];
+
+const LEAD_STATUS_OPTIONS = [
+  'OPEN',
+  'IN_PROGRESS',
+  'CONVERTED',
+  'LOST'
+];
+
+const INTEREST_LEVEL_OPTIONS = [ // NEW
+  'COLD',
+  'WARM',
+  'HOT'
+];
+
+const INTERACTION_TYPE_OPTIONS = [
+  'PHONE_CALL',
+  'EMAIL',
+  'IN_PERSON'
+];
+
+const INTERACTION_OUTCOME_OPTIONS = [
+  'POSITIVE',
+  'NEGATIVE',
+  'NEUTRAL'
+];
+
+const TITLE_OPTIONS = [
+  'Mr',
+  'Mrs',
+  'Ms',
+  'Dr',
+  'Prof',
+  'Others'
+];
+
+module.exports = {
+  LEAD_SOURCE_OPTIONS,
+  LEAD_STATUS_OPTIONS,
+  INTEREST_LEVEL_OPTIONS, // NEW
+  INTERACTION_TYPE_OPTIONS,
+  INTERACTION_OUTCOME_OPTIONS,
+  TITLE_OPTIONS
+};

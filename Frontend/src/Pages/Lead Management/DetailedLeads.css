@@ -1,0 +1,1223 @@
+.lead-edit-container {
+	padding: 30px;
+}
+
+.lead-edit-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.lead-edit-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.lead-edit-heading-image-container {
+	width: 40px;
+	height: 40px;
+	border: 1.5px solid #365486;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.lead-edit-heading-image-preview {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.lead-edit-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.lead-edit-header-container-buttons button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.lead-edit-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.lead-edit-edit-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.lead-edit-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.lead-edit-convert-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.lead-edit-options-button-container {
+	position: relative;
+}
+
+.lead-edit-options-button {
+	width: 30px !important;
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.lead-edit-menu-modal-container {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 5px;
+	min-width: 150px;
+	z-index: 1000;
+}
+
+.lead-edit-menu-modal-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.lead-edit-menu-modal-list li {
+	padding: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #0f1035;
+	transition: all 0.2s ease-in-out;
+}
+
+.lead-edit-menu-modal-list li:hover {
+	background-color: #dcf2f1;
+}
+
+/* Tabs design */
+
+.lead-edit-tabs-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.lead-edit-tabs-container-left {
+	display: flex;
+	gap: 20px;
+}
+
+.lead-edit-tab {
+	background: none;
+	border: none;
+	padding: 10px 4px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #365486;
+	cursor: pointer;
+	position: relative;
+}
+
+.lead-edit-tab.active {
+	color: #0f1035;
+	font-weight: 600;
+}
+
+.lead-edit-tab.active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 3px;
+	background-color: #0f1035;
+	border-radius: 2px;
+}
+
+.lead-edit-tabs-container-right {
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.lead-edit-call-button,
+.lead-edit-email-button,
+.lead-edit-task-button,
+.lead-edit-meeting-button,
+.lead-edit-attach-button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	background-color: #ffffff;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.lead-edit-form-container,
+.lead-edit-table-container,
+.lead-edit-misc-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+
+.lead-edit-form-heading,
+.lead-edit-table-heading,
+.lead-edit-misc-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.lead-edit-form form,
+.lead-edit-terms-content {
+	padding: 40px;
+}
+
+.lead-edit-table-container {
+	padding: 30px 40px 40px 40px;
+}
+
+.lead-edit-form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 10px;
+}
+
+.lead-edit-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lead-edit-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+.lead-edit-form-group input,
+.lead-edit-form-group select,
+.lead-edit-form-group textarea {
+	width: 100%;
+	height: 35px;
+	padding: 0 5px;
+	border: 1px solid #365486;
+	color: #365486;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 5px;
+	outline: none;
+}
+
+.lead-edit-form-group textarea {
+	height: 60px;
+}
+
+.lead-edit-form-group input::placeholder,
+.lead-edit-form-group textarea::placeholder {
+	color: #365486;
+	font-size: 14px;
+}
+
+/* Product Information Main Content Styles */
+
+.lead-edit-table-area {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lead-edit-table-box {
+	position: relative;
+	width: 100%;
+	overflow-x: auto;
+	border: none;
+	margin: 0px;
+}
+
+.lead-edit-table {
+	width: 100%;
+	min-width: 800px;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+	font-size: 14px;
+}
+
+.lead-edit-table thead {
+	background-color: #ffffff;
+}
+
+.lead-edit-table thead th {
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 600;
+	color: #365486;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #365486;
+	border-bottom: 1px solid #365486;
+	border-left: none;
+	border-right: none;
+}
+
+.lead-edit-table thead th:first-child {
+	border-left: 1px solid #365486;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.lead-edit-table thead th:last-child {
+	border-right: 1px solid #365486;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.lead-edit-table tbody {
+	background-color: #ffffff;
+}
+
+.lead-edit-table tbody td {
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #365486;
+	border-bottom: 1px solid #365486;
+	border-left: none;
+	border-right: none;
+}
+
+.lead-edit-empty-state {
+	text-align: center !important;
+	font-style: italic;
+}
+
+.lead-edit-table-data {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lead-edit-table tbody td:first-child {
+	border-left: 1px solid #365486;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.lead-edit-table tbody td:last-child {
+	border-right: 1px solid #365486;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.lead-edit-table tbody td input,
+.lead-edit-table tbody td select {
+	width: 100%;
+	min-width: 150px;
+	height: 35px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	border: 1px solid #365486;
+	border-radius: 5px;
+	outline: none;
+	padding: 0 5px;
+}
+
+.lead-edit-table tbody td input::placeholder,
+.lead-edit-table tbody td select::placeholder {
+	color: #365486;
+}
+
+.lead-edit-attachment-delete-btn {
+	border: none;
+	background-color: #ffffff;
+	color: #365486;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.lead-edit-product-delete-btn {
+	border: none;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	background-color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+.lead-edit-table-bottom {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+.lead-edit-attach-file-btn {
+	width: 130px;
+	height: 30px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #dcf2f1;
+	cursor: pointer;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	background-color: #365486;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.lead-edit-table-box::-webkit-scrollbar {
+	height: 6px;
+}
+
+.lead-edit-table-box::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.lead-edit-table-box::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.lead-edit-table-box::-webkit-scrollbar-thumb:hover {
+	background: #0f1035;
+}
+
+/* Lead Upload Image */
+
+.lead-edit-upload-image-outer-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 5px;
+}
+
+.lead-edit-upload-image-inner-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+}
+
+.lead-edit-image-container {
+	width: 35px;
+	height: 35px;
+	border: 1.5px solid #365486;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.lead-edit-image-preview {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.lead-edit-upload-btn {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	cursor: pointer;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+/* Overlay */
+.lead-edit-convert-modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.65);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+
+/* Modal box */
+.lead-edit-convert-modal {
+	background: #dcf2f1;
+	border: none;
+	border-radius: 5px;
+	width: 420px;
+	padding: 30px;
+	color: #0f1035;
+}
+
+/* Title */
+.lead-edit-convert-modal-title {
+	text-align: center;
+	margin-bottom: 25px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #0f1035;
+}
+
+/* Form layout */
+.lead-edit-convert-modal-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+/* Fields */
+.lead-edit-convert-field {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.lead-edit-convert-field label {
+	margin: 0;
+	width: 110px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+}
+
+.lead-edit-convert-field input,
+.lead-edit-convert-field select {
+	flex: 1;
+	height: 35px;
+	background: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	color: #0f1035;
+	padding: 5px;
+	outline: none;
+}
+
+.lead-edit-convert-field input::placeholder {
+	color: #0f1035;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+/* Actions */
+.lead-edit-convert-modal-actions {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-top: 30px;
+}
+
+.lead-edit-convert-modal-actions button {
+	width: 80px;
+	height: 30px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-weight: 400;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.lead-edit-convert-btn-primary {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.lead-edit-convert-btn-secondary {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+/* --- Table container: rounded + soft shadow (Image A) --- */
+.lead-edit-activity-table-container {
+	background: transparent;
+	border: none;
+	margin-bottom: 20px;
+	margin-top: -20px;
+	overflow: auto; /* horizontal scroll if needed */
+}
+
+/* Make the table rows look like separate cards */
+.lead-edit-activity-table {
+	width: 100%;
+	min-width: 800px;
+	/* IMPORTANT: allow border-spacing */
+	border-collapse: separate;
+	/* vertical gap between rows */
+	border-spacing: 0 10px;
+	font-size: 14px;
+}
+
+/* Give the header row a rounded border-like container */
+.lead-edit-activity-table thead {
+	background-color: #ffffff;
+}
+
+/* Header: rounded corners and lighter background (top pill) */
+/* keep th layout/spacing simple */
+.lead-edit-activity-table thead th {
+	background: #ffffff;
+	padding: 10px;
+	text-align: left;
+	font-weight: 600;
+	font-size: 14px;
+	color: #0f1035;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #0f1035;
+	border-bottom: 1px solid #0f1035;
+	border-left: none;
+	border-right: none;
+}
+
+.lead-edit-activity-table thead th:first-child {
+	border-left: 1px solid #0f1035;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.lead-edit-activity-table thead th:last-child {
+	border-right: 1px solid #0f1035;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* Row "card" style */
+.lead-edit-activity-table tbody tr {
+	background-color: #ffffff; /* subtle */
+	border-radius: 5px;
+}
+
+/* Make cells visually separated inside the "card" */
+.lead-edit-activity-table tbody td {
+	padding: 10px;
+	font-size: 14px;
+	vertical-align: middle;
+	background: #ffffff;
+	color: #0f1035;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	text-align: left;
+	border-top: 1px solid #0f1035;
+	border-bottom: 1px solid #0f1035;
+	border-right: none;
+	border-left: none;
+}
+
+/* Rounded corners for left and right edges of each row card */
+.lead-edit-activity-table tbody td:first-child {
+	border-left: 1px solid #0f1035;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.lead-edit-activity-table tbody td:last-child {
+	border-right: 1px solid #0f1035;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* Checkbox column - larger square, subtle border like the design */
+.checkbox-column .lead-custom-checkbox {
+	width: 18px;
+	height: 18px;
+	border-radius: 4px;
+	border: 1px solid #0f1035;
+	background: #fff;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	display: inline-block;
+	position: relative;
+	display: flex;
+	align-items: center;
+	outline: none;
+}
+
+.checkbox-column .lead-custom-checkbox:checked {
+	background: #365486;
+	border-color: transparent;
+}
+
+.checkbox-column .lead-custom-checkbox:checked::after {
+	content: "✓";
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 900;
+	position: absolute;
+	top: -2px;
+	left: 3px;
+}
+
+/* Header checkbox (select all) — align with row checkboxes */
+.lead-edit-activity-table thead .lead-custom-checkbox {
+	width: 18px;
+	height: 18px;
+	border-radius: 4px;
+	border: 1px solid #0f1035;
+	background: #fff;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.lead-edit-activity-table-container::-webkit-scrollbar {
+	height: 6px;
+}
+
+.lead-edit-activity-table-container::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.lead-edit-activity-table-container::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.lead-edit-activity-empty-state p {
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	font-style: italic;
+	text-align: center;
+}
+
+/* --- Email & Tab Section Specifics --- */
+.lead-edit-email-container {
+	padding: 30px;
+}
+
+.lead-edit-email-tabs-container {
+	display: flex;
+	justify-content: space-between; /* Tabs left, Buttons right */
+	align-items: center; /* Vertically align */
+	padding: 0 0 0 0; /* Removed padding to line up nicely */
+	border-bottom: 1px solid #365486;
+	margin-bottom: 20px;
+}
+
+/* Wrapper for the tab links on the left */
+.lead-edit-tabs-left {
+	display: flex;
+	gap: 20px;
+}
+
+.lead-edit-email-tab-btn {
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 500;
+	color: #365486;
+	cursor: pointer;
+	padding: 10px 4px;
+	position: relative;
+}
+
+.lead-edit-email-tab-btn.active {
+	font-weight: 600;
+}
+
+.lead-edit-email-tab-btn.active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 3px;
+	background-color: #365486;
+	border-radius: 2px;
+}
+
+/* Wrapper for the buttons on the right */
+.lead-edit-tab-actions-right {
+	display: flex;
+	gap: 10px;
+	padding-bottom: 5px; /* Slight adjustment to sit on the line correctly */
+}
+
+/* New Button Style matching the image */
+.lead-edit-tab-action-btn {
+	height: 32px;
+	padding: 0 12px;
+	border: 1px solid #64748b; /* Grey border */
+	border-radius: 4px;
+	background-color: #ffffff;
+	color: #0f1035;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: all 0.2s;
+}
+
+.lead-edit-tab-action-btn:hover {
+	background-color: #f8f9fa;
+	border-color: #0f1035;
+}
+
+/* --- Compose Mail Window --- */
+.lead-edit-compose-mail-window {
+	position: fixed;
+	bottom: 20px;
+	right: 50px;
+	width: 600px;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	z-index: 2000;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lead-edit-compose-mail-window.minimized {
+	height: 50px;
+	overflow: hidden;
+	bottom: 0;
+}
+
+.lead-edit-compose-mail-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #0f1035;
+	cursor: pointer;
+	position: relative;
+}
+
+.lead-edit-compose-title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 500;
+	color: #0f1035;
+}
+
+.lead-edit-compose-controls {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+	gap: 5px;
+}
+
+.lead-edit-compose-control-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.lead-edit-compose-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow-y: auto;
+	padding-top: 10px;
+}
+
+.lead-edit-compose-field {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.lead-edit-compose-field label {
+	width: 60px;
+	font-weight: 500;
+	color: #365486;
+}
+
+.lead-edit-compose-field input {
+	flex: 1;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	padding: 5px;
+	color: #365486;
+}
+
+.lead-edit-compose-editor textarea {
+	width: 100%;
+	height: 200px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	padding: 10px;
+	resize: none;
+	color: #365486;
+}
+
+.lead-edit-compose-attachments {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 5px 0;
+}
+
+.lead-edit-compose-attachment-chip {
+	background: #eee;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	border: 1px solid #365486;
+}
+
+.lead-edit-compose-attachment-name {
+	max-width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #365486;
+}
+
+.lead-edit-compose-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.lead-edit-compose-tools {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.lead-edit-compose-tool-icon {
+	cursor: pointer;
+	color: #365486;
+}
+
+.lead-edit-compose-actions {
+	display: flex;
+	gap: 10px;
+}
+
+.btn-draft {
+	padding: 8px 20px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	background: white;
+	color: #365486;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.btn-send {
+	padding: 8px 30px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	background: white;
+	color: #365486;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+/* --- Email & Tab Section Specifics --- */
+.lead-edit-email-container {
+	padding: 30px;
+}
+
+.lead-edit-email-tabs-container {
+	display: flex;
+	justify-content: space-between; /* Tabs left, Buttons right */
+	align-items: center; /* Vertically align */
+	padding: 0 0 0 0; /* Removed padding to line up nicely */
+	border-bottom: 1px solid #365486;
+	margin-bottom: 20px;
+}
+
+/* Wrapper for the tab links on the left */
+.lead-edit-tabs-left {
+	display: flex;
+	gap: 20px;
+}
+
+.lead-edit-email-tab-btn {
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 500;
+	color: #365486;
+	cursor: pointer;
+	padding: 10px 4px;
+	position: relative;
+}
+
+.lead-edit-email-tab-btn.active {
+	font-weight: 600;
+}
+
+.lead-edit-email-tab-btn.active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 3px;
+	background-color: #365486;
+	border-radius: 2px;
+}
+
+/* Wrapper for the buttons on the right */
+.lead-edit-tab-actions-right {
+	display: flex;
+	gap: 10px;
+	padding-bottom: 5px; /* Slight adjustment to sit on the line correctly */
+}
+
+/* New Button Style matching the image */
+.lead-edit-tab-action-btn {
+	height: 32px;
+	padding: 0 12px;
+	border: 1px solid #64748b; /* Grey border */
+	border-radius: 4px;
+	background-color: #ffffff;
+	color: #0f1035;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: all 0.2s;
+}
+
+.lead-edit-tab-action-btn:hover {
+	background-color: #f8f9fa;
+	border-color: #0f1035;
+}
+
+/* --- Compose Mail Window --- */
+.lead-edit-compose-mail-window {
+	position: fixed;
+	bottom: 20px;
+	right: 50px;
+	width: 600px;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	z-index: 2000;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lead-edit-compose-mail-window.minimized {
+	height: 50px;
+	overflow: hidden;
+	bottom: 0;
+}
+
+.lead-edit-compose-mail-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #0f1035;
+	cursor: pointer;
+	position: relative;
+}
+
+.lead-edit-compose-title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 500;
+	color: #0f1035;
+}
+
+.lead-edit-compose-controls {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+	gap: 5px;
+}
+
+.lead-edit-compose-control-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.lead-edit-compose-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow-y: auto;
+	padding-top: 10px;
+}
+
+.lead-edit-compose-field {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.lead-edit-compose-field label {
+	width: 60px;
+	font-weight: 500;
+	color: #365486;
+}
+
+.lead-edit-compose-field input {
+	flex: 1;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	padding: 5px;
+	color: #365486;
+}
+
+.lead-edit-compose-editor textarea {
+	width: 100%;
+	height: 200px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	padding: 10px;
+	resize: none;
+	color: #365486;
+}
+
+.lead-edit-compose-attachments {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 5px 0;
+}
+
+.lead-edit-compose-attachment-chip {
+	background: #eee;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	border: 1px solid #365486;
+}
+
+.lead-edit-compose-attachment-name {
+	max-width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #365486;
+}
+
+.lead-edit-compose-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.lead-edit-compose-tools {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.lead-edit-compose-tool-icon {
+	cursor: pointer;
+	color: #365486;
+}
+
+.lead-edit-compose-actions {
+	display: flex;
+	gap: 10px;
+}
+
+.btn-draft {
+	padding: 8px 20px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	background: white;
+	color: #365486;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.btn-send {
+	padding: 8px 30px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	background: white;
+	color: #365486;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

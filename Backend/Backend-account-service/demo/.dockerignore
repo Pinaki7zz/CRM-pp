@@ -1,0 +1,43 @@
+# Maven / Java
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment & secrets
+.env
+.env.*
+application-local.yml
+application-dev.yml
+
+# Docker files (optional)
+# docker-compose*
+# Dockerfile
+
+# Test & coverage
+coverage/
+reports/
+
+# Build outputs
+*.jar
+*.war

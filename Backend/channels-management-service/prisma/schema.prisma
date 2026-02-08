@@ -1,0 +1,270 @@
+// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Keep existing email models unchanged
+model EmailChannel {
+  id                  String   @id @default(cuid())
+  channelId           String   @unique
+  email               String   @unique
+  isEmailVerified     Boolean  @default(false)
+  verificationToken   String?
+  tokenExpiry         DateTime?
+  channelName         String?
+  senderDisplayName   String?
+  template            String?
+  channelDirection    String   @default("INBOUND_OUTBOUND")
+  subjectPattern      String   @default("TICKET_SUBJECT")
+  channelType         String   @default("B2B")
+  status              String   @default("INACTIVE")
+  isActive            Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  @@map("email_channels")
+}
+
+model EmailVerification {
+  id                String    @id @default(cuid())
+  email             String
+  verificationToken String    @unique
+  tokenExpiry       DateTime
+  isVerified        Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@map("email_verifications")
+}
+
+// UPDATED - Chatflow Configuration Model
+model Chatflow {
+  id                    String   @id @default(cuid())
+  chatId                String   @unique                    // NEW: Required unique chat identifier
+  name                  String
+  companyName           String
+  ownerUserId          String   
+  
+  // Build Tab Settings
+  welcomeMessage       String   @default("Hi! How can we help you today?")
+  showAvatar           Boolean  @default(true)
+  enableKnowledgeBase  Boolean  @default(false)
+  
+  // Assignment Settings (UPDATED)
+  autoAssignConversations Boolean @default(false)
+  keywordTeamPairs     Json?                              // NEW: Store keyword-team pairs as JSON
+  fallbackTeam         String?                            // NEW: Fallback team when no keywords match
+  assignedTeam         String?                            // Keep for backward compatibility
+  
+  // Email Capture Settings
+  emailCaptureWhen     String   @default("never")
+  emailCaptureMessage  String   @default("Please provide your email to continue")
+  
+  // Target Tab Settings  
+  websiteUrl           String?
+  showOnAllPages       Boolean  @default(true)
+  specificPages        String?                            // Store as newline-separated URLs
+  excludePages         String?                            // Store as newline-separated URLs
+  
+  // Display Tab Settings
+  accentColor          String   @default("#3b82f6")
+  chatPlacement        String   @default("bottom-right")
+  chatAvatar           String?
+  
+  // Options Tab Settings
+  requireConsent       Boolean  @default(false)
+  enableFeedback       Boolean  @default(false)
+  autoAssignment       Boolean  @default(true)
+  language             String   @default("english")
+  
+  // System Settings
+  isActive             Boolean  @default(false)
+  embedCode            String?                            // Store generated embed code
+  
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  
+  // Relations
+  conversations        Chat[]   @relation("ChatflowConversations")
+  sessions             ChatSession[] @relation("ChatflowSessions")
+  
+  @@map("chatflows")
+}
+
+// UPDATED - User Model
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      String   @default("AGENT")
+  status    String   @default("offline")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  agentChats     Chat[] @relation("AgentChats")
+  sentMessages   Message[] @relation("SentMessages")
+  
+  @@map("users")
+}
+
+// UPDATED - Customer Model
+model Customer {
+  id            String   @id @default(cuid())
+  email         String?  @unique
+  name          String?
+  phone         String?
+  company       String?
+  ipAddress     String?
+  userAgent     String?
+  sessionId     String?
+  customFields  Json?
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  chats         Chat[]
+  sentMessages  Message[] @relation("CustomerMessages")
+  
+  @@map("customers")
+}
+
+// UPDATED - Chat Model
+model Chat {
+  id                String      @id @default(cuid())
+  customerId        String
+  agentId           String?
+  chatflowId        String?
+  
+  status            String      @default("active")
+  priority          String      @default("medium")
+  department        String?                              // Keep for team assignment
+  tags              String[]
+  rating            Int?
+  feedback          String?
+  
+  startedAt         DateTime    @default(now())
+  closedAt          DateTime?
+  lastMessageAt     DateTime    @default(now())
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+
+  // Relations
+  customer          Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  agent             User?       @relation("AgentChats", fields: [agentId], references: [id])
+  chatflow          Chatflow?   @relation("ChatflowConversations", fields: [chatflowId], references: [id])
+  messages          Message[]
+  
+  @@map("chats")
+}
+
+// UPDATED - Message Model
+model Message {
+  id            String      @id @default(cuid())
+  chatId        String
+  senderId      String?
+  customerId    String?
+  senderType    String      // 'agent' or 'customer'
+  content       String
+  messageType   String      @default("text")
+  status        String      @default("delivered")
+  metadata      Json?
+  sentAt        DateTime    @default(now())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // Relations
+  chat          Chat        @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  sender        User?       @relation("SentMessages", fields: [senderId], references: [id])
+  customerSender Customer?  @relation("CustomerMessages", fields: [customerId], references: [id])
+  
+  @@map("messages")
+}
+
+// UPDATED - Chat Session Model
+model ChatSession {
+  id            String   @id @default(cuid())
+  sessionToken  String   @unique
+  customerId    String?
+  chatflowId    String?
+  ipAddress     String
+  userAgent     String
+  isActive      Boolean  @default(true)
+  expiresAt     DateTime
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  chatflow      Chatflow? @relation("ChatflowSessions", fields: [chatflowId], references: [id])
+  
+  @@map("chat_sessions")
+}
+
+// Keep existing template model
+model ChatTemplate {
+  id          String   @id @default(cuid())
+  name        String
+  content     String
+  category    String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("chat_templates")
+}
+
+model Webform {
+  id                    String   @id @default(cuid())
+  webformId             String   @unique
+  name                  String
+  url                   String   @unique
+  module                String   // 'Leads', 'Contacts', 'Cases'
+  fields                Json     // Array of field objects {label, type, required}
+  
+  // Form Details
+  formLocationUrls      String[] // Array of allowed URLs
+  actionOnSubmission    String   @default("thankyou") // 'redirect', 'thankyou', 'splash'
+  customRedirectUrl     String?
+  thankYouMessage       String   @default("Thank you for your response.")
+  
+  // Assignment Settings
+  assignedOwner         String?  // User ID or name
+  enableContactCreation Boolean  @default(false)
+  tags                  String[] // Array of tags
+  
+  // System Fields
+  isActive              Boolean  @default(true)
+  embedCode             String?  @db.Text // Store generated embed code
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  
+  // Relations
+  submissions           WebformSubmission[]
+  
+  @@map("webforms")
+}
+
+model WebformSubmission {
+  id                String   @id @default(cuid())
+  webformId         String
+  submissionData    Json     // Store all form field data
+  
+  // Metadata
+  ipAddress         String?
+  userAgent         String?
+  submittedAt       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  
+  // Relations
+  webform           Webform  @relation(fields: [webformId], references: [id], onDelete: Cascade)
+  
+  @@map("webform_submissions")
+}
+

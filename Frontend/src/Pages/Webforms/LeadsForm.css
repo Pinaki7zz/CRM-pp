@@ -1,0 +1,175 @@
+.leads-form-container {
+  padding: 20px;
+  background-color: #f9fbff;
+  font-family: Arial, sans-serif;
+}
+
+.leads-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.module-label {
+  background-color: #e6f0ff;
+  color: #1a73e8;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.nav-buttons button {
+  margin-left: 8px;
+  padding: 8px 14px;
+}
+
+.next-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+}
+
+.leads-body {
+  display: flex;
+  margin-top: 20px;
+  gap: 80px;
+}
+
+.left-panel {
+  width: 180px;           /* Try a smaller width */
+  max-width: 140px;       /* Enforce max width */
+  min-width: 270px;       /* Optional: prevent too small */
+  background-color: #0b1c38;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+
+.search-input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.field-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.field-item {
+  background: white;
+  color: black;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.right-panel {
+  flex: 1 1 0;
+  min-width: 0;           /* Allow shrinking */
+  display: flex;
+  justify-content: center;
+}
+
+.form-preview {
+  background: white;
+  padding: 25px;
+  margin: 0 auto;
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.form-row label {
+  min-width: 120px;
+  width: 120px;
+  margin-bottom: 0;
+  text-align: right;
+  font-weight: 500;
+}
+
+.form-row span {
+  color: red;
+  margin-left: 4px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="number"] {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  background: #f7fafd;
+}
+
+.form-row input[type="checkbox"] {
+  margin-left: 0;
+  margin-right: 0;
+  transform: scale(1.2);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn {
+  background-color: #3a65e5;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+.reset-btn {
+  background-color: #e0e0e0;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Add to LeadsForm.css */
+.delete-icon {
+  vertical-align: middle;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.delete-icon:hover {
+  color: #b71c1c;
+}
+
+.input-delete-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adjust gap as needed */
+}
+
+.input-delete-wrapper input[type="text"],
+.input-delete-wrapper input[type="checkbox"] {
+  margin-right: 0;
+}
+
+.form-row .delete-icon {
+  margin-left: 0; /* Remove extra margin */
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.form-row:hover .delete-icon {
+  opacity: 1;
+  pointer-events: auto;
+}

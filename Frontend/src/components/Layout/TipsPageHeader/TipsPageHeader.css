@@ -1,0 +1,45 @@
+/* General styling for the header container */
+.content-area-navbar {
+    grid-area: content-area-navbar;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+	width: 100%;
+	border-bottom: 2px solid #ddd;
+}
+
+/* Styling for the buttons */
+.icon-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	margin: 2px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4f46e5;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Icon styling */
+.icon-button i {
+    font-size: 1.2rem;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .tips-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-button {
+        width: 80%;
+        justify-content: center;
+    }
+}

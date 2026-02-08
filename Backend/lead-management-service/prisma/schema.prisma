@@ -1,0 +1,136 @@
+// This is your Prisma schema file
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// Enums
+enum LeadSource {
+    MANUAL
+    EMAIL
+    COLD_CALL
+    EMPLOYEE_REFERRAL
+    EXTERNAL_REFERRAL
+    SOCIAL_MEDIA
+    WHATSAPP
+}
+
+enum LeadStatus {
+    OPEN
+    QUALIFIED
+    IN_PROGRESS
+    CONVERTED
+    LOST
+}
+
+enum InterestLevel {
+    COLD
+    WARM
+    HOT
+}
+
+enum InteractionType {
+    PHONE_CALL
+    EMAIL
+    IN_PERSON
+}
+
+enum InteractionOutcome {
+    POSITIVE
+    NEGATIVE
+    NEUTRAL
+}
+
+enum Title {
+    MR
+    MRS
+    MS
+    OTHERS
+}
+
+// Main Models
+model Lead {
+    // Primary Key and Identifiers
+    id          String    @id @default(uuid())
+    leadId      String    @unique
+    firstName   String
+    lastName    String
+    title       Title?
+    dateOfBirth DateTime?
+
+    // Contact Information
+    email          String
+    secondaryEmail String?
+    phoneNumber    String?
+    fax            String?
+    website        String?
+
+    // Associations
+    accountId        String? // NEW: Reference to Account
+    contactId        String? // NEW: Reference to Contact
+    company          String
+    budget           Float?
+    potentialRevenue Float?
+
+    // Ownership
+    leadOwnerId String
+
+    // Location
+    country      String?
+    state        String?
+    city         String?
+    addressLine1 String?
+    addressLine2 String?
+    postalCode   String?
+
+    // Lead qualification
+    leadSource    LeadSource?
+    leadStatus    LeadStatus?    @default(OPEN)
+    interestLevel InterestLevel? // NEW: Interest Level field
+
+    // Interaction tracking
+    interactionType    InteractionType?
+    interactionOutcome InteractionOutcome?
+    interactionDate    DateTime?
+    interactionNote    String?
+
+    // Additional details
+    notes String?
+
+    // Lead image url
+    leadImageUrl String? // 👈 add this
+
+    createdAt       DateTime         @default(now())
+    updatedAt       DateTime         @updatedAt
+    leadConversion  LeadConversion?
+    leadAttachments LeadAttachment[]
+}
+
+model LeadConversion {
+    id          String   @id @default(uuid())
+    leadId      String   @unique
+    accountId   String
+    contactId   String
+    convertedAt DateTime @default(now())
+
+    lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+    @@index([accountId])
+    @@index([contactId])
+}
+
+model LeadAttachment {
+    id         String   @id @default(uuid())
+    leadId     String
+    fileUrl    String
+    fileName   String
+    mimeType   String
+    fileSize   Int
+    uploadedAt DateTime @default(now())
+
+    lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+}

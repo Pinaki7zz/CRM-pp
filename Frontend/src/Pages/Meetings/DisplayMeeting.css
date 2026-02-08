@@ -1,0 +1,206 @@
+/* Enhanced Participants section styling with better spacing */
+.participants-input-wrapper {
+  width: 100%;
+  padding: 0 15px; /* Add left and right padding to the wrapper */
+}
+
+.participants-input-container {
+  display: flex;
+  gap: 15px; /* Increase gap between input and button */
+  margin-bottom: 15px;
+  align-items: center;
+  width: 100%;
+  padding: 0; /* Remove padding from container since wrapper has it */
+}
+
+.participants-input-container .form-input {
+  flex: 1;
+  width: 70%;
+  min-width: 300px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  margin-right: 0;
+}
+
+.participants-input-container .form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.add-participant-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+  margin-left: 0; /* Remove margin since gap handles spacing */
+}
+
+.add-participant-btn:hover {
+  background-color: #0056b3;
+}
+
+.participants-display-area {
+  width: 100%;
+  min-height: 60px;
+  padding: 15px; /* Increase padding inside display area */
+  margin: 0 -15px; /* Negative margin to extend to wrapper edges */
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  margin-top: 10px;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.participants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Consistent gap between chips */
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 0; /* Ensure no extra left padding */
+}
+
+.participant-chip {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: 1px solid #bbdefb;
+  margin: 0;
+  text-align: left;
+}
+
+.remove-participant-btn {
+  background: none;
+  border: none;
+  color: #1976d2;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.remove-participant-btn:hover {
+  color: #d32f2f;
+}
+
+.no-participants {
+  color: #666;
+  font-style: italic;
+  text-align: left;
+  padding: 20px 0;
+  width: 100%;
+  justify-self: flex-start;
+}
+
+/* Ensure participants field follows same form group styling as other fields */
+.form-group.participants-field {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group.participants-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+  text-align: left;
+  padding-left: 15px; /* Align label with input */
+}
+
+/* Override any existing form styling that might be centering the content */
+.notes-form .form-group.participants-field {
+  text-align: left !important;
+  display: block;
+  width: 100%;
+}
+
+.notes-form .participants-input-wrapper {
+  width: 100%;
+  max-width: none;
+  text-align: left !important;
+}
+
+/* Additional specificity to override any conflicting styles */
+.notes-container .notes-form .form-group.participants-field .participants-input-container {
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+
+.notes-container .notes-form .form-group.participants-field .participants-display-area {
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+.notes-container .notes-form .form-group.participants-field .participants-list {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .participants-input-wrapper {
+    padding: 0 10px; /* Reduce padding on mobile */
+  }
+  
+  .participants-input-container {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 10px;
+  }
+  
+  .participants-input-container .form-input {
+    width: 100%;
+    min-width: unset;
+    margin-bottom: 0;
+  }
+  
+  .add-participant-btn {
+    align-self: flex-start;
+    width: auto;
+  }
+  
+  .participants-list {
+    justify-content: flex-start !important;
+  }
+  
+  .form-group.participants-field label {
+    padding-left: 10px; /* Adjust label padding on mobile */
+  }
+}
+
+/* Override any global styles that might be causing right alignment */
+.notes-container * {
+  text-align: inherit;
+}
+
+.notes-container .participants-display-area * {
+  text-align: left !important;
+}
+
+.form-group textarea {
+margin-left: 3px;
+}

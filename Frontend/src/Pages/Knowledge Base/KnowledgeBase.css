@@ -1,0 +1,51 @@
+.kb-container {
+	width: 100%;
+	height: calc(100vh - 70px); /* Full screen height */
+	display: flex;
+	justify-content: center; /* Horizontal center */
+	align-items: center; /* Vertical center */
+	padding: 30px;
+}
+
+.kb-content-container {
+	max-width: 600px;
+	width: 600px;
+	max-height: 300px;
+	height: 300px;
+	padding: 40px;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+.kb-header {
+	font-size: 32px;
+}
+
+.kb-description {
+	font-size: 24px;
+	font-weight: 400;
+	color: #0f1035;
+}
+
+.kb-open-app-button {
+	height: 30px;
+	width: 120px;
+	background-color: #365486;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.kb-open-app-button a {
+	font-size: 14px;
+	color: #dcf2f1;
+	font-weight: 500;
+	text-decoration: none;
+}

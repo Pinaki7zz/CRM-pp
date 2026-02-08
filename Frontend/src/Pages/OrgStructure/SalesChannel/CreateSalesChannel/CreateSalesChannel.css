@@ -1,0 +1,20 @@
+.create-sales-channel-container {
+	background-color: white;
+	padding: 20px;
+}
+
+.data-container {
+	margin-bottom: 1rem;
+}
+
+.create-sales-channel-button-group {
+	display: flex;
+	gap: 15px;
+}
+
+.create-sales-channel-header-box h2,
+.create-sales-channel-box h2 {
+	color: #007bff;
+	margin-bottom: 15px;
+	font-size: 20px;
+}

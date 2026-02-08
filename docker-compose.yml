@@ -1,0 +1,214 @@
+version: "3.9"
+name: crm
+
+services:
+  postgres-db:
+    image: postgres:14
+    restart: unless-stopped
+    ports:
+      - "4321:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: crm.galvinus.com
+    volumes:
+      - crm-postgres-data:/var/lib/postgresql/data
+
+  sales-management-service-container:
+    image: crm-sales-management-service-image
+    build: ./Backend/sales-management-service
+    restart: unless-stopped
+    ports:
+      - "4002:4002"
+    environment:
+      PORT: 4002
+      NODE_ENV: production
+      DATABASE_URL: postgresql://postgres:crm.galvinus.com@postgres-db:5432/sales_management_db
+      FRONTEND_URL: https://crm.galvinus.com
+      ACCOUNTS_CONTACTS_URL: http://accounts-contacts-service-container:4003/ac/api
+      USER_MANAGEMENT_URL: http://user-management-service-container:4001/um/api
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_S3_BUCKET_NAME: galvinus-hr-portal
+    depends_on:
+      - postgres-db
+
+  user-management-service-container:
+    image: crm-user-management-service-image
+    build: ./Backend/user-management-backend
+    restart: unless-stopped
+    ports:
+      - "4001:4001"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SERVER_PORT: 4001
+      DB_URL: jdbc:postgresql://postgres-db:5432/user_management_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: crm.galvinus.com
+      JWT_ACCESS_SECRET: f3e1b29c5a7d48c2e09bf7a64d2e5c1fa9d3b4e2f781c9d0a4e3f6c2b189ad3e
+      JWT_REFRESH_SECRET: b4a3d5f6c1e9a28b4c0e18e7f0d2a1b9485ec31b2a7f0c4d8a2b1f8e4d3a6c7f1
+      JWT_EMAIL_SECRET: a7f9c5b2d3409e7a8c6b1d2ef483a9b745cdf0e71a4b6c2d3f1e8a9c0b7d5e6f4
+      JWT_RESET_SECRET: f4c9d3e5a2b1c6f0d8e7a9b3c1d2e4f9a5b6c3e7d4f1a8b2c0d7e6f8a1b4c5d9
+      EMAIL_HOST: smtp.gmail.com
+      EMAIL_PORT: 587
+      EMAIL_USER: royrohan386@gmail.com
+      EMAIL_PASS: eyrxopybsqmfihru
+      EMAIL_FROM: no-reply@crm.galvinus.com
+      JPA_DDL_AUTO: update
+      FRONTEND_URL: https://crm.galvinus.com
+    depends_on:
+      - postgres-db
+
+  analytics-management-service-container:
+    image: crm-analytics-management-service-image
+    build: ./Backend/analytics-management-service
+    restart: unless-stopped
+    ports:
+      - "4009:4009"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SERVER_PORT: 4009
+      DB_URL: jdbc:postgresql://postgres-db:5432/analytics_management_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: crm.galvinus.com
+      DB_POOL_MAX: 20
+      DB_POOL_MIN: 5
+      JPA_SHOW_SQL: false
+      LOG_LEVEL_ROOT: INFO
+      LOG_LEVEL_APP: INFO
+      LOG_LEVEL_WEB: INFO
+      LEAD_MANAGEMENT_SERVICE_URL: http://lead-management-service-container:4004/lm/api
+      JPA_DDL_AUTO: update
+      FRONTEND_URL: https://crm.galvinus.com
+    depends_on:
+      - postgres-db
+
+  lead-management-service-container:
+    image: crm-lead-management-service-image
+    build: ./Backend/lead-management-service
+    restart: unless-stopped
+    ports:
+      - "4004:4004"
+    environment:
+      PORT: 4004
+      NODE_ENV: production
+      DATABASE_URL: postgresql://postgres:crm.galvinus.com@postgres-db:5432/lead_management_db
+      EMAIL_USER: royrohan386@gmail.com
+      EMAIL_PASS: eyrxopybsqmfihru
+      FRONTEND_URL: https://crm.galvinus.com
+      ACCOUNTS_CONTACTS_URL: http://accounts-contacts-service-container:4003/ac/api
+      SALES_MANAGEMENT_URL: http://sales-management-service-container:4002/sm/api
+      USER_MANAGEMENT_URL: http://user-management-service-container:4001/um/api
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_S3_BUCKET_NAME: galvinus-hr-portal
+    depends_on:
+      - postgres-db
+
+  channels-management-service-container:
+    image: crm-channels-management-service-image
+    build: ./Backend/channels-management-service
+    restart: unless-stopped
+    ports:
+      - "4008:4008"
+    environment:
+      PORT: 4008
+      NODE_ENV: production
+      DATABASE_URL: postgresql://postgres:crm.galvinus.com@postgres-db:5432/channels_management_db
+      EMAIL_USER: royrohan386@gmail.com
+      EMAIL_PASS: eyrxopybsqmfihru
+      FRONTEND_URL: https://crm.galvinus.com
+    depends_on:
+      - postgres-db
+
+  service-management-service-container:
+    image: crm-service-management-service-image
+    build: ./Backend/service-management-service
+    restart: unless-stopped
+    ports:
+      - "4007:4007"
+    environment:
+      PORT: 4007
+      DATABASE_URL: postgresql://postgres:crm.galvinus.com@postgres-db:5432/service_management_db
+      NODE_ENV: production
+      FRONTEND_URL: https://crm.galvinus.com
+      CONTACT_SERVICE_URL: http://accounts-contacts-service-container:4003/ac/api/contact
+      USER_SERVICE_URL: http://user-management-service-container:4001/um/api/users
+      ACCOUNT_SERVICE_URL: http://accounts-contacts-service-container:4003/ac/api/account
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: 587
+      SMTP_USER: royrohan386@gmail.com
+      SMTP_PASS: eyrxopybsqmfihru
+      SMTP_FROM: support@galvinus.com
+    depends_on:
+      - postgres-db
+
+  activity-management-service-container:
+    image: crm-activity-management-service-image
+    build: ./Backend/activity-management-service
+    restart: unless-stopped
+    ports:
+      - "4006:4006"
+    environment:
+      PORT: 4006
+      DATABASE_URL: postgresql://postgres:crm.galvinus.com@postgres-db:5432/activity_management_db
+      NODE_ENV: production
+      FRONTEND_URL: https://crm.galvinus.com
+    depends_on:
+      - postgres-db
+  
+  master-system-service-container:
+    image: crm-master-system-service-image
+    build: ./Backend/org-structure-service
+    restart: unless-stopped
+    ports:
+      - "4005:4005"
+    environment:
+      PORT: 4005
+      DATABASE_URL: postgresql://postgres:crm.galvinus.com@postgres-db:5432/master_system_db
+      NODE_ENV: production
+      FRONTEND_URL: https://crm.galvinus.com
+    depends_on:
+      - postgres-db
+  
+  accounts-contacts-service-container:
+    image: crm-accounts-contacts-service-image
+    build: ./Backend/Backend-account-service/demo
+    restart: unless-stopped
+    ports:
+      - "4003:4003"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SERVER_PORT: 4003
+      DB_URL: jdbc:postgresql://postgres-db:5432/accounts_contacts_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: crm.galvinus.com
+      JPA_DDL_AUTO: update
+      FRONTEND_URL: https://crm.galvinus.com
+    depends_on:
+      - postgres-db
+
+  frontend-container:
+    image: crm-frontend-image
+    build:
+      context: ./Frontend
+      args:
+        VITE_API_BASE_URL_UM: /um/api
+        VITE_API_BASE_URL_SM: /sm/api
+        VITE_API_BASE_URL_AC: /ac/api
+        VITE_API_BASE_URL_LM: /lm/api
+        VITE_API_BASE_URL_MS: /ms/api
+        VITE_API_BASE_URL_AM: /am/api
+        VITE_API_BASE_URL_SER: /ser/api
+        VITE_API_BASE_URL_CM: /cm/api
+        VITE_API_BASE_URL_ANM: /anm/api
+    restart: unless-stopped
+    ports:
+      - "4010:80"
+
+networks:
+  default:
+    name: crm-network
+    driver: bridge
+
+volumes:
+  crm-postgres-data:

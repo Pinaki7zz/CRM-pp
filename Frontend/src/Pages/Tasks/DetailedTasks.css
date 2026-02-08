@@ -1,0 +1,536 @@
+.header-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2), -4px 0 4px rgb(0, 0, 0, 0.2);
+}
+
+.tasks-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.header-container-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-container-buttons button {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #d32f2f;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #b71c1c;
+}
+
+.save-button {
+    background-color: #4caf50;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #388e3c;
+}
+
+.send-email-button {
+	background-color: #ffb92e;
+	transition: background-color 0.3s;
+}
+
+.send-email-button:hover {
+	background-color: #eea20a;
+}
+
+.more-options-container {
+    position: relative;
+}
+
+.more-options-button {
+    background-color: #2196f3;
+    transition: background-color 0.3s;
+    display: relative;
+}
+
+.more-options-button:hover {
+    background-color: #1976d2;
+}
+
+/* Product Information Basic Structure */
+
+.overview-container,
+.task-information-container,
+.notes-container,
+.account-information-container,
+.contact-information-container,
+.attachment1-section-container,
+.activity-section-container {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2), -2px 0 2px rgb(0, 0, 0, 0.2);
+}
+
+.overview-container {
+	border-top: 3px solid green;
+}
+
+.task-information-container {
+	border-top: 3px solid blue;
+}
+
+.notes-container {
+	border-top: 3px solid gold;
+}
+
+.account-information-container {
+	border-top: 3px solid purple;
+}
+
+.contact-information-container {
+	border-top: 3px solid orange;
+}
+
+.attachment1-section-container {
+	border-top: 3px solid deeppink;
+}
+
+.activity-section-container {
+	border-top: 3px solid teal;
+}
+
+.overview-heading h1,
+.task-information-heading h1,
+.notes-heading h1,
+.account-information-heading h1,
+.contact-information-heading h1 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #000;
+    padding: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Overview Main Content Styles */
+
+.overview-form1 form {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+        "createdon subject status"
+		"owner duedate .";
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.createdon {
+    grid-area: createdon;
+}
+
+.status {
+    grid-area: status;
+}
+
+.duedate {
+    grid-area: duedate;
+}
+
+.subject {
+    grid-area: subject;
+}
+
+.owner {
+    grid-area: owner;
+}
+
+.form-group label {
+    padding: 8px 0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 5px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    outline: none;
+}
+
+.form-group input,
+.form-group select {
+    height: 40px;
+}
+
+.form-group textarea {
+    min-height: 60px;
+}
+
+/* Task Information Main Content Styles */
+
+.task-information-form form {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+        "taskowner oppname subject"
+		"stage primarycontact accountname"
+		"startdate leadsource status"
+		"description description description";
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskowner {
+    grid-area: taskowner;
+}
+
+.oppname {
+    grid-area: oppname;
+}
+
+.subject {
+	grid-area: subject;
+}
+
+.stage {
+    grid-area: stage;
+}
+
+.primarycontact {
+    grid-area: primarycontact;
+}
+
+.accountname {
+    grid-area: accountname;
+}
+
+.startdate {
+    grid-area: startdate;
+}
+
+.leadsource {
+    grid-area: leadsource;
+}
+
+.status {
+    grid-area: status;
+}
+
+.description {
+	grid-area: description;
+}
+
+/* Notes Main Content Styles */
+
+.notes-form form {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+		"notes notes notes";
+    gap: 18px;
+}
+
+.notes {
+	grid-area: notes;
+}
+
+/* Account Information Main Content Styles */
+
+.account-information-form form {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+        "accountid accountname website"
+		"accounttype accountowner industry"
+		"parentaccount role ."
+		"notes notes notes";
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.accountid {
+    grid-area: accountid;
+}
+
+.industry {
+    grid-area: industry;
+}
+
+.website {
+	grid-area: website;
+}
+
+.accounttype {
+    grid-area: accounttype;
+}
+
+.accountowner {
+    grid-area: accountowner;
+}
+
+.accountname {
+    grid-area: accountname;
+}
+
+.parentaccount {
+    grid-area: parentaccount;
+}
+
+.role {
+    grid-area: role;
+}
+
+.notes {
+	grid-area: notes;
+}
+
+/* Menu Modal */
+.menu-modal-container {
+    position: absolute;
+    top: calc(100% + 0.875rem);
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 250px;
+    z-index: 1000;
+}
+
+.menu-modal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-modal-list li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.menu-modal-list li:hover {
+    background: #f0f0f0;
+}
+
+.menu-button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Contact Information Main Content Styles */
+
+.contact3-information-form form {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+        "emailid3 secondaryemail3 phoneno3"
+		"mobileno3 fax3 website3"
+		"addressline13 addressline23 city3"
+		"state3 country3 zipcode3";
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.emailid3 {
+    grid-area: emailid3;
+}
+
+.secondaryemail3 {
+    grid-area: secondaryemail3;
+}
+
+.phoneno3 {
+	grid-area: phoneno3;
+}
+
+.mobileno3 {
+    grid-area: mobileno3;
+}
+
+.fax3 {
+    grid-area: fax3;
+}
+
+.website3 {
+    grid-area: website3;
+}
+
+.addressline13 {
+    grid-area: addressline13;
+}
+
+.addressline23 {
+    grid-area: addressline23;
+}
+
+.city3 {
+    grid-area: city3;
+}
+
+.state3 {
+	grid-area: state3;
+}
+
+.country3 {
+	grid-area: country3;
+}
+
+.zipcode3 {
+	grid-area: zipcode3;
+}
+
+/* Menu Modal */
+.menu-modal-container {
+    position: absolute;
+    top: calc(100% + 0.875rem);
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 250px;
+    z-index: 1000;
+}
+
+.menu-modal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-modal-list li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.menu-modal-list li:hover {
+    background: #f0f0f0;
+}
+
+.menu-button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Attachments Products Activities Styles */
+
+.attachment1-section-heading,
+.activity-section-heading {
+    padding: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    display: flex;
+	justify-content: space-between;
+    align-items: center;
+}
+
+.attachment1-section-heading h1,
+.activity-section-heading h1 {
+	font-size: 1.125rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.attachment1-section-heading button,
+.activity-section-heading button {
+	border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+	background-color: #2196f3;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+	transition: background-color 0.3s;
+}
+
+.attachment1-section-heading button:hover,
+.activity-section-heading button:hover {
+	background-color: #1976d2;
+}
+
+.attachment1-section-table,
+.activity-section-table {
+    padding: 20px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.table-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+
+.table-column h1 {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-button:hover {
+    background: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-header {
+        flex-direction: column;
+    }
+}

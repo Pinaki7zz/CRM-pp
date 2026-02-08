@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AgentActivity {
+  id        String   @id
+  ticket_id String
+  action    String
+  details   String?
+  agentName String?
+  timestamp DateTime @default(now())
+  Ticket    Ticket   @relation(fields: [ticket_id], references: [ticket_id], onDelete: Cascade)
+}
+
+model Attachment {
+  id            String   @id
+  ticket_id     String
+  file_name     String
+  original_name String
+  file_path     String
+  file_size     String
+  mime_type     String?
+  uploaded_by   String?
+  created_at    DateTime @default(now())
+  Ticket        Ticket   @relation(fields: [ticket_id], references: [ticket_id], onDelete: Cascade)
+}
+
+model Note {
+  id         String   @id
+  ticket_id  String
+  text       String
+  author     String
+  created_at DateTime @default(now())
+  Ticket     Ticket   @relation(fields: [ticket_id], references: [ticket_id], onDelete: Cascade)
+}
+
+model Ticket {
+  id                   String          @id @default(uuid())
+  ticket_id            String          @unique
+  subject              String
+  description          String?
+  status               String          @default("OPEN")
+  priority             String          @default("NORMAL")
+  source               String          @default("MANUAL")
+  primary_contact_id   String?
+  primary_contact_name String?
+  account_id           String?
+  account_name         String?
+  ticket_owner_name    String?
+  email                String?
+  phone                String?
+  created_at           DateTime        @default(now())
+  updated_at           DateTime        @updatedAt
+  AgentActivity        AgentActivity[]
+  Attachment           Attachment[]
+  Note                 Note[]
+}
+
+model TicketCategory {
+  id                    String    @id @default(cuid())
+  
+  // General Information
+  catalogName           String    @db.VarChar(255)
+  catalogId             String    @unique @default(cuid()) // Auto-generated
+  ticketCategoryId     String    @unique @db.VarChar(50)
+  status                String    @default("In Preparation") // In Preparation, Active, Inactive, etc.
+  
+  // Dates
+  validFrom             DateTime
+  validTo               DateTime?
+  createdOnDate         DateTime  @default(now())
+  
+  // Audit Information
+  createdById           String
+  createdBy             String?      
+  createdOnDateTime     DateTime  @default(now())
+  
+  changedById           String?
+  changedBy             String?
+  changedOnDateTime     DateTime?
+  
+  // System fields
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  isDeleted             Boolean   @default(false)
+  
+  @@index([catalogName])
+  @@index([ticketCategoryId])
+  @@index([status])
+  @@index([createdById])
+  @@map("ticket_categories")
+}

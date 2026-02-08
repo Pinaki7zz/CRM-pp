@@ -1,0 +1,253 @@
+.header-container {
+	background-color: #fff;
+	border-radius: 8px;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2), -4px 0 4px rgb(0, 0, 0, 0.2);
+}
+
+.settings-heading {
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: #000;
+}
+
+.header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.header-container-buttons button {
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #fff;
+	cursor: pointer;
+}
+
+.edit-button {
+	background-color: #d32f2f;
+	transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+	background-color: #b71c1c;
+}
+
+.save-button {
+	background-color: #4caf50;
+	transition: background-color 0.3s;
+}
+
+.save-button:hover {
+	background-color: #388e3c;
+}
+
+.more-options-container {
+	position: relative;
+}
+
+.more-options-button {
+	background-color: #2196f3;
+	transition: background-color 0.3s;
+	display: relative;
+}
+
+.more-options-button:hover {
+	background-color: #1976d2;
+}
+
+/* Product Information Basic Structure */
+
+.personal-information-container,
+.company-information-container {
+	background-color: #fff;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2), -2px 0 2px rgb(0, 0, 0, 0.2);
+}
+
+.personal-information-container {
+	border-top: 3px solid green;
+}
+
+.company-information-container {
+	border-top: 3px solid blue;
+}
+
+.personal-information-heading h1,
+.company-information-heading h1 {
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: #000;
+	padding: 20px;
+	border-bottom: 2px solid #e0e0e0;
+}
+
+/* Lead Information Main Content Styles */
+
+.personal-information-form form {
+	padding: 20px;
+	display: grid;
+	grid-template-areas:
+		"username language businessRole"
+		"dateFormat timeFormat timeZone"
+		"personalCountry personalState personalCity"
+		"personalStreet personalPostalCode .";
+	gap: 18px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.username {
+	grid-area: username;
+}
+
+.language {
+	grid-area: language;
+}
+
+.businessRole {
+	grid-area: businessRole;
+}
+
+.personalCountry {
+	grid-area: personalCountry;
+}
+
+.dateFormat {
+	grid-area: dateFormat;
+}
+
+.timeFormat {
+	grid-area: timeFormat;
+}
+
+.timeZone {
+	grid-area: timeZone;
+}
+
+.form-group label {
+	padding: 8px 0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+	padding: 10px 5px;
+	border: 2px solid #e0e0e0;
+	border-radius: 4px;
+	outline: none;
+}
+
+.form-group input,
+.form-group select {
+	height: 40px;
+}
+
+.form-group textarea {
+	min-height: 60px;
+}
+
+/* Lead Information Main Content Styles */
+
+.company-information-form form {
+	padding: 20px;
+	display: grid;
+	grid-template-areas:
+		"businessname legalentitytype addressline1"
+		"addressline2 city state"
+		"country zipcode .";
+	gap: 18px;
+}
+
+.businessname {
+	grid-area: businessname;
+}
+
+.legalentitytype {
+	grid-area: legalentitytype;
+}
+
+.addressline1 {
+	grid-area: addressline1;
+}
+
+.addressline2 {
+	grid-area: addressline2;
+}
+
+.city {
+	grid-area: city;
+}
+
+.state {
+	grid-area: state;
+}
+
+.country {
+	grid-area: country;
+}
+
+.zipcode {
+	grid-area: zipcode;
+}
+
+/* Menu Modal */
+.menu-modal-container {
+	position: absolute;
+	top: calc(100% + 0.875rem);
+	right: 0;
+	background: white;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	padding: 10px;
+	min-width: 250px;
+	z-index: 1000;
+}
+
+.menu-modal-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu-modal-list li {
+	padding: 8px 12px;
+	cursor: pointer;
+}
+
+.menu-modal-list li:hover {
+	background: #f0f0f0;
+}
+
+.menu-button {
+	padding: 8px 16px;
+	background: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.menu-button:hover {
+	background: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}

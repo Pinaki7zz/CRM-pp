@@ -1,0 +1,199 @@
+/* Demo container for opening modal */
+.NPPP-demo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.NPPP-open-modal-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.NPPP-open-modal-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Modal overlay */
+.NPPP-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal container */
+.NPPP-modal-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal header */
+.NPPP-modal-header {
+  background-color: #e8f0fe;
+  padding: 15px 20px;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.NPPP-modal-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* Modal content */
+.NPPP-modal-content {
+  padding: 25px 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Form rows */
+.NPPP-form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.NPPP-form-row label {
+  width: 120px;
+  font-size: 13px;
+  color: #374151;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.NPPP-form-input,
+.NPPP-form-select {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: white;
+  transition: border-color 0.2s ease;
+  min-width: 180px;
+}
+
+.NPPP-form-input:focus,
+.NPPP-form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Select dropdown styling */
+.NPPP-form-select {
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 35px;
+  appearance: none;
+}
+
+.NPPP-form-select::-ms-expand {
+  display: none;
+}
+
+/* Specific styling for Principal Type dropdown */
+.NPPP-form-select option {
+  padding: 5px;
+}
+
+/* Modal footer */
+.NPPP-modal-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f9fafb;
+}
+
+/* Buttons */
+.NPPP-save-btn,
+.NPPP-cancel-btn {
+  padding: 8px 20px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 70px;
+}
+
+.NPPP-save-btn {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.NPPP-save-btn:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.NPPP-cancel-btn {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.NPPP-cancel-btn:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .NPPP-modal-container {
+    width: 95vw;
+    margin: 10px;
+  }
+  
+  .NPPP-form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .NPPP-form-row label {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .NPPP-form-input,
+  .NPPP-form-select {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .NPPP-modal-footer {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}

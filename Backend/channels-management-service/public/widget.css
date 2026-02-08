@@ -1,0 +1,36 @@
+/* LiveTalk Widget Styles */
+.livetalk-widget {
+  position: fixed;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.livetalk-widget * {
+  box-sizing: border-box;
+}
+
+#livetalk-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  z-index: 999999;
+}
+
+#livetalk-widget:hover {
+  transform: scale(1.1);
+}
+
+#livetalk-widget svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}

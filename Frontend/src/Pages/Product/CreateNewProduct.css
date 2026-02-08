@@ -1,0 +1,141 @@
+/* =========================================================
+   Product Create Page Styles
+   Matches Ticket/CreateTicket.css style guide
+   ========================================================= */
+
+.product-create-container {
+    padding: 30px;
+}
+
+/* Header */
+.product-create-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.product-create-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f1035;
+}
+
+.product-create-header-container-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-create-header-container-buttons button {
+    height: 35px;
+    min-width: 120px;
+    padding: 0 15px;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.product-create-save-button {
+    background-color: #365486;
+    color: #dcf2f1;
+}
+
+.product-create-save-and-new-button {
+    background-color: #ffffff;
+    color: #0f1035;
+}
+
+.product-create-cancel-button {
+    background-color: #ffffff;
+    color: #0f1035;
+}
+
+/* Form Container */
+.product-create-form-container {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.product-create-form-heading {
+    position: absolute;
+    left: 45px;
+    top: -25px;
+    padding: 10px;
+    background-image: linear-gradient(
+        to bottom,
+        #f9fafb 0%,
+        #f9fafb 50%,
+        #ffffff 50%,
+        #ffffff 100%
+    );
+    color: #0f1035;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.product-create-form form {
+    padding: 40px;
+}
+
+/* Form Layout */
+.product-create-form-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 15px;
+}
+
+.product-create-form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-create-form-group label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #365486;
+    margin: 0;
+}
+
+.product-create-form-group input,
+.product-create-form-group select,
+.product-create-form-group textarea {
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    padding: 0 10px;
+    border: 1px solid #365486;
+    color: #365486;
+    border-radius: 5px;
+    outline: none;
+}
+
+.product-create-form-group textarea {
+    height: 80px;
+    padding: 10px;
+}
+
+.product-create-form-group input::placeholder,
+.product-create-form-group textarea::placeholder {
+    color: #365486;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.required-field-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #365486;
+}

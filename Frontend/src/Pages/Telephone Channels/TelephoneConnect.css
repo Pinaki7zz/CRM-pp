@@ -1,0 +1,86 @@
+.telephone-connect {
+	background-color: #fff;
+	color: white;
+	padding: 20px;
+	border-top: 3px solid red;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), -2px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.connect-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+	align-items: center;
+}
+
+.provider-dropdown {
+	background-color: transparent;
+	color: #000;
+	border: 2px solid #e0e0e0;
+	border-radius: 8px;
+	font-size: 0.825rem;
+	padding: 10px;
+	outline: none;
+}
+
+.search-container {
+    position: relative;
+    width: 300px;
+	padding: 0 !important;
+}
+
+.search-input {
+    height: 40px;
+    padding: 10px 16px;
+    padding-left: 36px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    width: 100%;
+    font-size: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.search-icon-small {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.provider-grid,
+.action-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+.provider-card,
+.action-card {
+	border: 1px solid #333;
+	border-radius: 4px;
+	padding: 15px;
+	color: #000;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.provider-card:hover,
+.action-card:hover {
+	border-color: #666;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.provider-card.active {
+	border-color: #4169e1;
+	background-color: rgba(65, 105, 225, 0.1);
+}

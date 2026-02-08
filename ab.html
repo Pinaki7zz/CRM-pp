@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test Real LiveTalk Widget</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				padding: 20px;
+				background: #f5f5f5;
+			}
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				background: white;
+				padding: 40px;
+				border-radius: 8px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			}
+			h1 {
+				color: #378cfb;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Acme Corporations - Customer Support</h1>
+			<p>
+				Welcome to our website! Our LiveTalk widget should appear in the
+				bottom-right corner with your actual chatflow styling and
+				configuration.
+			</p>
+
+			<h2>Features to Test:</h2>
+			<ul>
+				<li>✅ Real chatflow colors (#378cfb blue theme)</li>
+				<li>✅ Company branding ("Acme Corporations")</li>
+				<li>✅ Welcome message from your database</li>
+				<li>✅ Conversation history (if any exists)</li>
+				<li>✅ Message saving to backend</li>
+			</ul>
+
+			<p>
+				<strong>Click the chat bubble</strong> in the bottom-right
+				corner to start chatting!
+			</p>
+		</div>
+
+		<!-- LiveTalk Chat Widget -->
+		<script>
+			(function () {
+				var ltWidget = document.createElement("script");
+				ltWidget.async = true;
+				ltWidget.src = "http://localhost:4008/api/live-talk/widget.js";
+				ltWidget.setAttribute(
+					"data-chatflow-id",
+					"cmf6ug7dm0001omu4kkqbza8v"
+				);
+				ltWidget.setAttribute("data-chat-id", "Chat-001");
+				ltWidget.setAttribute(
+					"data-config",
+					"eyJuYW1lIjoiaGVsbG8iLCJjb21wYW55TmFtZSI6IkFjbWUgQ29ycG9yYXRpb25zIiwid2VsY29tZU1lc3NhZ2UiOiJIZWxsbywgUGxlYXN1cmUgdG8gbWVldCB5YSEiLCJhY2NlbnRDb2xvciI6IiNmYjU0MzciLCJjaGF0UGxhY2VtZW50IjoiYm90dG9tLXJpZ2h0Iiwic2hvd0F2YXRhciI6dHJ1ZSwid2Vic2l0ZVVybCI6IiJ9"
+				);
+				document.head.appendChild(ltWidget);
+			})();
+		</script>
+		<!-- End LiveTalk Chat Widget -->
+	</body>
+</html>

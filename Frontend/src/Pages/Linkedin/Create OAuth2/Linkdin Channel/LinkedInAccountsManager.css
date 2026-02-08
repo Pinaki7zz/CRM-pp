@@ -1,0 +1,537 @@
+/* LinkedIn Accounts Manager Styles */
+
+.LAM-linkedin-manager {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Header */
+.LAM-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.LAM-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LAM-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.LAM-main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Empty State */
+.LAM-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.LAM-empty-icon {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.LAM-empty-state h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.LAM-empty-state p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Accounts Grid */
+.LAM-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Account Cards */
+.LAM-account-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.LAM-account-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.LAM-account-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0077b5, #00a0dc);
+}
+
+.LAM-account-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.LAM-account-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.LAM-account-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.LAM-account-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.LAM-account-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.LAM-account-info p {
+  font-size: 0.9rem;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.LAM-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.LAM-status-badge.LAM-active {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.LAM-status-badge.LAM-inactive {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.LAM-account-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 119, 181, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 119, 181, 0.1);
+}
+
+.LAM-stat {
+  text-align: center;
+}
+
+.LAM-stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0077b5;
+  margin-bottom: 0.25rem;
+}
+
+.LAM-stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.LAM-account-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+/* Add Account Card */
+.LAM-add-account-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-align: center;
+}
+
+.LAM-add-account-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.LAM-add-account-card span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Buttons */
+.LAM-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.LAM-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.LAM-btn-primary {
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+}
+
+.LAM-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 119, 181, 0.4);
+}
+
+.LAM-btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.LAM-btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.LAM-btn-large {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.LAM-btn-icon {
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.LAM-btn-icon:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+.LAM-btn-danger {
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
+.LAM-btn-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Modal */
+.LAM-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.LAM-modal {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.LAM-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+  color: white;
+}
+
+.LAM-modal-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.LAM-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.LAM-modal-close:hover {
+  opacity: 1;
+}
+
+.LAM-modal-body {
+  padding: 2rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Form Elements */
+.LAM-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.LAM-form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.LAM-form-group input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.LAM-form-group input:focus {
+  outline: none;
+  border-color: #0077b5;
+  box-shadow: 0 0 0 3px rgba(0, 119, 181, 0.1);
+}
+
+.LAM-form-group input::placeholder {
+  color: #999;
+}
+
+.LAM-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+/* Fields List */
+.LAM-fields-list {
+  margin: 1.5rem 0;
+}
+
+.LAM-field-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.LAM-field-item:last-child {
+  border-bottom: none;
+}
+
+.LAM-field-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 400;
+  margin: 0;
+}
+
+.LAM-field-item input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .LAM-header {
+    padding: 1rem;
+  }
+  
+  .LAM-header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .LAM-title {
+    font-size: 1.5rem;
+  }
+  
+  .LAM-main-content {
+    padding: 1rem;
+  }
+  
+  .LAM-accounts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .LAM-account-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .LAM-account-info h3,
+  .LAM-account-info p {
+    white-space: normal;
+  }
+  
+  .LAM-account-stats {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .LAM-modal {
+    margin: 1rem;
+    max-width: calc(100vw - 2rem);
+  }
+  
+  .LAM-modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .LAM-modal-body {
+    padding: 1.5rem;
+  }
+  
+  .LAM-form-actions {
+    flex-direction: column;
+  }
+  
+  .LAM-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .LAM-empty-state {
+    padding: 2rem 1rem;
+  }
+  
+  .LAM-empty-state h2 {
+    font-size: 1.4rem;
+  }
+  
+  .LAM-empty-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .LAM-account-card {
+    padding: 1rem;
+  }
+  
+  .LAM-account-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

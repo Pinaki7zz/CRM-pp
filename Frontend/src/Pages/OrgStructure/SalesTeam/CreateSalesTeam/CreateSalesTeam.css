@@ -1,0 +1,699 @@
+.create-sales-team-container {
+	background-color: white;
+	padding: 20px;
+}
+
+.data-container {
+	margin-bottom: 1rem;
+}
+
+.create-sales-team-button-group {
+	display: flex;
+	gap: 15px;
+}
+
+.create-sales-team-header-box h2,
+.create-sales-team-item-box h2 {
+	color: #007bff;
+	margin-bottom: 15px;
+	font-size: 20px;
+}
+
+.create-sales-team-save-button {
+	width: 100px;
+	padding: 10px;
+	font-size: 1rem;
+	color: white;
+	font-weight: bold;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	background-color: rgb(90, 90, 250);
+	transition: all 0.2s ease-in-out;
+}
+
+.create-sales-team-save-button:hover {
+	background-color: rgb(75, 75, 250);
+}
+
+.create-sales-team-cancel-button {
+	padding: 10px 20px;
+	font-size: 15px;
+	font-weight: 500;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.manager-table-container,
+.employee-table-container {
+	margin: 15px 0;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.table-header123 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+	border-bottom: 1px solid #e0e0e0;
+	background-color: #f8f9fa;
+	border-radius: 8px 8px 0 0;
+}
+
+.table-header123 h3 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #333;
+}
+
+.add-button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	transition: background-color 0.2s ease;
+}
+
+.add-button:hover {
+	background-color: #0056b3;
+}
+
+/* Add Manager Form */
+.add-manager-form,
+.add-employee-form {
+	padding: 20px;
+	border-bottom: 1px solid #e0e0e0;
+	background-color: #f8f9fa;
+}
+
+.form-col {
+	margin-bottom: 15px;
+}
+
+.form-group {
+	flex: 1;
+	min-width: 150px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 500;
+	color: #555;
+	font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+	width: 100%;
+	padding: 8px 12px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+	transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.checkbox-group {
+	display: flex;
+	align-items: center;
+	min-width: auto;
+}
+
+.checkbox-group label {
+	display: flex;
+	align-items: center;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+	width: auto;
+	margin-right: 8px;
+}
+
+.form-actions {
+	display: flex;
+	gap: 10px;
+}
+
+.save-btn {
+	background-color: #28a745;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.2s ease;
+}
+
+.save-btn:hover {
+	background-color: #218838;
+}
+
+.cancel-btn {
+	background-color: #6c757d;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.2s ease;
+}
+
+.cancel-btn:hover {
+	background-color: #5a6268;
+}
+
+/* Modal overlay (dim background) */
+.modal-overlay {
+	position: fixed;
+	inset: 0; /* top:0 right:0 bottom:0 left:0 */
+	background: rgba(0, 0, 0, 0.45);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000; /* sit above page content */
+	padding: 16px; /* spacing on small screens */
+	backdrop-filter: blur(2px); /* subtle blur (optional) */
+}
+
+/* Modal container (centers and constrains the modal content) */
+.add-manager-modal,
+.add-employee-modal {
+	background: white;
+	border-radius: 10px;
+	width: 720px;
+	max-width: 100%; /* responsive */
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+	animation: modal-pop 180ms cubic-bezier(0.2, 0.9, 0.3, 1);
+	overflow: hidden; /* prevents overflow from internal elements */
+}
+
+.show-manager-modal,
+.show-employee-modal {
+	background: white;
+	border-radius: 10px;
+	max-width: 100%; /* responsive */
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+	animation: modal-pop 180ms cubic-bezier(0.2, 0.9, 0.3, 1);
+	overflow: hidden; /* prevents overflow from internal elements */
+}
+
+.modal-header {
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* If you want a smaller modal */
+.modal--small {
+	width: 520px;
+}
+
+/* pop-in animation */
+@keyframes modal-pop {
+	from {
+		transform: translateY(8px) scale(0.985);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
+
+/* Re-use your existing .add-manager-form styles inside modal content */
+/* slightly adjust padding to look modal-like */
+.modal .add-manager-form,
+.modal .add-employee-form {
+	padding: 20px 22px;
+	background: transparent; /* keep parent's white */
+	border-bottom: none; /* removed border to avoid double lines */
+}
+
+/* Make the header row (if you add one) sticky / more prominent */
+.modal .form-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	padding: 12px 20px;
+	border-top: 1px solid #eee;
+	background: #fafafa;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+	.modal {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+	}
+	.form-col {
+		flex-direction: column;
+		gap: 12px;
+		align-items: stretch;
+	}
+}
+
+/* Table Styles */
+.table-body {
+	padding: 0;
+}
+
+.managers-table,
+.employees-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.managers-table th,
+.employees-table th {
+	padding: 12px 15px;
+	text-align: left;
+	font-weight: 600;
+	color: #555;
+	background-color: #f8f9fa;
+	border-bottom: 2px solid #e0e0e0;
+	position: relative;
+}
+
+.managers-table th:first-child,
+.employees-table th:first-child {
+	width: 50px;
+	text-align: center;
+}
+
+.managers-table th:last-child,
+.employees-table th:last-child {
+	width: 80px;
+	text-align: center;
+}
+
+.managers-table th .fas,
+.employees-table th .fas {
+	margin-left: 5px;
+	color: #999;
+	cursor: pointer;
+}
+
+.managers-table td,
+.employees-table td {
+	padding: 12px 15px;
+	border-bottom: 1px solid #e0e0e0;
+	vertical-align: middle;
+}
+
+.managers-table td:first-child,
+.employees-table td:first-child {
+	text-align: center;
+}
+
+.managers-table td:last-child,
+.employees-table td:last-child {
+	text-align: center;
+}
+
+.managers-table tbody tr:hover .employees-table tbody tr:hover {
+	background-color: #f8f9fa;
+}
+
+.manager-name,
+.employee-name {
+	color: #007bff;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.manager-name:hover,
+.employee-name:hover {
+	text-decoration: underline;
+}
+
+.delete-btn {
+	background: none;
+	border: none;
+	color: #dc3545;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 3px;
+	transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+	background-color: #f8d7da;
+}
+
+.delete-btn .fas {
+	font-size: 14px;
+}
+
+/* Empty table state */
+.empty-table {
+	padding: 40px 20px;
+	text-align: center;
+	color: #6c757d;
+	font-style: italic;
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.form-row {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.form-group {
+		min-width: auto;
+	}
+
+	.managers-table,
+	.employees-table {
+		font-size: 12px;
+	}
+
+	.managers-table th,
+	.employees-table th,
+	.managers-table td,
+	.employees-table td {
+		padding: 8px 10px;
+	}
+
+	.table-header123 {
+		padding: 10px 15px;
+	}
+
+	.table-header123 h3 {
+		font-size: 14px;
+	}
+}
+
+/* input-with-button wrapper */
+.input-with-button {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.input-with-button input {
+	padding-right: 40px; /* space for the button */
+}
+
+/* small square icon button inside input */
+.input-icon-btn {
+	position: absolute;
+	right: 6px;
+	background: #f5f6f7;
+	border: 1px solid #d0d7de;
+	height: 30px;
+	width: 30px;
+	border-radius: 4px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	padding: 0;
+	color: #2c3e50;
+}
+
+.input-icon-btn:hover {
+	background: #e9ecef;
+}
+
+/* Employee modal overrides (light styling) */
+.employee-filter-row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 12px 20px;
+	border-bottom: 1px solid #eee;
+}
+
+.employee-filter-row input {
+	flex: 1;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.employee-list {
+	max-height: 54vh;
+	overflow: auto;
+	padding: 12px 20px;
+}
+
+.employee-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.employee-table th,
+.employee-table td {
+	padding: 8px 10px;
+	border-bottom: 1px solid #f0f0f0;
+	text-align: left;
+}
+
+.employee-table tbody tr:hover {
+	background: #fafbfc;
+}
+
+.select-btn {
+	background: #0b63b6;
+	color: #fff;
+	border: none;
+	padding: 6px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.select-btn:hover {
+	background: #09579b;
+}
+
+/* little close button */
+.close-x {
+	border: none;
+	background: transparent;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+/* modal larger width for employee selector */
+.modal--large {
+	width: 900px;
+	max-width: 98%;
+}
+
+/* Top bar - dataset + title + toolbar */
+.employee-modal-topbar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border-bottom: 1px solid #e9ecef;
+	padding: 12px 16px;
+	background: #fff;
+}
+.employee-modal-topbar .dataset-left {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 220px;
+}
+.dataset-icon {
+	background: #f0f4f8;
+	border-radius: 4px;
+	padding: 6px;
+	font-size: 13px;
+	color: #0b63b6;
+}
+.dataset-name {
+	color: #0b63b6;
+	font-weight: 600;
+}
+.dataset-dropdown {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #6c757d;
+}
+
+/* Title centered */
+.employee-modal-topbar .modal-title {
+	flex: 1;
+	text-align: center;
+	font-weight: 600;
+	font-size: 16px;
+	color: #333;
+}
+
+/* toolbar on the right */
+.toolbar-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.tool-btn {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 6px 8px;
+	font-size: 16px;
+	color: #4b5563;
+}
+.tool-btn:hover {
+	background: #f3f6f8;
+	border-radius: 4px;
+}
+
+/* Filter panel */
+.employee-filter-panel {
+	padding: 14px 16px;
+	background: #fafafa;
+	border-bottom: 1px solid #eee;
+}
+.filter-row {
+	display: flex;
+	gap: 12px;
+	align-items: end;
+}
+.filter-col {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 160px;
+}
+.filter-col label {
+	font-size: 12px;
+	color: #666;
+	margin-bottom: 6px;
+}
+.filter-col input {
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+/* internal checkbox column narrower */
+.filter-col.filter-checkbox {
+	max-width: 120px;
+	align-items: flex-start;
+}
+
+/* Restore & Go row */
+.filter-actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-top: 8px;
+}
+.link-like {
+	background: none;
+	border: none;
+	color: #0366d6;
+	cursor: pointer;
+	padding: 6px;
+	text-decoration: none;
+}
+.go-btn {
+	background: #2b7be3;
+	color: white;
+	border: none;
+	padding: 8px 14px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+/* employee list override (already in your CSS but ensure spacing) */
+.employee-list {
+	max-height: 52vh;
+	overflow: auto;
+	padding: 12px 16px;
+	background: #fff;
+}
+
+/* slight table header styling */
+.employee-table th {
+	background: #fafafa;
+	padding: 10px 12px;
+	font-weight: 600;
+	color: #444;
+	border-bottom: 1px solid #eef2f6;
+}
+.employee-table td {
+	padding: 10px 12px;
+	border-bottom: 1px solid #f4f6f8;
+}
+
+/* put "Go" / Restore / Save links to left and query links to right: update filter-actions if needed */
+.query-links {
+	margin-left: 16px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-left: auto;
+}
+
+.employee-search-wrapper {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 8px;
+}
+
+.employee-search-input {
+	min-width: 220px;
+	max-width: 360px;
+	padding: 6px 10px;
+	border: 1px solid #dfe6ed;
+	border-radius: 6px;
+	font-size: 14px;
+	outline: none;
+}
+
+.employee-search-input:focus {
+	box-shadow: 0 0 0 3px rgba(11, 99, 182, 0.08);
+	border-color: #0b63b6;
+}
+
+.valid-to-row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex: 1;
+}
+
+.valid-to-unlimited-checkbox-container {
+	display: flex !important;
+	gap: 6px;
+	align-items: center;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.valid-to-unlimited-checkbox {
+	cursor: pointer !important;
+}

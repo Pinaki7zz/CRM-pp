@@ -1,0 +1,973 @@
+.opp-edit-container {
+	padding: 30px;
+}
+
+.opp-edit-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.opp-edit-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+}
+
+.opp-edit-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.opp-edit-header-container-buttons button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.opp-edit-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.opp-edit-edit-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.opp-edit-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.opp-edit-email-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.opp-edit-options-button-container {
+	position: relative;
+}
+
+.opp-edit-options-button {
+	width: 30px !important;
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.opp-edit-menu-modal-container {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 5px;
+	min-width: 150px;
+	z-index: 1000;
+}
+
+.opp-edit-menu-modal-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.opp-edit-menu-modal-list li {
+	padding: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #0f1035;
+	transition: all 0.2s ease-in-out;
+}
+
+.opp-edit-menu-modal-list li:hover {
+	background-color: #dcf2f1;
+}
+
+/* Tabs design */
+
+.opp-edit-tabs-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.opp-edit-tabs-container-left {
+	display: flex;
+	gap: 20px;
+}
+
+.opp-edit-tab {
+	background: none;
+	border: none;
+	padding: 10px 4px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #365486;
+	cursor: pointer;
+	position: relative;
+}
+
+.opp-edit-tab.active {
+	color: #0f1035;
+	font-weight: 600;
+}
+
+.opp-edit-tab.active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 3px;
+	background-color: #0f1035;
+	border-radius: 2px;
+}
+
+.opp-edit-tabs-container-right {
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.opp-edit-call-button,
+.opp-edit-email-button,
+.opp-edit-task-button,
+.opp-edit-meeting-button,
+.opp-edit-attach-button,
+.opp-edit-add-note-button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	background-color: #ffffff;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.opp-edit-form-container,
+.opp-edit-table-container,
+.opp-edit-notes-container,
+.opp-edit-misc-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+
+.opp-edit-form-heading,
+.opp-edit-table-heading,
+.opp-edit-notes-heading,
+.opp-edit-misc-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.opp-edit-form form,
+.opp-edit-terms-content,
+.opp-edit-notes-form {
+	padding: 40px;
+}
+
+.opp-edit-table-container {
+	padding: 30px 40px 40px 40px;
+}
+
+.opp-edit-form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 10px;
+}
+
+.opp-edit-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.opp-edit-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+.opp-edit-form-group input,
+.opp-edit-form-group select,
+.opp-edit-form-group textarea {
+	width: 100%;
+	height: 35px;
+	padding: 0 5px;
+	border: 1px solid #365486;
+	color: #365486;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 5px;
+	outline: none;
+}
+
+.opp-edit-form-group textarea {
+	height: 60px;
+}
+
+.opp-edit-form-group input::placeholder,
+.opp-edit-form-group textarea::placeholder {
+	color: #365486;
+	font-size: 14px;
+}
+
+/* Product Information Main Content Styles */
+
+.opp-edit-table-area {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.opp-edit-table-box {
+	position: relative;
+	width: 100%;
+	overflow-x: auto;
+	border: none;
+	margin: 0px;
+}
+
+.opp-edit-table {
+	width: 100%;
+	min-width: 800px;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+	font-size: 14px;
+}
+
+.opp-edit-table thead {
+	background-color: #ffffff;
+}
+
+.opp-edit-table thead th {
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 600;
+	color: #365486;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #365486;
+	border-bottom: 1px solid #365486;
+	border-left: none;
+	border-right: none;
+}
+
+.opp-edit-table thead th:first-child {
+	border-left: 1px solid #365486;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.opp-edit-table thead th:last-child {
+	border-right: 1px solid #365486;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.opp-edit-table tbody {
+	background-color: #ffffff;
+}
+
+.opp-edit-table tbody td {
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #365486;
+	border-bottom: 1px solid #365486;
+	border-left: none;
+	border-right: none;
+}
+
+.opp-edit-empty-state {
+	text-align: center !important;
+	font-style: italic;
+}
+
+.opp-edit-table-data {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.opp-edit-table tbody td:first-child {
+	border-left: 1px solid #365486;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.opp-edit-table tbody td:last-child {
+	border-right: 1px solid #365486;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.opp-edit-table tbody td input,
+.opp-edit-table tbody td select {
+	width: 100%;
+	min-width: 150px;
+	height: 35px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	border: 1px solid #365486;
+	border-radius: 5px;
+	outline: none;
+	padding: 0 5px;
+}
+
+.opp-edit-table tbody td input::placeholder,
+.opp-edit-table tbody td select::placeholder {
+	color: #365486;
+}
+
+.opp-edit-attachment-delete-btn {
+	border: none;
+	background-color: #ffffff;
+	color: #365486;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.opp-edit-product-delete-btn {
+	border: none;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	background-color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+.opp-edit-table-bottom {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.opp-edit-table-box::-webkit-scrollbar {
+	height: 6px;
+}
+
+.opp-edit-table-box::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.opp-edit-table-box::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.opp-edit-table-box::-webkit-scrollbar-thumb:hover {
+	background: #0f1035;
+}
+
+/* --- Table container: rounded + soft shadow (Image A) --- */
+.opp-edit-activity-table-container {
+	background: transparent;
+	border: none;
+	margin-bottom: 20px;
+	margin-top: -20px;
+	overflow: auto; /* horizontal scroll if needed */
+}
+
+/* Make the table rows look like separate cards */
+.opp-edit-activity-table {
+	width: 100%;
+	min-width: 800px;
+	/* IMPORTANT: allow border-spacing */
+	border-collapse: separate;
+	/* vertical gap between rows */
+	border-spacing: 0 10px;
+	font-size: 14px;
+}
+
+/* Give the header row a rounded border-like container */
+.opp-edit-activity-table thead {
+	background-color: #ffffff;
+}
+
+/* Header: rounded corners and lighter background (top pill) */
+/* keep th layout/spacing simple */
+.opp-edit-activity-table thead th {
+	background: #ffffff;
+	padding: 10px;
+	text-align: left;
+	font-weight: 600;
+	font-size: 14px;
+	color: #0f1035;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #0f1035;
+	border-bottom: 1px solid #0f1035;
+	border-left: none;
+	border-right: none;
+}
+
+.opp-edit-activity-table thead th:first-child {
+	border-left: 1px solid #0f1035;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.opp-edit-activity-table thead th:last-child {
+	border-right: 1px solid #0f1035;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* Row "card" style */
+.opp-edit-activity-table tbody tr {
+	background-color: #ffffff; /* subtle */
+	border-radius: 5px;
+}
+
+/* Make cells visually separated inside the "card" */
+.opp-edit-activity-table tbody td {
+	padding: 10px;
+	font-size: 14px;
+	vertical-align: middle;
+	background: #ffffff;
+	color: #0f1035;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	text-align: left;
+	border-top: 1px solid #0f1035;
+	border-bottom: 1px solid #0f1035;
+	border-right: none;
+	border-left: none;
+}
+
+/* Rounded corners for left and right edges of each row card */
+.opp-edit-activity-table tbody td:first-child {
+	border-left: 1px solid #0f1035;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.opp-edit-activity-table tbody td:last-child {
+	border-right: 1px solid #0f1035;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* Checkbox column - larger square, subtle border like the design */
+.checkbox-column .opp-custom-checkbox {
+	width: 18px;
+	height: 18px;
+	border-radius: 4px;
+	border: 1px solid #0f1035;
+	background: #fff;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	display: inline-block;
+	position: relative;
+	display: flex;
+	align-items: center;
+	outline: none;
+}
+
+.checkbox-column .opp-custom-checkbox:checked {
+	background: #365486;
+	border-color: transparent;
+}
+
+.checkbox-column .opp-custom-checkbox:checked::after {
+	content: "✓";
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 900;
+	position: absolute;
+	top: -2px;
+	left: 3px;
+}
+
+/* Header checkbox (select all) — align with row checkboxes */
+.opp-edit-activity-table thead .opp-custom-checkbox {
+	width: 18px;
+	height: 18px;
+	border-radius: 4px;
+	border: 1px solid #0f1035;
+	background: #fff;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.opp-edit-activity-table-container::-webkit-scrollbar {
+	height: 6px;
+}
+
+.opp-edit-activity-table-container::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.opp-edit-activity-table-container::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.opp-edit-activity-empty-state p {
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	font-style: italic;
+	text-align: center;
+}
+
+/* --- Email & Tab Section Specifics --- */
+.opp-edit-email-container {
+	padding: 30px;
+}
+
+.opp-edit-email-tabs-container {
+	display: flex;
+	justify-content: space-between; /* Tabs left, Buttons right */
+	align-items: center; /* Vertically align */
+	padding: 0 0 0 0; /* Removed padding to line up nicely */
+	border-bottom: 1px solid #365486;
+	margin-bottom: 20px;
+}
+
+/* Wrapper for the tab links on the left */
+.opp-edit-tabs-left {
+	display: flex;
+	gap: 20px;
+}
+
+.opp-edit-email-tab-btn {
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	font-weight: 500;
+	color: #365486;
+	cursor: pointer;
+	padding: 10px 4px;
+	position: relative;
+}
+
+.opp-edit-email-tab-btn.active {
+	font-weight: 600;
+}
+
+.opp-edit-email-tab-btn.active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 3px;
+	background-color: #365486;
+	border-radius: 2px;
+}
+
+/* Wrapper for the buttons on the right */
+.opp-edit-tab-actions-right {
+	display: flex;
+	gap: 10px;
+	padding-bottom: 5px; /* Slight adjustment to sit on the line correctly */
+}
+
+/* New Button Style matching the image */
+.opp-edit-tab-action-btn {
+	height: 32px;
+	padding: 0 12px;
+	border: 1px solid #64748b; /* Grey border */
+	border-radius: 4px;
+	background-color: #ffffff;
+	color: #0f1035;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	transition: all 0.2s;
+}
+
+.opp-edit-tab-action-btn:hover {
+	background-color: #f8f9fa;
+	border-color: #0f1035;
+}
+
+/* --- Compose Mail Window --- */
+.opp-edit-compose-mail-window {
+	position: fixed;
+	bottom: 20px;
+	right: 50px;
+	width: 600px;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	z-index: 2000;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.opp-edit-compose-mail-window.minimized {
+	height: 50px;
+	overflow: hidden;
+	bottom: 0;
+}
+
+.opp-edit-compose-mail-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #0f1035;
+	cursor: pointer;
+	position: relative;
+}
+
+.opp-edit-compose-title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 500;
+	color: #0f1035;
+}
+
+.opp-edit-compose-controls {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+	gap: 5px;
+}
+
+.opp-edit-compose-control-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.opp-edit-compose-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow-y: auto;
+	padding-top: 10px;
+}
+
+.opp-edit-compose-field {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.opp-edit-compose-field label {
+	width: 60px;
+	font-weight: 500;
+	color: #365486;
+}
+
+.opp-edit-compose-field input {
+	flex: 1;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	padding: 5px;
+	color: #365486;
+}
+
+.opp-edit-compose-editor textarea {
+	width: 100%;
+	height: 200px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	padding: 10px;
+	resize: none;
+	color: #365486;
+}
+
+.opp-edit-compose-attachments {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 5px 0;
+}
+
+.opp-edit-compose-attachment-chip {
+	background: #eee;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	border: 1px solid #365486;
+}
+
+.opp-edit-compose-attachment-name {
+	max-width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #365486;
+}
+
+.opp-edit-compose-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.opp-edit-compose-tools {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.opp-edit-compose-tool-icon {
+	cursor: pointer;
+	color: #365486;
+}
+
+.opp-edit-compose-actions {
+	display: flex;
+	gap: 10px;
+}
+
+.btn-draft {
+	padding: 8px 20px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	background: white;
+	color: #365486;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.btn-send {
+	padding: 8px 30px;
+	border: 1px solid #365486;
+	border-radius: 4px;
+	background: white;
+	color: #365486;
+	cursor: pointer;
+	font-weight: 500;
+}
+
+/* --- Notes Section --- */
+.opp-edit-note-box-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.opp-edit-note-item {
+	background-color: #ffffff;
+	border: 1px solid #365486;
+	border-left: 5px solid #365486;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+.opp-edit-note-text {
+	font-size: 14px;
+	color: #365486;
+	white-space: pre-wrap;
+	margin-bottom: 5px;
+}
+
+.opp-edit-note-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #365486;
+	padding-top: 5px;
+}
+
+.opp-edit-note-meta {
+	font-size: 12px;
+	color: #64748b;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.opp-edit-note-delete-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	color: #365486;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
+}
+
+.opp-edit-note-delete-btn:hover {
+	color: #ff0000;
+}
+
+.opp-edit-notes-empty {
+	text-align: center;
+	color: #365486;
+	font-style: italic;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+/* Note Modal */
+.opp-edit-note-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.65);
+	z-index: 3000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.opp-edit-note-modal-content {
+	background-color: white;
+	border-radius: 5px;
+	width: 450px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+	border: 1px solid #0f1035;
+}
+
+.opp-edit-note-modal-header {
+	padding: 15px;
+	border-bottom: 1px solid #0f1035;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f9fafb;
+}
+
+.opp-edit-note-modal-title {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #0f1035;
+}
+
+.opp-edit-note-modal-close-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.opp-edit-note-modal-body {
+	padding: 15px;
+}
+
+.opp-edit-note-textarea {
+	width: 100%;
+	height: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	outline: none;
+	resize: none;
+}
+
+.opp-edit-note-textarea::placeholder {
+	color: #0f1035;
+	font-size: 14px;
+}
+
+.opp-edit-note-modal-footer {
+	padding: 15px;
+	border-top: 1px solid #0f1035;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	background-color: #f9fafb;
+}
+
+.opp-edit-note-modal-footer button {
+	width: 120px;
+	height: 30px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	background-color: #ffffff;
+	cursor: pointer;
+	outline: none;
+}
+
+.opp-edit-note-btn-primary {
+	background-color: #365486 !important;
+	color: #dcf2f1 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

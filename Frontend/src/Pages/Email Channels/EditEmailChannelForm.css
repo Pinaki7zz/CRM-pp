@@ -1,0 +1,118 @@
+.email-addresses-container {
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-top: 24px;
+}
+
+.email-addresses-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.header-button {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1.5px solid #4f46e5;
+  color: #4f46e5;
+  padding: 7px 18px;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.action-btn:hover {
+  background: #ede9fe;
+  border-color: #4338ca;
+  color: #4338ca;
+}
+
+.email-addresses-table-wrapper {
+  overflow-x: auto;
+}
+
+.email-addresses-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.email-addresses-table th, 
+.email-addresses-table td {
+  text-align: left;
+  padding: 14px 10px;
+}
+
+.email-addresses-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+  font-size: 16px;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.email-addresses-table tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.email-addresses-table tr:last-of-type {
+  border-bottom: none;
+}
+
+.status-badge.active {
+  background: #ecfdf5;
+  color: #10b981;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 15px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.status-badge.inactive {
+  background: #fce7f3;
+  color: #be185d;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 15px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* ---- SQUARE CHECKBOX STYLES ---- */
+.email-addresses-table input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4f46e5; /* purple when checked */
+  margin: 0 auto;
+  /* Remove box-shadow and border-radius if inherited */
+  box-shadow: none;
+  border-radius: 4px;
+  background: #fff;
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+}
+
+.email-addresses-table input[type="checkbox"]:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 1px;
+}
+
+/* Remove any unwanted outer box/rect around checkbox cell */
+.email-addresses-table td {
+  background: transparent !important;
+  box-shadow: none !important;
+}

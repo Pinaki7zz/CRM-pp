@@ -1,0 +1,440 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model ProductCategory {
+    id                       String                @id @default(uuid())
+    categoryId               String                @unique
+    name                     String
+    type                     CategoryType          @default(MAIN)
+    parentCategoryId         String?
+    parentCategory           ProductCategory?      @relation("Subcategories", fields: [parentCategoryId], references: [categoryId], onDelete: Cascade)
+    subcategories            ProductCategory[]     @relation("Subcategories")
+    productAssignmentAllowed Boolean               @default(true)
+    status                   ProductCategoryStatus @default(INACTIVE)
+    createdAt                DateTime              @default(now())
+    updatedAt                DateTime              @updatedAt
+
+    products Product[]
+}
+
+model Product {
+    id                String          @id @default(uuid())
+    productId         String          @unique @default(cuid())
+    name              String
+    status            ProductStatus
+    vendorName        String
+    productCategoryId String
+    productCategory   ProductCategory @relation(fields: [productCategoryId], references: [categoryId], onDelete: Restrict)
+
+    // ----- Product Information -----
+    productOwnerId   String
+    manufacturer     String?
+    salesStartDate   DateTime?
+    salesEndDate     DateTime?
+    supportStartDate DateTime?
+    supportEndDate   DateTime?
+
+    // ----- Price Information -----
+    unitPrice      Float
+    commissionRate Float
+    tax            Float
+    taxable        Boolean @default(false)
+
+    // ----- Stock Information -----
+    unitOfMeasurement UnitOfMeasurement
+    usageUnit         UsageUnit
+    quantityOrdered   Int               @default(0)
+    quantityInStock   Int               @default(0)
+    reorderLevel      Int               @default(0)
+    handler           String?
+    quantityInDemand  Int               @default(0)
+    isActiveStock     Boolean           @default(true)
+
+    // ----- Description -----
+    description String?
+
+    SalesQuoteItem SalesQuoteItem[]
+    SalesOrderItem SalesOrderItem[]
+
+    // --- NEW RELATIONS ---
+    productAttachments ProductAttachment[]
+    productNotes       ProductNote[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model ProductAttachment {
+    id        String   @id @default(uuid())
+    productId String
+    fileUrl   String
+    fileName  String
+    mimeType  String
+    fileSize  Int
+    uploadedAt DateTime @default(now())
+
+    product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model ProductNote {
+    id        String   @id @default(uuid())
+    productId String
+    text      String
+    author    String
+    createdAt DateTime @default(now())
+
+    product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+enum ProductStatus {
+    ACTIVE
+    INACTIVE
+    DISCONTINUED
+}
+
+enum UnitOfMeasurement {
+    PIECE
+    KG
+    LITER
+    METER
+    BOX
+    PACK
+    CUSTOM
+}
+
+enum UsageUnit {
+    BOX
+    CARTON
+    DOZEN
+    EACH
+    HOUR
+    IMPRESSIONS
+    LB
+    M
+    PACK
+    PAGES
+    PIECES
+    QUANTITY
+    REAMS
+    SHEET
+    SPIRAL_BINDER
+    SQUARE_FEET
+}
+
+enum CategoryType {
+    MAIN
+    SUB
+}
+
+enum ProductCategoryStatus {
+    ACTIVE
+    INACTIVE
+    CLOSED
+}
+
+model Opportunity {
+    id   String @id @default(uuid())
+    name String // Opportunity Name
+
+    // 🔐 Ownership and relationships
+    opportunityOwnerId String
+    accountId          String
+    primaryContactId   String
+
+    // 📅 Opportunity timeline
+    startDate DateTime // When the opportunity was initiated
+    endDate   DateTime // Expected or actual closure date
+
+    // 📊 Business metrics
+    stage       OpportunityStage // Sales pipeline stage
+    amount      Float? // Monetary value of the deal
+    status      OpportunityStatus? @default(OPEN) // Current progress status (open, closed, etc.)
+    type        OpportunityType? // Type of business opportunity
+    probability Float? // Likelihood of winning (0–100%)
+
+    // 📈 Lead generation source
+    leadSource LeadSource?
+
+    // 📝 Details and description
+    description String?
+    notes       String?
+
+    // 📞 Quick reference contact info (denormalized for history/record)
+    contactName String // In case contact is deleted, keep a snapshot
+
+    // 🔗 Relations
+    SalesQuote SalesQuote[]
+    SalesOrder SalesOrder[]
+
+    // 🕒 Timestamps
+    createdAt              DateTime                @default(now())
+    updatedAt              DateTime                @updatedAt
+    opportunityAttachments OpportunityAttachment[]
+    opportunityNotes       OpportunityNote[]
+}
+
+model OpportunityAttachment {
+    id            String   @id @default(uuid())
+    opportunityId String
+    fileUrl       String
+    fileName      String
+    mimeType      String
+    fileSize      Int
+    uploadedAt    DateTime @default(now())
+
+    opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+}
+
+model OpportunityNote {
+    id            String   @id @default(uuid())
+    opportunityId String
+    text          String
+    author        String
+    createdAt     DateTime @default(now())
+
+    opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+}
+
+enum OpportunityStage {
+    QUALIFICATION
+    NEEDS_ANALYSIS
+    VALUE_PROPORTION
+    PRICE_QUOTE
+    NEGOTIATION
+    CLOSED_WON
+    CLOSED_LOST
+}
+
+enum OpportunityStatus {
+    OPEN
+    IN_PROGRESS
+    COMPLETED
+    CANCELLED
+}
+
+enum OpportunityType {
+    NEW_BUSINESS
+    EXISTING_BUSINESS
+}
+
+enum LeadSource {
+    EMAIL
+    WEB
+    CALL
+    REFERRAL
+    SOCIAL_MEDIA
+}
+
+model SalesQuote {
+    id      String @id @default(uuid())
+    quoteId String @unique
+    name    String @unique
+
+    // 🔐 Ownership and relationships
+    quoteOwnerId String // ID of the user/employee who owns this quote
+
+    opportunityId String // Related opportunity (quote belongs to an opportunity)
+    opportunity   Opportunity @relation(fields: [opportunityId], references: [id])
+
+    accountId String? // Linked customer account
+
+    primaryContactId String? // Main contact person for this quote
+
+    // 📄 Core quote info
+    subject     String // Quote title or subject line
+    amount      Float? // Total quoted amount
+    successRate Float? // Expected success rate (e.g., 0.8 = 80%)
+
+    // 📅 Quote timeline
+    dueDate DateTime // Expected finalization or response date
+
+    // 📌 Status tracking
+    status QuoteStatus? @default(DRAFT) // Current status of the quote (enum)
+
+    // 🧾 Billing address (optional)
+    billingStreet     String
+    billingCity       String
+    billingState      String
+    billingCountry    String
+    billingPostalCode String
+
+    // 📦 Shipping address (optional)
+    shippingStreet     String
+    shippingCity       String
+    shippingState      String
+    shippingCountry    String
+    shippingPostalCode String
+
+    // 📝 Additional details
+    description String? // Detailed quote description
+    notes       String? // Internal notes
+
+    // 🔄 Quote Items (1:N)
+    items SalesQuoteItem[]
+
+    // 🕒 Timestamps
+    createdAt             DateTime               @default(now())
+    updatedAt             DateTime               @updatedAt
+    salesQuoteAttachments SalesQuoteAttachment[]
+    salesQuoteNotes       SalesQuoteNote[]
+}
+
+model SalesQuoteItem {
+    id      String     @id @default(uuid())
+    quoteId String
+    quote   SalesQuote @relation(fields: [quoteId], references: [quoteId], onDelete: Cascade)
+
+    productId   String // FK to your product table
+    product     Product @relation(fields: [productId], references: [productId], onDelete: Cascade)
+    productName String // Optional: cache for denormalized quick access
+
+    quantity   Int
+    unitPrice  Float // Price per item
+    discount   Float? // Flat or % discount value
+    tax        Float? // Tax value (GST, VAT, etc.)
+    totalPrice Float // Final calculated line total
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model SalesQuoteAttachment {
+    id           String   @id @default(uuid())
+    salesQuoteId String
+    fileUrl      String
+    fileName     String
+    mimeType     String
+    fileSize     Int
+    uploadedAt   DateTime @default(now())
+
+    salesQuote SalesQuote @relation(fields: [salesQuoteId], references: [id], onDelete: Cascade)
+}
+
+model SalesQuoteNote {
+    id           String   @id @default(uuid())
+    salesQuoteId String
+    text         String
+    author       String
+    createdAt    DateTime @default(now())
+
+    salesQuote SalesQuote @relation(fields: [salesQuoteId], references: [id], onDelete: Cascade)
+}
+
+// 📌 Enum for quote status lifecycle
+enum QuoteStatus {
+    DRAFT
+    SENT
+    APPROVED
+    ACCEPTED
+    REJECTED
+}
+
+model SalesOrder {
+    id      String @id @default(uuid())
+    orderId String @unique @default(cuid())
+    name    String @unique
+
+    // 🔐 Ownership & Relationship
+    orderOwnerId     String
+    opportunityId    String
+    opportunity      Opportunity @relation(fields: [opportunityId], references: [id])
+    accountId        String
+    primaryContactId String
+
+    // 📄 Core Info
+    subject       String
+    amount        Float
+    purchaseOrder String?
+    dueDate       DateTime
+    status        SalesOrderStatus @default(PENDING)
+    commission    Float?
+    budget        Float?
+
+    // 🧾 Billing Address
+    billingStreet     String
+    billingCity       String
+    billingState      String
+    billingCountry    String
+    billingPostalCode String
+
+    // 📦 Shipping Address
+    shippingStreet     String
+    shippingCity       String
+    shippingState      String
+    shippingCountry    String
+    shippingPostalCode String
+
+    // 📝 Additional Info
+    description String?
+    notes       String?
+
+    items SalesOrderItem[]
+
+    // ⏱ Timestamps
+    createdAt             DateTime               @default(now())
+    updatedAt             DateTime               @updatedAt
+    salesOrderAttachments SalesOrderAttachment[]
+    salesOrderNotes       SalesOrderNote[]
+}
+
+model SalesOrderItem {
+    id      String     @id @default(uuid())
+    orderId String
+    order   SalesOrder @relation(fields: [orderId], references: [orderId], onDelete: Cascade)
+
+    productId   String
+    product     Product @relation(fields: [productId], references: [productId], onDelete: Cascade)
+    productName String // snapshot name
+
+    quantity   Int
+    unitPrice  Float
+    discount   Float? // can be percentage or flat, depending on logic
+    tax        Float?
+    totalPrice Float // total after discount and tax
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model SalesOrderAttachment {
+    id           String   @id @default(uuid())
+    salesOrderId String
+    fileUrl      String
+    fileName     String
+    mimeType     String
+    fileSize     Int
+    uploadedAt   DateTime @default(now())
+
+    salesOrder SalesOrder @relation(fields: [salesOrderId], references: [id], onDelete: Cascade)
+}
+
+model SalesOrderNote {
+    id           String   @id @default(uuid())
+    salesOrderId String
+    text         String
+    author       String
+    createdAt    DateTime @default(now())
+
+    salesOrder SalesOrder @relation(fields: [salesOrderId], references: [id], onDelete: Cascade)
+}
+
+enum SalesOrderStatus {
+    PENDING
+    CONFIRMED
+    IN_PROGRESS
+    SHIPPED
+    DELIVERED
+    CANCELLED
+}

@@ -1,0 +1,328 @@
+Leads Page Header .header-container {
+    background-color: #fff;
+    border-top: 3px solid red;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2), -2px 0 2px rgb(0, 0, 0, 0.2) !important;
+}
+
+.contact-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.header-container-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-container-buttons button {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* .modern-button- add-button {
+    display: inline-block;
+} */
+
+.cancel-button {
+    background-color: #d32f2f;
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #b71c1c;
+}
+
+.save-button {
+    background-color: #4caf50;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #388e3c;
+}
+
+.save-and-new-button {
+    background-color: #2196f3;
+    transition: background-color 0.3s;
+}
+
+.save-and-new-button:hover {
+    background-color: #1976d2;
+}
+
+/* Product Basic Structure */
+
+.product-container {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2), -2px 0 2px rgb(0, 0, 0, 0.2);
+}
+
+.product-container {
+    border-top: 3px solid green;
+}
+
+.address-information-container {
+    border-top: 3px solid blue;
+}
+
+.product-heading h1 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #000;
+    padding: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Product Main Content Styles */
+
+.product-form form {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+        "productid productname status"
+        "productcategory vendorname parentcategory";
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.productid {
+    grid-area: productid;
+}
+
+.productname {
+    grid-area: productname;
+}
+
+.status {
+    grid-area: status;
+}
+
+.productcategory {
+    grid-area: productcategory;
+}
+
+.vendorname {
+    grid-area: vendorname;
+}
+
+.parentcategory {
+    grid-area: parentcategory;
+}
+
+.form-group label {
+    padding: 8px 0;
+    color: #0f0f0f;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1px 5px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    outline: none;
+}
+
+.form-group input,
+.form-group select {
+    height: 40px;
+}
+
+.form-group textarea {
+    min-height: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-header {
+        flex-direction: column;
+    }
+}
+
+/* Add these to your existing Templates.css */
+
+/* Modal overlay for create template */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Action buttons in table */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.display-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.display-btn:hover {
+  background-color: #1976d2;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Delete confirmation modal */
+.delete-confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.delete-confirm-dialog {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-header h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.dialog-header p {
+  margin: 0 0 20px 0;
+  color: #666;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.confirm-cancel-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-cancel-button:hover {
+  background-color: #e0e0e0;
+}
+
+.confirm-delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Create Template Button - Primary Blue Style */
+.modern-button.add-button {
+  background-color: #2563eb; /* Primary blue background */
+  color: white; /* White text and icon */
+  border: 2px solid #2563eb; /* Blue border */
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.2);
+}
+
+/* Hover effect - slightly darker blue */
+.modern-button.add-button:hover {
+  background-color: #115293; /* Darker blue on hover */
+  border-color: #115293;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+/* Focus state for accessibility */
+.modern-button.add-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3);
+}
+
+/* Active state */
+.modern-button.add-button:active {
+  background-color: #0d3c61;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.2);
+}
+
+/* Ensure the plus icon is visible */
+.modern-button.add-button svg {
+  color: white !important;
+  stroke: white !important;
+  stroke-width: 2.5 !important; /* Make the plus sign thicker and more visible */
+}
+
+/* Text styling */
+.modern-button.add-button span {
+  color: white;
+  font-weight: 600;
+}
+

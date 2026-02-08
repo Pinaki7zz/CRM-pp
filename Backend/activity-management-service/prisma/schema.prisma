@@ -1,0 +1,264 @@
+// 1. GENERATOR & DATASOURCE BLOCKS (These were missing)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/* ─────────── ENUMS ─────────── */
+
+enum LeadSource {
+  EMAIL
+  PHONE_CALL
+  WEB_ENQUIRY
+}
+
+enum LeadStatus {
+  OPEN
+  IN_PROGRESS
+  COMPLETED
+  OVERDUE
+  CANCELLED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum MeetingStatus {
+  SCHEDULED  // <--- ADDED THIS
+  OPEN
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  MISSED     // <--- ADDED THIS (Often needed for past meetings)
+}
+
+enum CallStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_ANSWER
+  BUSY
+}
+
+enum CallType {
+  OUTBOUND
+}
+
+enum CallFor {
+  LEADS
+  CONTACTS
+  CASES
+}
+
+enum CallPurpose {
+  NEGOTIATION
+  DEMO
+  PROJECT
+  PROSPECTING
+}
+
+enum EmailStatus {
+  UNREAD
+  READ
+  ARCHIVED
+  DELETED
+  SPAM
+  DRAFT 
+  SENT
+}
+
+enum ActivityType {
+  EMAIL
+  TASK
+  MEETING
+  PHONE_CALL
+}
+
+/* ─────────── MODELS ─────────── */
+
+model Task {
+  id                String    @id @default(uuid())
+  taskOwner         String
+  opportunityName   String?
+  subject           String
+  priority          Priority?
+  startDate         DateTime?
+  dueDate           DateTime?
+  leadSource        LeadSource?
+  status            LeadStatus
+  description       String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  notes             String?
+
+  // join tables
+  accounts TaskAccount[]
+  contacts TaskContact[]
+}
+
+model TaskAccount {
+  taskId    String
+  accountId String
+
+  task Task @relation(fields: [taskId], references: [id])
+
+  @@id([taskId, accountId])
+}
+
+model TaskContact {
+  taskId    String
+  contactId String
+
+  task Task @relation(fields: [taskId], references: [id])
+
+  @@id([taskId, contactId])
+}
+
+/* ─────────── MEETING MODELS ─────────── */
+
+model Meeting {
+  id                String        @id @default(uuid())
+  subject           String
+  location          String?
+  meetingOwnerId    String
+  
+  // --- ADD THESE MISSING FIELDS ---
+  leadId            String?       // <--- Add this
+  accountId         String?       // <--- Add this
+  relatedRecordId   String?       // <--- Add this (stores ID of Ticket, Opp, etc.)
+  // --------------------------------
+
+  primaryContactId  String?
+  hostId            String?
+  relatedTo         String?
+  
+  status            MeetingStatus @default(SCHEDULED) 
+  priority          Priority      @default(MEDIUM)
+  
+  fromDate          DateTime?
+  toDate            DateTime?
+  participants      String[]
+  participantReminder String?
+  description       String?
+  
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  meetingContacts MeetingContact[]
+}
+
+model MeetingContact {
+  meetingId String
+  contactId String // ID string from the Contact Service
+
+  meeting Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+
+  @@id([meetingId, contactId])
+}
+
+/* ─────────── PHONE CALL MODELS ─────────── */
+
+model PhoneCall {
+  id              String      @id @default(uuid())
+  callFor         CallFor
+  relatedTo       String?
+  relatedRecordId String?
+  callTimeFrom    DateTime?
+  callTimeTo      DateTime?
+  callType        CallType    @default(OUTBOUND)
+  owner           String
+  status          CallStatus  @default(SCHEDULED)
+  primaryContactId String?
+  subject         String?
+  callPurpose     CallPurpose?
+  description     String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // relation to join table for multiple contacts if needed
+  phoneCallContacts PhoneCallContact[]
+}
+
+model PhoneCallContact {
+  phoneCallId String
+  contactId   String
+  phoneCall   PhoneCall @relation(fields: [phoneCallId], references: [id], onDelete: Cascade)
+
+  @@id([phoneCallId, contactId])
+}
+
+/* ─────────── EMAIL MODELS ─────────── */
+
+model Email {
+  id            String      @id @default(uuid())
+  subject       String?
+  content       String?
+  sender        String?
+  recipient     String?
+  cc            String?
+  bcc           String?
+  status        EmailStatus @default(UNREAD)
+  
+  // ✅ ADDED: Priority to match Frontend filters
+  priority      Priority? @default(NORMAL)
+  
+  // ✅ ADDED: To explicitly show "Ticket", "Lead" etc. in the list
+  relatedObject String?     
+
+  isExternal    Boolean     @default(false)
+
+  // Links to other services
+  ticketId      String?
+  accountId     String?
+  contactId     String?
+  opportunityId String?
+
+  // Timestamps
+  receivedAt    DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  attachments   Attachment[] 
+  emailContacts EmailContact[]
+  
+  @@map("emails")
+}
+
+model Attachment {
+  id              String   @id @default(uuid())
+  
+  filename        String
+  contentType     String?  // MimeType
+  size            Int?
+  path            String   
+  storageProvider String   @default("local")
+  downloadUrl     String?
+  sharePointId    String?
+  
+  // Relation to Email
+  emailId         String?   
+  email           Email?    @relation(fields: [emailId], references: [id], onDelete: Cascade)
+  
+  createdAt       DateTime @default(now())
+
+  @@map("attachments")
+}
+
+model EmailContact {
+  emailId   String
+  contactId String 
+
+  email Email @relation(fields: [emailId], references: [id], onDelete: Cascade)
+
+  @@id([emailId, contactId])
+}

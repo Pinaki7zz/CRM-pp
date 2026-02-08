@@ -1,0 +1,140 @@
+.opp-create-container {
+	padding: 30px;
+}
+
+.opp-create-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 45px;
+}
+
+.opp-create-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+}
+
+.opp-create-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.opp-create-header-container-buttons button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.opp-create-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.opp-create-save-and-new-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.opp-create-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.opp-create-form-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.opp-create-form-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.opp-create-form form {
+	padding: 40px;
+}
+
+.opp-create-form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 10px;
+}
+
+.opp-create-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.opp-create-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+.opp-create-form-group input,
+.opp-create-form-group select,
+.opp-create-form-group textarea {
+	width: 100%;
+	height: 35px;
+	font-size: 14px;
+	padding: 0 5px;
+	border: 1px solid #365486;
+	color: #365486;
+	border-radius: 5px;
+	outline: none;
+}
+
+.opp-create-form-group textarea {
+	height: 60px;
+}
+
+.opp-create-form-group input::placeholder,
+.opp-create-form-group textarea::placeholder {
+	color: #365486;
+	font-size: 14px;
+}
+
+.required-field-text {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+}
+
+.field-error {
+	color: #ef4444;
+	font-size: 12px;
+}
+
+.input-error {
+	border-color: #ef4444 !important;
+}

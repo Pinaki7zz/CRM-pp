@@ -1,0 +1,47 @@
+.create-service-office-container {
+	background-color: white;
+	padding: 20px;
+}
+
+.data-container {
+	margin-bottom: 1rem;
+}
+
+.create-service-office-button-group {
+	display: flex;
+	gap: 15px;
+}
+
+.create-service-office-header-box h2,
+.create-service-office-item-box h2 {
+	color: #007bff;
+	margin-bottom: 15px;
+	font-size: 20px;
+}
+
+.create-service-office-save-button {
+	width: 100px;
+	padding: 10px;
+	font-size: 1rem;
+	color: white;
+	font-weight: bold;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	background-color: rgb(90, 90, 250);
+	transition: all 0.2s ease-in-out;
+}
+
+.create-service-office-save-button:hover {
+	background-color: rgb(75, 75, 250);
+}
+
+.create-service-office-cancel-button {
+	padding: 10px 20px;
+	font-size: 15px;
+	font-weight: 500;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}

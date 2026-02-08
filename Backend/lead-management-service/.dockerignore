@@ -1,0 +1,15 @@
+**/node_modules
+**/.prisma
+**/generated
+npm-debug.log
+.git
+.gitignore
+Dockerfile
+docker-compose*
+.env
+.vscode
+.idea
+*.md
+coverage
+dist
+build

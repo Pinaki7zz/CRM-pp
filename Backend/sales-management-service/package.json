@@ -1,0 +1,28 @@
+{
+  "name": "backend-sm",
+  "version": "1.0.0",
+  "description": "This is the Sales Management backend of CRM System",
+  "license": "ISC",
+  "author": "Rohan Roy",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.10.1",
+    "aws-sdk": "^2.1693.0",
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.3.0",
+    "html-pdf-node": "^1.0.8",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.10.1"
+  }
+}

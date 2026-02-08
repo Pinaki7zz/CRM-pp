@@ -1,0 +1,297 @@
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id                   Int      @id @default(autoincrement())
+//   email                String   @unique
+//   password             String
+//   name                 String?
+//   linkedinAccessToken  String?
+//   linkedinRefreshToken String?
+//   createdAt            DateTime @default(now())
+//   updatedAt            DateTime @updatedAt
+//   integrations         Integration[]
+//   addIdentityProviders AddIdentityProvider[]
+//   addExternalBodies    AddExternalBody[]
+//   addPrincipals        AddPrincipal[]
+//   addNamedCredentials  AddNamedCredential[]
+//   linkedinExternals    LinkedinExternalCredentialName[]
+//   leads                Lead[]
+
+//   @@map("User")
+// }
+
+// model Integration {
+//   id                     Int      @id @default(autoincrement())
+//   providerType           String   // e.g., "linkedin"
+//   providerName           String
+//   clientId               String
+//   clientSecretKey        String
+//   authorizedEndpointURL  String?
+//   tokenEndpointURL       String?
+//   userInfoEndpointURL    String?
+//   defaultScopes          String?  // e.g., "profile email w_member_social"
+//   callBackURL            String
+//   createdAt              DateTime @default(now())
+//   updatedAt              DateTime @updatedAt
+//   userId                 Int
+//   user                   User     @relation(fields: [userId], references: [id])
+//   addPrincipals          AddPrincipal[]
+//   linkedinExternals      LinkedinExternalCredentialName[]
+
+//   @@unique([userId, providerType])
+//   @@map("Integration")
+// }
+
+// model AddIdentityProvider {
+//   id                     Int      @id @default(autoincrement())
+//   identityProviderName   String
+//   authenticationProtocol String   // e.g., "oauth2"
+//   authenticationFlowType String   // e.g., "authorization_code"
+//   clientId               String?
+//   clientSecretKey        String?
+//   authorizedEndpointURL  String?
+//   tokenEndpointURL       String?
+//   userInfoEndpointURL    String?
+//   checkboxCredentialsBody Boolean  @default(false)
+//   createdAt              DateTime @default(now())
+//   updatedAt              DateTime @updatedAt
+//   userId                 Int
+//   user                   User     @relation(fields: [userId], references: [id])
+
+//   @@map("AddIdentityProvider")
+// }
+
+// model AddExternalBody {
+//   id                     Int      @id @default(autoincrement())
+//   externalCredentialName String
+//   authenticationProtocol String
+//   authenticationFlowType String
+//   identityProvider       String   // References AddIdentityProvider.identityProviderName?
+//   scope                  String?
+//   createdAt              DateTime @default(now())
+//   updatedAt              DateTime @updatedAt
+//   userId                 Int
+//   user                   User     @relation(fields: [userId], references: [id])
+//   addPrincipals          AddPrincipal[]
+
+//   @@map("AddExternalBody")
+// }
+
+// model AddPrincipal {
+//   id             Int      @id @default(autoincrement())
+//   principalName  String   // e.g., user email
+//   principalType  String   // e.g., "user"
+//   status         PrincipalStatus @default(NOT_CONFIGURED)
+//   scope          String?
+//   createdAt      DateTime @default(now())
+//   updatedAt      DateTime @updatedAt
+//   externalBodyId Int
+//   externalBody   AddExternalBody @relation(fields: [externalBodyId], references: [id])
+//   integrationId  Int?
+//   integration    Integration? @relation(fields: [integrationId], references: [id])
+//   userId                 Int
+//   user                   User     @relation(fields: [userId], references: [id])
+
+//   @@map("AddPrincipal")
+// }
+
+// model AddNamedCredential {
+//   id                      Int      @id @default(autoincrement())
+//   credentialName          String
+//   baseURL                 String
+//   externalCredential      String   // References AddExternalBody.externalCredentialName?
+//   enabledForCallouts      Boolean  @default(true)
+//   generateAuthorizationHeader Boolean @default(false)
+//   createdAt               DateTime @default(now())
+//   updatedAt               DateTime @updatedAt
+//   userId                  Int
+//   user                    User     @relation(fields: [userId], references: [id])
+
+//   @@map("AddNamedCredential")
+// }
+
+// model LinkedinExternalCredentialName {
+//   id                     Int      @id @default(autoincrement())
+//   externalCredentialName String
+//   authenticationProtocol String
+//   authenticationFlowType String
+//   scope                  String?
+//   providerName           String
+//   createdAt              DateTime @default(now())
+//   updatedAt              DateTime @updatedAt
+//   userId                 Int
+//   user                   User     @relation(fields: [userId], references: [id])
+//   integrationId          Int
+//   integration            Integration @relation(fields: [integrationId], references: [id])
+
+//   @@map("LinkedinExternalCredentialName")
+// }
+
+// model Lead {
+//   id          Int      @id @default(autoincrement())
+//   name        String
+//   title       String?
+//   company     String?
+//   linkedinUrl String?  @unique
+//   email       String?
+//   phone       String?
+//   userId      Int
+//   user        User     @relation(fields: [userId], references: [id])
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+
+//   @@map("Lead")
+// }
+
+// enum PrincipalStatus {
+//   NOT_CONFIGURED
+//   CONFIGURED
+// }
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Global configurations (no userId for public access)
+model Integration {
+  id                     Int      @id @default(autoincrement())
+  providerType           String   @unique // linkedin, google, etc.
+  providerName           String
+  clientId               String
+  clientSecretKey        String
+  authorizedEndpointURL  String?
+  tokenEndpointURL       String?
+  userInfoEndpointURL    String?
+  defaultScopes          String?
+  callBackURL            String
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+//   addPrincipals          AddPrincipal[]
+  linkedinExternals      LinkedinExternalCredentialName[]
+
+  @@map("Integration")
+}
+
+model AddIdentityProvider {
+  id                     Int      @id @default(autoincrement())
+  identityProviderName   String     @unique
+  authenticationProtocol String
+  authenticationFlowType String
+  clientId               String?
+  clientSecretKey        String?
+  authorizedEndpointURL  String?
+  tokenEndpointURL       String?
+  userInfoEndpointURL    String?
+  checkboxCredentialsBody Boolean  @default(false)
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  @@map("AddIdentityProvider")
+}
+
+model AddExternalBody {
+  id                     Int      @id @default(autoincrement())
+  externalCredentialName String   @unique
+  authenticationProtocol String
+  authenticationFlowType String
+  identityProvider       String
+  scope                  String?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+//   addPrincipals          AddPrincipal[]
+
+  @@map("AddExternalBody")
+}
+
+model AddPrincipal {
+  id             Int      @id @default(autoincrement())
+  principalName  String    @unique // LinkedIn email or user identifier
+  principalType  String
+  status         PrincipalStatus @default(NOT_CONFIGURED)
+  scope          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+//   externalBodyId Int
+//   externalBody   AddExternalBody @relation(fields: [externalBodyId], references: [id])
+//   integrationId  Int
+//   integration    Integration @relation(fields: [integrationId], references: [id])
+
+  @@map("AddPrincipal")
+}
+
+model AddNamedCredential {
+  id                      Int      @id @default(autoincrement())
+  credentialName          String   @unique
+  baseURL                 String
+  externalCredential      String
+  enabledForCallouts      Boolean  @default(true)
+  generateAuthorizationHeader Boolean @default(false)
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@map("AddNamedCredential")
+}
+
+model LinkedinExternalCredentialName {
+  id                     Int      @id @default(autoincrement())
+  externalCredentialName String  @unique
+  authenticationProtocol String
+  authenticationFlowType String
+  scope                  String?
+  providerName           String
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  integrationId          Int
+  integration            Integration @relation(fields: [integrationId], references: [id])
+
+  @@map("LinkedinExternalCredentialName")
+}
+
+// CRM Users (for lead generation)
+model User {
+  id                   Int      @id @default(autoincrement())
+  email                String   @unique
+  password             String
+  name                 String?
+  linkedinAccessToken  String?
+  linkedinRefreshToken String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  leads                Lead[]
+
+  @@map("User")
+}
+
+model Lead {
+  id          Int      @id @default(autoincrement())
+  name        String
+  title       String?
+  company     String?
+  linkedinUrl String?  @unique
+  email       String?
+  phone       String?
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("Lead")
+}
+
+enum PrincipalStatus {
+  NOT_CONFIGURED
+  CONFIGURED
+}

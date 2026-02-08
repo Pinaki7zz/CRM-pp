@@ -1,0 +1,306 @@
+/* CreateMeetings.css */
+
+.meeting-create-container {
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Header --- */
+.meeting-create-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.meeting-create-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f1035;
+    margin: 0;
+}
+
+.meeting-create-header-container-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.meeting-create-header-container-buttons button {
+    height: 35px;
+    min-width: 120px;
+    padding: 0 15px;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.meeting-create-save-button {
+    background-color: #365486;
+    color: #dcf2f1;
+}
+.meeting-create-save-button:disabled {
+    background-color: #6a80a5;
+    cursor: not-allowed;
+}
+
+.meeting-create-save-and-new-button,
+.meeting-create-cancel-button {
+    background-color: #ffffff;
+    color: #0f1035;
+}
+
+/* --- Form --- */
+.meeting-create-form-container {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.meeting-create-form-heading {
+    position: absolute;
+    left: 45px;
+    top: -25px;
+    padding: 10px;
+    background-image: linear-gradient(to bottom, #f9fafb 0%, #f9fafb 50%, #ffffff 50%, #ffffff 100%);
+    color: #0f1035;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.meeting-create-form form {
+    padding: 40px;
+}
+
+.meeting-create-form-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.meeting-create-form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.meeting-create-form-group label {
+    font-size: 14px;
+    color: #365486;
+    margin: 0;
+}
+
+.required-star {
+    color: #365486;
+    font-weight: bold;
+}
+
+.meeting-create-form-group input,
+.meeting-create-form-group select,
+.meeting-create-form-group textarea {
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    padding: 0 10px;
+    border: 1px solid #365486;
+    color: #365486;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.meeting-create-form-group textarea {
+    height: 80px;
+    padding: 10px;
+}
+
+.meeting-input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+.meeting-input-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #365486;
+}
+
+/* --- Participants --- */
+.meeting-add-btn {
+    height: 35px;
+    padding: 0 15px;
+    background-color: #365486;
+    color: #fff;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.meeting-participants-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.participant-chip {
+    display: inline-flex;
+    align-items: center;
+    background: #dcf2f1;
+    color: #365486;
+    border: 1px solid #365486;
+    border-radius: 15px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.participant-chip button {
+    background: none;
+    border: none;
+    color: #365486;
+    margin-left: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.participant-chip button:hover {
+    color: red;
+}
+
+.required-field-text {
+    font-size: 12px;
+    color: #365486;
+    display: block;
+    margin-top: 10px;
+}
+
+/* --- Generic Lookup Modal --- */
+.lookup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lookup-modal {
+    background: white;
+    width: 600px;
+    max-width: 90%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.lookup-header {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.lookup-header h3 { margin: 0; color: #0f1035; font-size: 18px; }
+.lookup-header button { border: none; background: none; cursor: pointer; color: #666; }
+
+.lookup-body {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.lookup-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lookup-table th {
+    background: #f1f3f5;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    color: #365486;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+}
+
+.lookup-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.lookup-table tr:hover td {
+    background-color: #e9f6f6;
+}
+
+/* --- Invite Modal --- */
+.invite-modal {
+    background: white;
+    width: 400px;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.invite-header h3 { margin-top: 0; color: #0f1035; }
+
+.invite-body p {
+    font-size: 15px;
+    color: #555;
+    margin: 20px 0;
+}
+
+.invite-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.invite-btn-send {
+    background: #365486;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.invite-btn-cancel {
+    background: white;
+    color: #0f1035;
+    border: 1px solid #0f1035;
+    padding: 8px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}

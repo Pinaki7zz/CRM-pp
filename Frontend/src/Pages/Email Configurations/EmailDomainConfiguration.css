@@ -1,0 +1,362 @@
+/* EmailDomainConfiguration.css */
+
+
+/* General Container & Typography */
+.email-domain-config-container {
+  padding: 24px;
+  max-width: 900px; /* Adjust max-width as needed */
+  margin: 20px auto; /* Added top/bottom margin for better spacing */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Slightly stronger shadow */
+  font-family: 'Inter', sans-serif; /* Using Inter font */
+  color: #374151;
+  position: relative; /* Needed for absolute positioning of toast */
+}
+
+.email-domain-config-container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 16px;
+  text-align: center; /* Center the main title */
+}
+
+.email-domain-config-container h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.email-domain-config-container h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #374151;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.section {
+  margin-bottom: 24px;
+  padding: 16px; /* Add some padding to sections */
+  border: 1px solid #e5e7eb; /* Subtle border for sections */
+  border-radius: 8px;
+  background-color: #f9fafb; /* Light background for sections */
+}
+
+
+/* Input Group */
+.input-group {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-weight: 500;
+  color: #374151;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.input-group input[type="text"] {
+  flex-grow: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #374151;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 180px; /* Ensure input doesn't get too small */
+}
+
+.input-group input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+.input-group input[type="text"]:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+
+/* Buttons */
+.generate-button,
+.verify-button,
+.copy-button { /* Apply common button styles */
+  padding: 10px 18px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow to buttons */
+}
+
+.generate-button {
+  background-color: #4f46e5; /* Indigo */
+}
+
+.generate-button:hover {
+  background-color: #4338ca;
+}
+
+.generate-button:active {
+  transform: translateY(1px);
+}
+
+.verify-button {
+  background-color: #10b981; /* Green */
+  padding: 12px 24px; /* Slightly larger for main action */
+  font-weight: 600;
+  font-size: 16px;
+  display: block; /* Make it block to take full width of its container */
+  width: fit-content; /* Adjust width to content */
+  margin: 30px auto 0 auto; /* Center it and add top margin */
+}
+
+.verify-button:hover {
+  background-color: #059669;
+}
+
+.verify-button:active {
+  transform: translateY(1px);
+}
+
+.generate-button:disabled,
+.verify-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* Generated Records Display */
+.generated-records-display {
+  background-color: #eef2ff; /* Lighter background for generated records */
+  border-color: #c7d2fe; /* Matching border color */
+  padding: 20px;
+}
+
+.generated-records-display h3 {
+  color: #4f46e5; /* Highlight heading */
+}
+
+.generated-records-display p.info-text { /* Added a class for the info text */
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: column; /* Stack label, pre, and button */
+  gap: 8px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border: 1px solid #e0e7ff; /* Lighter border for individual records */
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.record-item strong {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 16px;
+}
+
+.record-item pre.record-value {
+  background-color: #f3f4f6; /* Very light grey for code block */
+  border: 1px dashed #d1d5db; /* Dashed border to indicate copyable text */
+  border-radius: 4px;
+  padding: 10px;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace; /* Prefer Fira Code if available */
+  font-size: 13px;
+  color: #374151;
+  white-space: pre-wrap; /* Wrap long lines */
+  word-break: break-all; /* Break long words */
+  overflow-x: auto; /* Enable horizontal scroll for extremely long lines */
+  user-select: all; /* Allow easy selection for copying */
+  margin: 0; /* Remove default margin from pre */
+  transition: background-color 0.3s ease; /* Smooth transition for highlight */
+}
+
+/* Highlight effect for copied text */
+.record-value.highlight-copy {
+  background-color: #dcfce7; /* Light green highlight */
+  border-color: #86efac; /* Matching border color */
+}
+
+.record-item .copy-button {
+  align-self: flex-end; /* Align copy button to the right */
+  background-color: #6366f1; /* Slightly different blue for copy */
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.record-item .copy-button:hover {
+  background-color: #4f46e5;
+}
+
+/* Verification Status Display */
+.verification-status-display {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #ecfdf5; /* Light green background */
+  border: 1px solid #a7f3d0; /* Green border */
+  border-radius: 8px;
+}
+
+.verification-status-display h4 {
+  font-size: 18px;
+  color: #065f46; /* Darker green for heading */
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d1fae5;
+  padding-bottom: 10px;
+}
+
+.verification-status-display p {
+  font-size: 15px;
+  margin-bottom: 8px;
+  background-color: transparent; /* Override previous p styles */
+  border: none;
+  padding: 0;
+}
+
+/* Feedback Messages */
+.info-message,
+.error-message,
+.success-message {
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+}
+
+.info-message {
+  background-color: #e0f2fe; /* Light blue */
+  color: #0284c7;
+  border: 1px solid #7dd3fc;
+}
+
+.error-message {
+  background-color: #fee2e2; /* Light red */
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+
+.success-message {
+  background-color: #d1fae5; /* Light green */
+  color: #047857;
+  border: 1px solid #6ee7b7;
+}
+
+/* Copied to Clipboard Toast */
+.copied-toast {
+  position: fixed; /* Fixed position relative to viewport */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: #333; /* Dark background */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  z-index: 1000; /* Ensure it's on top */
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 2.5s forwards; /* Animation for fade in/out */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .email-domain-config-container {
+    padding: 16px;
+    margin: 10px auto;
+  }
+
+  .email-domain-config-container h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .email-domain-config-container h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+
+  .input-group {
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Stretch to full width */
+  }
+
+  .input-group label {
+    margin-right: 0;
+    margin-bottom: 5px; /* Space below label */
+  }
+
+  .generate-button,
+  .verify-button {
+    width: 100%; /* Full width buttons */
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .record-item {
+    padding: 10px;
+  }
+
+  .record-item pre.record-value {
+    font-size: 12px;
+  }
+
+  .record-item .copy-button {
+    align-self: stretch; /* Make copy button full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .email-domain-config-container {
+    padding: 10px;
+  }
+
+  .email-domain-config-container h1 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+}
+
+/* ---- Copy Button Text Blink Effect ---- */
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.text-blink {
+  animation: blinkText 0.3s linear;
+}

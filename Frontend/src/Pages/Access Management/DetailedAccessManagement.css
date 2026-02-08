@@ -1,0 +1,421 @@
+/* --- Main Container --- */
+.dam-edit-container {
+    width: 100%;
+    padding: 30px;
+    background-color: #f9fafb;
+    min-height: calc(100vh - 60px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header Section --- */
+.dam-edit-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    height: 40px;
+}
+
+.dam-edit-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f1035;
+    margin: 0;
+}
+
+.dam-edit-header-container-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.dam-edit-header-container-buttons button {
+    height: 30px;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 15px;
+    transition: all 0.2s ease;
+}
+
+.dam-edit-save-button {
+    background-color: #365486;
+    color: #dcf2f1;
+}
+
+.dam-edit-save-button:hover {
+    background-color: #2c4470;
+}
+
+.dam-edit-cancel-button {
+    background-color: #ffffff;
+    color: #0f1035;
+}
+
+.dam-edit-cancel-button:hover {
+    background-color: #f0f0f0;
+}
+
+.dam-edit-close-button {
+    background-color: #ffffff;
+    color: #0f1035;
+    height: 30px;
+    min-width: 80px !important;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px !important;
+}
+
+/* --- TABS SECTION --- */
+.dam-tabs-container {
+        display: flex;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+.dam-tab-btn {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    padding: 10px 5px;
+    border-bottom: 3px solid transparent;
+    transition: color .2s, border-bottom .2s;
+}
+
+.dam-tab-btn:hover {
+    color: #0f1035;
+
+}
+
+.dam-tab-btn.active {
+    color: #0f1035;
+    border-bottom-color: #0f1035;
+    font-weight: 700;
+}
+
+.dam-tab-content {
+    /* Container for the active tab content */
+    flex: 1;
+}
+
+/* --- Section Containers (Forms/Tables) --- */
+.dam-section-container {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.dam-section-header-row {
+    /* Wrapper for title + actions (like Add button) */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+}
+
+.dam-section-title {
+    position: absolute;
+    left: 45px;
+    top: -25px;
+    padding: 10px 15px;
+    background-image: linear-gradient(
+        to bottom,
+        #f9fafb 0%,
+        #f9fafb 50%,
+        #ffffff 50%,
+        #ffffff 100%
+    );
+    color: #0f1035;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Button on right border of section (e.g. Add User) */
+.dam-add-btn {
+    position: absolute;
+    right: 45px;
+    top: -33px;
+    padding: 5px 10px;
+    background-image: linear-gradient(
+        to bottom,
+        #f9fafb 0%,
+        #f9fafb 50%,
+        #ffffff 50%,
+        #ffffff 100%
+    );
+    z-index: 10;
+    height: 30px;
+    width: 100px;
+    border: 1px solid #0f1035;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #0f1035;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* --- Forms --- */
+.dam-form-grid {
+    padding: 40px 40px 20px 40px;
+}
+
+.dam-form-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.dam-form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dam-form-group.full-width {
+    width: 100%;
+}
+
+.dam-form-group label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #365486;
+    margin: 0;
+}
+
+.dam-form-group input,
+.dam-form-group select,
+.dam-form-group textarea {
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #365486;
+    color: #365486;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.dam-form-group textarea {
+    height: 80px;
+    padding: 8px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.dam-form-group input:disabled,
+.dam-form-group select:disabled,
+.dam-form-group textarea:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+    border-color: #cbd5e1;
+    color: #64748b;
+}
+
+/* --- Tables --- */
+.dam-table-wrapper {
+    padding: 0 40px 20px 40px;
+    overflow-x: auto;
+    padding-top: 40px; /* Clear the absolute title */
+}
+
+.dam-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 14px;
+    color: #0f1035;
+}
+
+.dam-table th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #0f1035;
+    font-weight: 600;
+    background-color: #ffffff;
+    white-space: nowrap;
+}
+
+.dam-table th:first-child,
+.dam-table td:first-child {
+    padding-left: 20px;
+}
+
+.dam-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.dam-table .parent-row td {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-top: 1px solid #e2e8f0;
+}
+
+.dam-table .child-row td {
+    background-color: #ffffff;
+}
+
+/* Icons & Buttons */
+.dam-expand-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-right: 5px;
+    color: #0f1035;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dam-delete-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: transform 0.1s;
+}
+
+.dam-delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.amc-custom-checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #365486;
+    cursor: pointer;
+}
+
+.dam-empty-state {
+    text-align: center;
+    color: #64748b;
+    padding: 30px;
+    font-style: italic;
+}
+
+/* --- Modals --- */
+.amc-delete-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 24, 35, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(2px);
+}
+
+.amc-delete-confirm-dialog {
+    background: #ffffff;
+    padding: 24px;
+    width: 500px;
+    max-width: 95vw;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.amc-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.amc-dialog-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #0f1035;
+    font-weight: 600;
+}
+
+.amc-close-filters {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.dam-search-input {
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.dam-search-input:focus {
+    border-color: #365486;
+}
+
+.amc-dialog-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.amc-yes-button {
+    background-color: #365486;
+    color: white;
+    border: 1px solid #365486;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.amc-no-button {
+    background-color: #ffffff;
+    color: #0f1035;
+    border: 1px solid #0f1035;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}

@@ -1,0 +1,27 @@
+.table-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.left-header {
+	font-size: 1.8rem;
+}
+
+.right-button {
+	width: 100px;
+	padding: 10px;
+	border-radius: 8px;
+	background-color: rgb(90, 90, 255);
+	border: none;
+	color: white;
+	font-size: 1rem;
+	font-weight: bold;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+
+.right-button:hover {
+	background-color: rgb(75, 75, 255);
+}

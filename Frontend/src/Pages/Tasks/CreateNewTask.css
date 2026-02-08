@@ -1,0 +1,168 @@
+.header-container {
+	background-color: #fff;
+	border-top: 3px solid red;
+	border-radius: 8px;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2), -2px 0 2px rgb(0, 0, 0, 0.2);
+}
+
+.task-heading {
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: #000;
+}
+
+.header-container-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.header-container-buttons button {
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #fff;
+	cursor: pointer;
+}
+
+.cancel-button {
+	background-color: #d32f2f;
+	transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+	background-color: #b71c1c;
+}
+
+.save-button {
+	background-color: #4caf50;
+	transition: background-color 0.3s;
+}
+
+.save-button:hover {
+	background-color: #388e3c;
+}
+
+.save-and-new-button {
+	background-color: #2196f3;
+	transition: background-color 0.3s;
+}
+
+.save-and-new-button:hover {
+	background-color: #1976d2;
+}
+
+/* Product Category Basic Structure */
+
+.tasks-container {
+	background-color: #fff;
+	border-top: 3px solid green;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2), -2px 0 2px rgb(0, 0, 0, 0.2);
+}
+
+.tasks-heading h1 {
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: #000;
+	padding: 20px;
+	border-bottom: 2px solid #e0e0e0;
+}
+
+/* Product Category Main Content Styles */
+
+.tasks-form1 form {
+	padding: 20px;
+	display: grid;
+	grid-template-areas:
+		"taskowner1 oppname1 subject1"
+		"stage1 primarycontact1 accountname1"
+		"startdate1 leadsource1 status1"
+		"description1 description1 description1";
+	gap: 18px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.taskowner1 {
+	grid-area: taskowner1;
+}
+
+.oppname1 {
+	grid-area: oppname1;
+}
+
+.subject1 {
+	grid-area: subject1;
+}
+
+.stage1 {
+	grid-area: stage1;
+}
+
+.primarycontact1 {
+	grid-area: primarycontact1;
+}
+
+.accountname1 {
+	grid-area: accountname1;
+}
+
+.startdate1 {
+	grid-area: startdate1;
+}
+
+.leadsource1 {
+	grid-area: leadsource1;
+}
+
+.status1 {
+	grid-area: status1;
+}
+
+.description1 {
+	grid-area: description1;
+}
+
+.form-group label {
+	padding: 8px 0;
+	color: #0f0f0f;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+	padding: 10px 5px;
+	border: 2px solid #e0e0e0;
+	border-radius: 4px;
+	outline: none;
+}
+
+.form-group input,
+.form-group select {
+	height: 50px;
+}
+
+.form-group textarea {
+	min-height: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}

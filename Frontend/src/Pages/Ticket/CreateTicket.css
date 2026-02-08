@@ -1,0 +1,209 @@
+/* =========================================================
+   UPDATED: Main Page Wrapper
+   Replaced card-style header layout with a clean page-level
+   container to match modern CRM layouts
+   ========================================================= */
+.ticket-create-container {
+	padding: 30px; /* More breathing space compared to original */
+}
+
+/* =========================================================
+   UPDATED: Header Layout
+   Replaces boxed header with a flat flex layout for better UX
+   ========================================================= */
+.ticket-create-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 45px; /* Increased spacing before form */
+}
+
+/* UPDATED: Larger, bolder heading to indicate page-level title */
+.ticket-create-heading {
+	font-size: 32px; /* Increased from ~18px for hierarchy */
+	font-weight: 700;
+	color: #0f1035; /* Unified theme color */
+}
+
+/* UPDATED: Header buttons container
+   Uses flex + gap instead of individual margins */
+.ticket-create-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+/* =========================================================
+   UPDATED: Button Styling
+   Unified button sizes and added icon support using flex
+   ========================================================= */
+.ticket-create-header-container-buttons button {
+	height: 35px; /* Standardized button height */
+	min-width: 120px; /* Prevents layout shift */
+	padding: 0 15px;
+	border: 1px solid #0f1035;
+	border-radius: 5px; /* Reduced radius for cleaner look */
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	display: flex; /* Enables icon + text alignment */
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+/* UPDATED: Primary action button color changed to theme-based blue */
+.ticket-create-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+/* UPDATED: Secondary actions use outline-style appearance */
+.ticket-create-save-and-new-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.ticket-create-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+/* =========================================================
+   UPDATED: Form Container
+   Replaced heavy shadow + top border with clean bordered card
+   ========================================================= */
+.ticket-create-form-container {
+	position: relative; /* Needed for floating heading */
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+/* UPDATED: Floating form heading
+   Replaces traditional header bar for modern card look */
+.ticket-create-form-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	); /* Prevents border overlap visually */
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+/* UPDATED: Increased form padding for better readability */
+.ticket-create-form form {
+	padding: 40px;
+}
+
+/* =========================================================
+   UPDATED: Form Layout
+   Switched from CSS grid to flex rows for better control
+   ========================================================= */
+.ticket-create-form-row {
+	display: flex;
+	gap: 40px; /* Horizontal spacing between fields */
+	margin-bottom: 10px;
+}
+
+/* UPDATED: Form group spacing improved */
+.ticket-create-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* UPDATED: Label styling aligned with theme */
+.ticket-create-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+/* =========================================================
+   UPDATED: Input Fields
+   Reduced border weight and standardized height
+   ========================================================= */
+.ticket-create-form-group input,
+.ticket-create-form-group select,
+.ticket-create-form-group textarea {
+	width: 100%;
+	height: 35px;
+	font-size: 14px;
+	padding: 0 10px; /* Improved text alignment */
+	border: 1px solid #365486;
+	color: #365486;
+	border-radius: 5px;
+	outline: none;
+}
+
+/* UPDATED: Textarea height adjusted for multi-line input */
+.ticket-create-form-group textarea {
+	height: 60px;
+	padding: 10px;
+}
+
+/* UPDATED: Placeholder styling made subtle and consistent */
+.ticket-create-form-group input::placeholder,
+.ticket-create-form-group textarea::placeholder {
+	color: #365486;
+	font-size: 14px;
+	opacity: 0.7;
+}
+
+/* UPDATED: Required field helper text */
+.required-field-text {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+}
+
+/* =========================================================
+   UPDATED: Input with Icon Support
+   Added for searchable/select fields
+   ========================================================= */
+.ticket-input-with-icon {
+	position: relative;
+	width: 100%;
+}
+
+/* UPDATED: Icon positioned inside input field */
+.ticket-input-icon {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none; /* Prevents blocking input */
+	color: #365486;
+}
+
+/* =========================================================
+   UPDATED: Required Asterisk Color Override
+   Forces required star to match theme instead of default red
+   ========================================================= */
+.ticket-create-container .text-danger,
+label .text-danger {
+	color: #365486 !important;
+}
+
+span.text-danger {
+	color: #365486 !important;
+}
+
+.required-star,
+.required,
+label.required::after {
+	color: #365486 !important;
+}

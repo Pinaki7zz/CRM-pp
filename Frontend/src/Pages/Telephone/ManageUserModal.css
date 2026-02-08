@@ -1,0 +1,101 @@
+.manage-user-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    backdrop-filter: blur(4px);
+}
+
+.manage-user-modal-content {
+    background: white;
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    animation: slide-down 0.3s ease-out;
+    border: 2px solid #9ca3af;
+}
+
+.manage-user-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.manage-user-modal-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.manage-user-close-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.manage-user-close-button:hover {
+    background-color: #e5e7eb;
+    color: #000;
+}
+
+.manage-user-modal-body {
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.manage-user-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-user-btn, .remove-user-btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s, border-color 0.2s;
+    min-width: 100px;
+    background-color: white;
+    color: #374151;
+}
+
+.add-user-btn:hover, .remove-user-btn:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.add-user-btn:active, .remove-user-btn:active {
+    background-color: #f3f4f6;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

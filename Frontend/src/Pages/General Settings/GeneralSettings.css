@@ -1,0 +1,66 @@
+/* MAIN CONTAINER */
+.gs-container {
+	padding: 30px;
+}
+
+/* PAGE HEADER */
+.gs-header {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+	margin-bottom: 30px;
+}
+
+/* GRID LAYOUT (TWO COLUMNS) */
+.gs-grid {
+	display: flex;
+	gap: 20px;
+}
+
+/* EACH COLUMN */
+.gs-column {
+	width: 50%;
+	box-sizing: border-box;
+}
+
+.gs-column:last-child {
+	border-right: none;
+}
+
+/* SECTION BLOCKS */
+.gs-section {
+	margin-bottom: 25px;
+}
+
+/* SECTION TITLES */
+.gs-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #0f1035;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+/* LIST ITEMS */
+.gs-list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.gs-list li span,
+.gs-list li a {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+}
+
+/* HOVER EFFECT FOR ENHANCED UX */
+.gs-list li span:hover,
+.gs-list li a:hover {
+	color: #0f1035;
+}

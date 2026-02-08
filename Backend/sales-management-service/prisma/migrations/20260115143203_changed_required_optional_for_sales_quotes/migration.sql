@@ -1,0 +1,13 @@
+-- AlterTable
+ALTER TABLE "SalesOrderItem" ALTER COLUMN "discount" DROP NOT NULL,
+ALTER COLUMN "tax" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "SalesQuote" ALTER COLUMN "accountId" DROP NOT NULL,
+ALTER COLUMN "primaryContactId" DROP NOT NULL,
+ALTER COLUMN "amount" DROP NOT NULL,
+ALTER COLUMN "dueDate" DROP NOT NULL,
+ALTER COLUMN "status" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "SalesQuoteItem" ALTER COLUMN "tax" DROP NOT NULL;

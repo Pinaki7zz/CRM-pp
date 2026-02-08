@@ -1,0 +1,497 @@
+.emp-edit-container {
+	padding: 30px;
+}
+
+.emp-edit-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 45px;
+}
+
+.emp-edit-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+}
+
+.emp-edit-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.emp-edit-header-container-buttons button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.emp-edit-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.emp-edit-edit-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.emp-edit-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.emp-edit-email-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.emp-edit-convert-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.emp-edit-options-button-container {
+	position: relative;
+}
+
+.emp-edit-options-button {
+	width: 30px !important;
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.emp-edit-menu-modal-container {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 5px;
+	min-width: 150px;
+	z-index: 1000;
+}
+
+.emp-edit-menu-modal-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.emp-edit-menu-modal-list li {
+	padding: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #0f1035;
+	transition: all 0.2s ease-in-out;
+}
+
+.emp-edit-menu-modal-list li:hover {
+	background-color: #dcf2f1;
+}
+
+.emp-edit-form-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+
+.emp-edit-form-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.emp-edit-form form,
+.emp-edit-terms-content {
+	padding: 40px;
+}
+
+.emp-edit-table-container {
+	padding: 30px 40px 40px 40px;
+}
+
+.emp-edit-form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 10px;
+}
+.emp-create-form-row {
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+	border-radius: 30px;
+}
+
+.emp-edit-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.emp-edit-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+.emp-edit-form-group input,
+.emp-edit-form-group select {
+	width: 100%;
+	height: 35px;
+	padding: 0 5px;
+	border: 1px solid #365486;
+	color: #365486;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 5px;
+	outline: none;
+}
+
+.emp-edit-form-group input::placeholder {
+	color: #365486;
+	font-size: 14px;
+}
+
+.emp-edit-input-icon-btn {
+	position: absolute;
+	right: 5px;
+	background: #dcf2f1;
+	border: 1px solid #365486;
+	height: 28px;
+	width: 28px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	padding: 0;
+}
+
+.emp-edit-input-icon-btn:disabled {
+	cursor: not-allowed !important;
+	opacity: 0.7; /* optional for better UX */
+}
+
+/* Modal overlay & container */
+.emp-edit-org-modal-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(18, 24, 35, 0.45);
+	z-index: 1200;
+	padding: 24px;
+	backdrop-filter: blur(2px);
+}
+
+.emp-edit-org-modal {
+	width: min(800px, 96%);
+	max-height: 86vh;
+	background: #fff;
+	border: none;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.emp-edit-close-button {
+	background-color: #ffffff;
+	color: #0f1035;
+	height: 30px;
+	min-width: 100px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	padding-right: 5px;
+	margin: 10px;
+
+}
+
+/* Header */
+.emp-edit-org-modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 12px 20px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.emp-edit-org-modal-title {
+	margin: 0;
+	font-size: 14px;
+	color: #0f1035;
+	font-weight: 600;
+}
+
+.emp-edit-org-modal-close {
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	border: none;
+	color: #0f1035;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.emp-edit-org-modal-close:hover {
+	color: #ff0000;
+}
+
+/* Toolbar */
+.emp-edit-org-modal-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+	padding: 10px 16px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.org-toolbar-left .org-filter-badge {
+	font-size: 13px;
+	color: #5b6b7a;
+}
+
+.emp-edit-org-toolbar-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.emp-edit-org-toolbar-search-container {
+	position: relative;
+	flex: 1 1 auto; /* takes remaining space */
+	max-width: 800px; /* don't grow infinitely on very wide screens */
+	min-width: 320px;
+}
+
+.emp-edit-org-toolbar-search {
+	width: 100%;
+	height: 35px;
+	padding: 10px 16px 10px 44px; /* room for left icon */
+	border: 1px solid #0f1035;
+	border-radius: 9999px;
+	font-size: 14px;
+	outline: none;
+}
+
+.emp-edit-org-toolbar-search::placeholder {
+	color: #0f1035;
+	font-size: 14px;
+	text-align: left;
+}
+
+.emp-edit-org-toolbar-search-icon {
+	position: absolute;
+	left: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.emp-edit-icon-btn {
+	height: 35px;
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+/* Body / table */
+.emp-edit-org-modal-body {
+	overflow: auto;
+	padding: 8px 12px 0 12px;
+	flex: 1 1 auto;
+	overflow-y: auto;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.emp-edit-org-modal-body::-webkit-scrollbar {
+	width: 6px;
+}
+
+.emp-edit-org-modal-body::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.emp-edit-org-modal-body::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.emp-edit-org-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+	color: #0f1035;
+}
+
+.emp-edit-org-table thead th {
+	text-align: left;
+	padding: 12px 12px;
+	background: #ffffff;
+	border-bottom: 1px solid #0f1035;
+	font-weight: 600;
+	color: #0f1035;
+}
+
+.emp-edit-org-table tbody td {
+	padding: 10px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	border-bottom: 1px solid #365486;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.emp-edit-org-row.selected {
+	background-color: #dcf2f1;
+	outline: 1px dotted #365486;
+}
+
+/* no results row */
+.no-results td {
+	padding: 30px;
+	text-align: center;
+	color: #7a8895;
+}
+
+/* footer */
+.emp-edit-org-modal-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 12px 16px;
+	border-top: 1px solid #0f1035;
+}
+
+.emp-edit-modal-btn {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.emp-edit-org-modal-footer-right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.emp-edit-modal-confirm-btn {
+	background: #365486;
+	color: #dcf2f1;
+}
+
+.emp-edit-modal-cancel-btn {
+	background: #ffffff;
+	color: #0f1035;
+}
+
+.emp-edit-modal-clear-btn {
+	background: #ffffff;
+	color: #0f1035;
+}
+
+.emp-edit-modal-btn[disabled] {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+/* small responsive tweaks */
+@media (max-width: 720px) {
+	.emp-edit-org-modal {
+		width: 100%;
+		height: 96vh;
+		border-radius: 6px;
+	}
+	.emp-edit-org-toolbar-search {
+		width: 140px;
+	}
+}
+
+.emp-edit-org-row.selected {
+	background-color: #dcf2f1; /* subtle highlight */
+	outline: 1px solid #365486;
+}
+
+.emp-edit-org-row:focus {
+	outline: 1px dashed #365486;
+}
+
+.emp-edit-org-row {
+	cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}
+
+.rotate-once {
+	animation: rotateOnce 0.2s linear;
+}
+
+@keyframes rotateOnce {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

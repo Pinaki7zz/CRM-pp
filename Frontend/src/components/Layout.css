@@ -1,0 +1,32 @@
+.layout-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	min-height: 100vh;
+}
+
+/* Sidebar is already fixed, no changes needed */
+.left-side {
+	width: 300px;
+	flex-shrink: 0;
+}
+
+.right-side {
+	display: flex;
+	flex-direction: column;
+	/* margin-left: 300px; */
+	min-width: calc(100% - 300px);
+	width: 100%;
+}
+
+.content-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%; /* navbar & main content */
+}
+
+.main-content {
+	/* padding: 30px; */
+	width: 100%;
+	background-color: #f9fafb;
+}

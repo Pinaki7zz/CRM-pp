@@ -1,0 +1,342 @@
+.so-create-container {
+	padding: 30px;
+}
+
+.so-create-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 45px;
+}
+
+.so-create-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+}
+
+.so-create-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.so-create-header-container-buttons button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.so-create-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.so-create-save-and-new-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.so-create-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.so-create-form-container,
+.so-create-table-container,
+.so-create-misc-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+
+.so-create-form-heading,
+.so-create-table-heading,
+.so-create-misc-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.so-create-form form,
+.so-create-terms-content {
+	padding: 40px;
+}
+
+.so-create-table-container {
+	padding: 30px 40px 40px 40px;
+}
+
+.so-create-form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 10px;
+}
+
+.so-create-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.so-create-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+.so-create-form-group input,
+.so-create-form-group select,
+.so-create-form-group textarea {
+	width: 100%;
+	height: 35px;
+	padding: 0 5px;
+	border: 1px solid #365486;
+	color: #365486;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 5px;
+	outline: none;
+}
+
+.so-create-form-group textarea {
+	height: 60px;
+}
+
+.so-create-form-group input::placeholder,
+.so-create-form-group textarea::placeholder {
+	color: #365486;
+	font-size: 14px;
+}
+
+/* Product Information Main Content Styles */
+
+.so-create-table-area {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.so-create-table-box {
+	position: relative;
+	width: 100%;
+	overflow-x: auto;
+	border: none;
+	margin: 0px;
+}
+
+.so-create-table {
+	width: 100%;
+	min-width: 800px;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+	font-size: 14px;
+}
+
+.so-create-table thead {
+	background-color: #ffffff;
+}
+
+.so-create-table thead th {
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 600;
+	color: #365486;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #365486;
+	border-bottom: 1px solid #365486;
+	border-left: none;
+	border-right: none;
+}
+
+.so-create-table thead th:first-child {
+	border-left: 1px solid #365486;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.so-create-table thead th:last-child {
+	border-right: 1px solid #365486;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.so-create-table tbody {
+	background-color: #ffffff;
+}
+
+.so-create-table tbody td {
+	padding: 10px;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #365486;
+	border-bottom: 1px solid #365486;
+	border-left: none;
+	border-right: none;
+}
+
+.so-create-table-data {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.so-create-table tbody td:first-child {
+	border-left: 1px solid #365486;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.so-create-table tbody td:last-child {
+	border-right: 1px solid #365486;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.so-create-table tbody td input,
+.so-create-table tbody td select {
+	width: 100%;
+	min-width: 150px;
+	height: 35px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	border: 1px solid #365486;
+	border-radius: 5px;
+	outline: none;
+	padding: 0 5px;
+}
+
+.so-create-table tbody td input::placeholder,
+.so-create-table tbody td select::placeholder {
+	color: #365486;
+}
+
+.so-create-product-delete-btn {
+	border: none;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	background-color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+.so-create-table-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.so-create-table-bottom span {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+}
+
+.so-create-add-product-btn {
+	width: 130px;
+	height: 30px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #dcf2f1;
+	cursor: pointer;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	background-color: #365486;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.so-create-table-box::-webkit-scrollbar {
+	height: 6px;
+}
+
+.so-create-table-box::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.so-create-table-box::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.so-create-table-box::-webkit-scrollbar-thumb:hover {
+	background: #0f1035;
+}
+
+/* Terms and Conditions Styles */
+
+.terms-content {
+	padding: 20px;
+}
+
+.terms-content section {
+	margin-bottom: 20px;
+}
+
+.terms-content h2 {
+	color: #444;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	font-size: 18px;
+}
+
+.terms-content p {
+	color: #666;
+	line-height: 1.6;
+}
+
+/* Description Styles */
+
+.description-form form {
+	padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

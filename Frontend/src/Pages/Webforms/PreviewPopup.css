@@ -1,0 +1,144 @@
+.preview-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.preview-popup-container {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.preview-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.preview-popup-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.preview-close-btn {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #9ca3af;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.preview-close-btn:hover {
+  color: #374151;
+}
+
+.preview-popup-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.preview-form {
+  background: #f9fafb;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.preview-form-field {
+  margin-bottom: 20px;
+}
+
+.preview-form-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.preview-form-field input[type="text"],
+.preview-form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  color: #6b7280;
+}
+
+.preview-form-field input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: not-allowed;
+}
+
+.preview-form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.preview-submit-btn,
+.preview-reset-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.preview-submit-btn {
+  background: #4F46E5;
+  color: white;
+}
+
+.preview-reset-btn {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.preview-popup-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.preview-done-btn {
+  padding: 10px 24px;
+  background: #4F46E5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.preview-done-btn:hover {
+  background: #4338CA;
+}

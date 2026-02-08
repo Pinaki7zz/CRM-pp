@@ -1,0 +1,57 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-UserManagementBackendApplication<user-management-backend>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "com.galvinus.crm.user_management_backend.UserManagementBackendApplication",
+			"projectName": "user-management-backend",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env",
+			"env": {
+				"SPRING_PROFILES_ACTIVE": "dev"
+			},
+			"vmArgs": " -Dcom.sun.management.jmxremote"
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-BackendAtApplication<backend-at>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "com.galvinusanalytics.backend_at.BackendAtApplication",
+			"projectName": "backend-at",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env",
+			"env": {
+				"SPRING_PROFILES_ACTIVE": "dev"
+			}
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-Application<crm.workflow-workflow-service>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "com.crm.backend.Application",
+			"projectName": "crm.workflow-workflow-service",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env",
+			"env": {
+				"SPRING_PROFILES_ACTIVE": "dev"
+			}
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-CrmWorkflowBackendApplication<workflow-service>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "crm.workflow.workflowservice.CrmWorkflowBackendApplication",
+			"projectName": "workflow-service",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env",
+			"env": {
+				"SPRING_PROFILES_ACTIVE": "dev"
+			}
+		}
+	]
+}

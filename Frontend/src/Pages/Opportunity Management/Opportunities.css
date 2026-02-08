@@ -1,0 +1,1216 @@
+.opp-management-container {
+	width: 100%;
+	padding: 30px;
+}
+
+.opp-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.opp-header-menu-btn {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+/* Left: compact dropdown */
+.opp-dropdown-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	height: 35px;
+	padding: 0 12px;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	min-width: 220px;
+	cursor: pointer;
+	z-index: 0;
+}
+
+/* Icon on the left */
+.user-round-icon {
+	flex: 0 0 auto;
+	/* z-index: 2; */
+	color: #0f1035;
+}
+
+.opp-dropdown-button {
+	position: absolute;
+	inset: 0; /* full overlay */
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	color: #0f1035;
+	height: 100%;
+	width: 100%;
+	padding-left: 35px;
+	max-width: 250px;
+	cursor: pointer;
+	font-weight: 500;
+	outline: none;
+}
+
+/* Leads Stats */
+.opp-stats {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	margin: 30px 0 45px 0;
+}
+
+/* Card base */
+.opp-stat-item {
+	position: relative; /* required for absolute badge */
+	width: 250px; /* tweak as needed */
+	height: 100px;
+	border-radius: 5px;
+	background: #dcf2f1; /* pale surface */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 2px 2px 10px 2px #7fc7d9;
+	overflow: visible; /* show badge outside */
+	padding-top: 20px;
+}
+
+/* Badge wrapper that sits above the card */
+.opp-stat-badge {
+	position: absolute;
+	top: -34px; /* lifts badge above the card */
+	left: 50%;
+	transform: translateX(-50%);
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	background: #f9fafb; /* outer ring color */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 5;
+}
+
+/* inner pastel circle containing the number */
+.opp-stat-badge__inner {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: rgba(226, 246, 245, 0.95); /* pastel inner */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 500;
+	font-size: 20px;
+	color: #365486; /* dark-blue number */
+}
+
+/* Content inside the card (title / subtitle) */
+.opp-stat-content {
+	text-align: center;
+	padding-top: 12px; /* ensure space under the badge */
+}
+
+.opp-stat-value {
+	font-size: 20px;
+	font-weight: 600;
+	color: #365486; /* matches the number color */
+	letter-spacing: 0.2px;
+}
+
+/* Optional: dotted vertical guide (if you want the dashed centerline for design) */
+.opp-stat-item::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: -120px; /* extend it if you want */
+	height: 320px;
+	transform: translateX(-50%);
+	border-right: 2px dashed rgba(10, 132, 255, 0.2);
+	pointer-events: none;
+	display: none; /* set to block for design debugging */
+}
+
+/* Responsive: scale down on narrow screens */
+@media (max-width: 480px) {
+	.opp-stat-item {
+		width: 260px;
+		height: 120px;
+	}
+	.opp-stat-badge {
+		width: 62px;
+		height: 62px;
+		top: -30px;
+	}
+	.opp-stat-badge__inner {
+		width: 46px;
+		height: 46px;
+		font-size: 18px;
+	}
+	.opp-stat-value {
+		font-size: 20px;
+	}
+}
+
+/* ===== Container layout for the top row (Image A style) ===== */
+.opp-actions {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 20px;
+	/* ensure the group doesn't wrap on wide screens; it will naturally wrap on small screens */
+	flex-wrap: nowrap;
+}
+
+/* Middle: flexible stretch search pill */
+.opp-search-container {
+	position: relative;
+	flex: 1 1 auto; /* takes remaining space */
+	max-width: 820px; /* don't grow infinitely on very wide screens */
+	min-width: 220px;
+}
+
+.opp-search-input {
+	width: 100%;
+	height: 35px;
+	padding: 10px 16px 10px 44px; /* room for left icon */
+	border-radius: 999px; /* pill shape */
+	border: 1px solid #0f1035;
+	background: #ffffff;
+	font-size: 14px;
+	outline: none;
+}
+
+.opp-search-input::placeholder {
+	color: #0f1035;
+	text-align: left;
+}
+
+.opp-search-container .search-icon-small {
+	position: absolute;
+	left: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+/* Right: CTA + small icon buttons */
+.action-icons {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex: 0 0 auto;
+	margin-left: 8px;
+}
+
+/* Primary CTA: larger, pill-ish */
+.opp-modern-button {
+	height: 35px;
+	width: 70px;
+	background-color: #365486;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #dcf2f1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	outline: none;
+	cursor: pointer;
+}
+
+/* small utility icon buttons (circle or rounded square) */
+.opp-icon-button-modern {
+	height: 35px;
+	width: 35px;
+	color: #0f1035;
+	background: transparent;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	outline: none;
+	cursor: pointer;
+}
+
+.opp-action-button-container {
+	position: relative;
+}
+
+.opp-action-button {
+	width: 100px;
+	height: 35px;
+	background-color: #365486;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #dcf2f1;
+	display: flex;
+	gap: 5px;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+}
+
+.opp-action-modal-container {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 5px;
+	min-width: 150px;
+	z-index: 1000;
+}
+
+.opp-action-modal-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.opp-action-modal-list li {
+	padding: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #0f1035;
+	transition: all 0.2s ease-in-out;
+}
+
+.opp-action-modal-list li:hover {
+	background-color: #dcf2f1;
+}
+
+/* small responsive tweaks */
+@media (max-width: 940px) {
+	.opp-dropdown-button {
+		width: 180px;
+	}
+	.opp-search-container {
+		max-width: 520px;
+	}
+	.opp-modern-button {
+		padding: 0 12px;
+	}
+}
+
+@media (max-width: 640px) {
+	.opp-actions {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.opp-search-container {
+		order: 3;
+		width: 100%;
+		max-width: none;
+	}
+	.opp-dropdown-container {
+		order: 1;
+	}
+	.action-icons {
+		order: 2;
+		margin-left: 0;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.opp-filters-container {
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+	animation: fadeIn 0.2s ease-in-out;
+}
+
+.opp-filters-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.opp-filters-header h3 {
+	font-size: 16px;
+	font-weight: 600;
+	color: #0f1035;
+	margin: 0;
+}
+
+.opp-filters-header-buttons-right {
+	display: flex;
+	gap: 12px;
+}
+
+.opp-reset-filters {
+	background: none;
+	border: none;
+	color: #0f1035;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.opp-close-filters {
+	background: none;
+	border: none;
+	color: #0f1035;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
+}
+
+.opp-close-filters:hover {
+	color: #ff0000;
+}
+
+.so-filter-row {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.opp-filter-col {
+	flex: 1;
+	min-width: 150px;
+}
+
+.opp-filter-col label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #0f1035;
+}
+
+.opp-filter-select {
+	width: 100%;
+	height: 35px;
+	padding: 0 10px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #0f1035;
+	background-color: #ffffff;
+	outline: none;
+}
+
+.opp-filter-select::placeholder {
+	color: #0f1035;
+}
+
+.opp-filter-select > option {
+	margin: 0;
+	padding: 0;
+}
+
+/* --- Table container: rounded + soft shadow (Image A) --- */
+.opp-table-scroll-container {
+	height: calc(100vh - 350px); /* adjust based on your layout */
+	overflow-y: auto;
+	padding-bottom: 80px; /* space so last row is visible */
+}
+
+.opp-table-container {
+	background: transparent;
+	border: none;
+	margin-bottom: 20px;
+	overflow: auto; /* horizontal scroll if needed */
+}
+
+/* Make the table rows look like separate cards */
+.opp-table {
+	width: 100%;
+	min-width: 800px;
+	/* IMPORTANT: allow border-spacing */
+	border-collapse: separate;
+	/* vertical gap between rows */
+	border-spacing: 0 10px;
+	font-size: 14px;
+}
+
+/* Give the header row a rounded border-like container */
+.opp-table thead {
+	background-color: #ffffff;
+}
+
+/* Header: rounded corners and lighter background (top pill) */
+/* keep th layout/spacing simple */
+.opp-table thead th {
+	background: #ffffff;
+	padding: 10px;
+	text-align: left;
+	font-weight: 600;
+	font-size: 14px;
+	color: #0f1035;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	border-top: 1px solid #0f1035;
+	border-bottom: 1px solid #0f1035;
+	border-left: none;
+	border-right: none;
+}
+
+.opp-table thead th:first-child {
+	border-left: 1px solid #0f1035;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.opp-table thead th:last-child {
+	border-right: 1px solid #0f1035;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.opp-sort-icon {
+	transition: transform 0.2s ease;
+}
+
+.opp-sort-icon.asc {
+	transform: rotate(180deg); /* turn into ChevronUp */
+}
+
+.opp-sort-icon.desc {
+	transform: rotate(0deg); /* default ChevronDown */
+}
+
+/* Row "card" style */
+.opp-table tbody tr {
+	background-color: #ffffff; /* subtle */
+	border-radius: 5px;
+}
+
+/* Make cells visually separated inside the "card" */
+.opp-table tbody td {
+	padding: 10px;
+	font-size: 14px;
+	vertical-align: middle;
+	background: #ffffff;
+	color: #0f1035;
+	white-space: nowrap;
+	letter-spacing: 1px;
+	text-align: left;
+	border-top: 1px solid #0f1035;
+	border-bottom: 1px solid #0f1035;
+	border-right: none;
+	border-left: none;
+}
+
+/* Rounded corners for left and right edges of each row card */
+.opp-table tbody td:first-child {
+	border-left: 1px solid #0f1035;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.opp-table tbody td:last-child {
+	border-right: 1px solid #0f1035;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* Checkbox column - larger square, subtle border like the design */
+.checkbox-column .opp-custom-checkbox {
+	width: 18px;
+	height: 18px;
+	border-radius: 4px;
+	border: 1px solid #0f1035;
+	background: #fff;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	display: inline-block;
+	position: relative;
+	display: flex;
+	align-items: center;
+	outline: none;
+}
+
+.checkbox-column .opp-custom-checkbox:checked {
+	background: #365486;
+	border-color: transparent;
+}
+
+.checkbox-column .opp-custom-checkbox:checked::after {
+	content: "✓";
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 900;
+	position: absolute;
+	top: -2px;
+	left: 3px;
+}
+
+/* Header checkbox (select all) — align with row checkboxes */
+.opp-table thead .opp-custom-checkbox {
+	width: 18px;
+	height: 18px;
+	border-radius: 4px;
+	border: 1px solid #0f1035;
+	background: #fff;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.opp-table-container::-webkit-scrollbar {
+	height: 6px;
+}
+
+.opp-table-container::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.opp-table-container::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.opp-empty-state p {
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	font-style: italic;
+	text-align: center;
+}
+
+/* Pagination (rounded small pills, centered) */
+.opp-pagination-bar {
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #ffffff;
+	padding: 12px 20px;
+	border-top: 1px solid #0f1035;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 20;
+}
+
+.opp-pagination-left {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.opp-total-selected-quotes {
+	font-size: 14px;
+	font-weight: 500;
+	color: #0f1035;
+}
+
+.opp-page-btn {
+	height: 35px;
+	width: 35px;
+	border: 1px solid #0f1035;
+	background: #365486;
+	font-size: 14px;
+	font-weight: 500;
+	color: #dcf2f1;
+	cursor: pointer;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
+}
+
+.opp-page-btn:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.opp-page-numbers {
+	font-weight: 500;
+	font-size: 14px;
+	color: #0f1035;
+}
+
+.opp-pagination-right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.opp-pagination-right label {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 500;
+	color: #0f1035;
+}
+
+.opp-items-per-page {
+	height: 35px;
+	width: 50px;
+	outline: none;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+}
+
+/* Delete confirmation dialog */
+.opp-delete-confirm-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.opp-delete-confirm-dialog {
+	background-color: #dcf2f1;
+	padding: 24px;
+	width: 400px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+}
+
+.opp-dialog-header {
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.opp-dialog-header h3 {
+	font-size: 18px;
+	font-weight: 400;
+	color: #0f1035;
+}
+
+.opp-dialog-header p {
+	font-size: 14px;
+	color: #0f1035;
+	margin: 0;
+}
+
+.opp-dialog-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+}
+
+.opp-yes-button,
+.opp-no-button {
+	width: 80px;
+	height: 30px;
+	background-color: #365486;
+	color: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-weight: 400;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.opp-no-button {
+	color: #0f1035;
+	background-color: #ffffff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	.opp-table th,
+	.opp-table td {
+		padding: 8px 12px;
+	}
+
+	.page-number {
+		width: 28px;
+		height: 28px;
+	}
+}
+
+.opp-table-action-buttons {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 12px;
+}
+
+.opp-edit-btn {
+	border: none;
+	background-color: #ffffff;
+	color: #0f1035;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.opp-delete-btn {
+	border: none;
+	background-color: #ffffff;
+	color: #0f1035;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.spin {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.rotate-once {
+	animation: rotateOnce 0.2s linear;
+}
+
+/* ========= Overlay ========= */
+.opp-control-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.65);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2000;
+}
+
+/* ========= Dialog ========= */
+.opp-control-modal-dialog {
+	width: 600px;
+	max-width: 95vw;
+	background: #ffffff;
+	border-radius: 5px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ========= Header ========= */
+.opp-control-modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #0f1035;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+
+.opp-control-modal-header h3 {
+	margin: 0;
+	color: #0f1035;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.opp-control-close-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+/* ========= Body ========= */
+.opp-control-modal-body {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ========= Column Blocks ========= */
+.opp-control-column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.opp-control-label {
+	font-weight: 600;
+	font-size: 14px;
+	color: #365486;
+	margin-bottom: 5px;
+}
+
+/* ========= Lists ========= */
+.opp-control-list {
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	height: 250px;
+	overflow-y: auto;
+	padding: 5px;
+	font-size: 14px;
+}
+
+.opp-control-list-available {
+	background: #ffffff;
+}
+
+.opp-control-list-visible {
+	background: #ffffff;
+}
+
+.opp-control-list-item {
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #0f1035;
+}
+
+.opp-control-list-item.selected {
+	background: #dcf2f1;
+}
+
+/* ========= Move Buttons ========= */
+.opp-control-move-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.opp-control-move-btn {
+	padding: 8px;
+	border-radius: 5px;
+	border: 1px solid #0f1035;
+	cursor: pointer;
+	background: #eee;
+	color: #0f1035;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.opp-control-move-btn.active {
+	background: #365486 !important;
+	color: #dcf2f1 !important;
+}
+
+/* ========= Footer ========= */
+.opp-control-modal-footer {
+	margin-top: 20px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.opp-control-cancel-btn,
+.opp-control-save-btn {
+	width: 120px;
+	height: 30px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.opp-control-cancel-btn {
+	background: #ffffff;
+	border: 1px solid #0f1035;
+	color: #0f1035;
+}
+
+.opp-control-save-btn {
+	background: #365486;
+	border: 1px solid #0f1035;
+	color: #dcf2f1;
+}
+
+@keyframes rotateOnce {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+.opp-header-popup-menu {
+	position: fixed; /* VERY IMPORTANT */
+	z-index: 5000;
+	background: #ffffff;
+	padding: 5px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	width: 200px;
+	/* animation: popupFade 0.15s ease-out; */
+}
+
+.opp-header-popup-menu button {
+	width: 100%;
+	background: none;
+	border: none;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.opp-header-popup-menu button:hover {
+	background-color: #dcf2f1;
+}
+
+.opp-header-popup-menu input {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #0f1035;
+	outline: none;
+}
+
+.opp-header-popup-menu input::placeholder {
+	color: #0f1035;
+	font-weight: 400;
+}
+
+.opp-header-popup-menu .opp-popup-divider {
+	height: 1px;
+	background: #0f1035;
+	margin: 8px 0;
+}
+
+/* @keyframes popupFade {
+	from {
+		opacity: 0;
+		transform: translateY(-5px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+} */
+
+/* Hide ellipsis by default */
+.opp-header-cell-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.opp-header-title {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.opp-header-menu-btn {
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* Show ellipsis when hovering the whole header cell */
+th:hover .opp-header-menu-btn {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Alternatively, if you want only when hovering exact header content */
+.opp-header-cell-content:hover .opp-header-menu-btn {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Sort Modal */
+
+.opp-sort-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.65);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 999;
+}
+
+.opp-sort-modal-dialog {
+	background: #ffffff;
+	width: 300px;
+	border-radius: 5px;
+	padding: 20px;
+	color: #0f1035;
+}
+
+.opp-sort-modal-dialog-header {
+	border-bottom: 1px solid #0f1035;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+
+.opp-sort-modal-dialog-header h3 {
+	margin: 0;
+	font-size: 18px;
+	color: #0f1035;
+}
+
+.opp-sort-modal-body {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.opp-sort-section-title {
+	font-size: 14px;
+	font-weight: 700;
+	color: #365486;
+	margin-bottom: 10px;
+}
+
+.opp-sort-options {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.opp-sort-option-label {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.opp-sort-radio-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.opp-sort-modal-dialog-buttons {
+	margin-top: 20px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.opp-sort-modal-no-button,
+.opp-sort-modal-yes-button {
+	width: 80px;
+	height: 30px;
+	font-size: 14px;
+	border-radius: 5px;
+	cursor: pointer;
+	border: 1px solid #0f1035;
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.opp-sort-modal-yes-button {
+	background: #365486;
+	color: #dcf2f1;
+}
+
+/* ============================
+   CUSTOM RADIO BUTTON
+   ============================ */
+
+.opp-radio {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 400;
+	position: relative;
+}
+
+/* Hide original input */
+.opp-radio input[type="radio"] {
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+
+/* Custom circle */
+.opp-radio .opp-radio-mark {
+	height: 15px;
+	width: 15px;
+	min-width: 15px;
+	border-radius: 50%;
+	border: 1px solid #365486;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Inner dot */
+.opp-radio .opp-radio-mark::after {
+	content: "";
+	width: 8px;
+	height: 8px;
+	background: transparent;
+	border-radius: 50%;
+}
+
+/* Checked State */
+.opp-radio input[type="radio"]:checked ~ .opp-radio-mark {
+	border-color: #365486;
+}
+
+.opp-radio input[type="radio"]:checked ~ .opp-radio-mark::after {
+	background-color: #365486;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

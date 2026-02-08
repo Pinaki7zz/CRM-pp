@@ -1,0 +1,387 @@
+/* Base Container Styling */
+.container {
+	/* top :60px; */
+	grid-area: content;
+	background-color: #ccc;
+	padding: 2rem;
+	max-width: 100px;
+	margin: 0 auto;
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, sans-serif;
+	position: relative;
+}
+
+/* Form Layout with improved spacing */
+.form-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	border-radius: 8px;
+}
+
+/* Page Header - Styled similar to the reference header-container */
+.form-container > h2 {
+	background-color: #fff;
+	border-radius: 8px;
+	color: #000;
+	font-size: 1.5rem;
+	font-weight: 600;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Header & Item Box styling aligned with reference code */
+.header-box,
+.item-box {
+	background-color: #fff;
+	overflow: hidden;
+	width: 60%;
+	padding: 10px;
+}
+
+/* Box Headers */
+.header-box h2,
+.item-box h2 {
+	font-size: 1rem;
+	font-weight: 600;
+	width: 25%;
+	text-align: centre;
+	margin: 0;
+}
+
+.header-box h2 {
+	width: 50%;
+	font-size: 1.6rem;
+
+	padding-bottom: 10px;
+}
+
+.item-box h2 {
+	width: 20%;
+	border-bottom: 2px solid #9898e6;
+	padding: 10px;
+	padding-left: 10 px;
+}
+
+/* Data container grid */
+.data-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	width: 70%;
+}
+
+.data {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.data input,
+.data select {
+	width: 100%;
+	/* height: 40px; */
+	margin: 0;
+	margin: 8px;
+	border-radius: 8px !important;
+}
+
+/* Form Group Styling */
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Labels */
+.data label {
+	width: 280px;
+	font-size: 1rem;
+}
+
+.header-box .data {
+	margin-bottom: 8px;
+	display: flex;
+}
+.item-box .data {
+	margin-bottom: 8px;
+	display: flex;
+}
+
+.resizable-input,
+.item-box select,
+.item-box .data input {
+	padding: 8px 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 70%;
+	margin-bottom: 0; /* ensure no extra spacing */
+}
+
+/* input,
+input,
+select,
+textarea {
+	padding: 10px;
+	height: 45px;
+	font-size: 1rem;
+	outline: none;
+	transition: all 0.3s ease;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+} */
+
+/* Hover Effect (cursor over the input) */
+/* input:hover,
+select:hover,
+textarea:hover {
+  border-color: #a0a0a0;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
+} */
+
+/* Focus Effect (when clicking/typing) */
+/* input:focus,
+select:focus,
+textarea:focus {
+	border-color: #133e87;
+	box-shadow: 0 0 0 3px rgba(19, 62, 135, 0.2);
+} */
+
+/* Optional: Style for disabled inputs */
+input:disabled,
+select:disabled,
+textarea:disabled {
+	background-color: #f5f5f5;
+	cursor: not-allowed;
+}
+
+/* Optional: Different style for invalid inputs */
+input:invalid,
+select:invalid,
+textarea:invalid {
+	border-color: #f5f5f5; /* Red for errors */
+}
+
+textarea {
+	min-height: 60px;
+	height: auto;
+}
+
+.data .error {
+	display: block;
+	color: #ff0000;
+	font-size: 0.75rem;
+	margin-top: 0.25rem;
+	padding-left: 8px; /* Align with input padding */
+	order: 2; /* Ensure it appears after input */
+}
+
+.data {
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+.input-container {
+	position: relative;
+	width: 70%;
+}
+
+.resizable-input {
+	width: 100%;
+	padding: 8px 12px;
+	border-radius: 8px !important;
+	font-family: inherit;
+	font-size: inherit;
+	transition: border-color 0.3s;
+	resize: vertical;
+	min-height: 10px;
+}
+
+.resizable-input:focus {
+	outline: none;
+	border-color: #4a90e2;
+}
+
+/* Focus Effect */
+/* input:focus,
+select:focus,
+textarea:focus {
+	border-color: #2196f3;
+} */
+
+/* Info Icon & Tooltip */
+.info-icon-tooltip {
+	position: relative;
+	display: inline-block;
+	margin-right: 8px;
+	cursor: pointer;
+}
+
+.info-icon-tooltip i {
+	color: #133e87; /* Brand blue */
+	font-size: 14px;
+	opacity: 0.7;
+	transition: opacity 0.2s;
+	padding-right: 70px;
+}
+
+.info-icon-tooltip:hover i {
+	opacity: 1;
+}
+
+.tooltip-text {
+	visibility: hidden;
+	width: 500px;
+	background-color: #4a3636;
+	color: rgb(248, 228, 228);
+	text-align: start;
+	border-radius: 4px;
+	padding: 8px;
+	padding-left: 60px;
+	position: absolute;
+	z-index: 10;
+	bottom: 25%;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: opacity 0.3s;
+	font-size: 0.85rem;
+}
+
+.info-icon-tooltip:hover .tooltip-text {
+	visibility: visible;
+	opacity: 1;
+}
+
+.submit-button button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 10;
+}
+
+.submit-button button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	gap: 10px;
+	margin: 2px;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #000000ef;
+	background-color: transparent;
+	border: 2px solid #000000ef;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.submit-button button:hover {
+	background-color: #0000ff; /* Blue background on hover */
+	color: #fff; /* White text on hover */
+	transform: scale(1.05);
+	border: 2px solid #0000ff; /* Optional: blue border for visibility */
+}
+
+.submit-button button i {
+	font-size: 1.2rem;
+}
+
+.cancel-button-header {
+	position: absolute;
+	top: 700px;
+	right: 20px;
+	z-index: 10;
+}
+
+.cancel-button-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	gap: 10px;
+	margin: 2px;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #000000ef;
+	background-color: transparent;
+	border: 2px solid #000000ef;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cancel-button-header:hover {
+	background-color: #0000ff; /* Blue background on hover */
+	color: #fff; /* White text on hover */
+	transform: scale(1.05);
+	border: 2px solid #0000ff; /* Optional: blue border for visibility */
+}
+.edit-controls {
+	margin-bottom: 20px;
+	padding-left: 10px;
+}
+
+.edit-button-edit-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	gap: 10px;
+	margin: 2px;
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #000000ef;
+	background-color: transparent;
+	border: 2px solid #000000ef;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-button-edit-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	gap: 10px;
+	margin: 2px;
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #fff;
+	background-color: #0000ff;
+	border-radius: 8px;
+	font-weight: bold;
+	color: #000000ef;
+	background-color: transparent;
+	border: 2px solid #000000ef;
+	border-radius: 8px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-button-edit-page:hover,
+.save-button-edit-page:hover {
+	background-color: #0000ff; /* Blue background on hover */
+	color: #fff; /* White text on hover */
+	transform: scale(1.05);
+	border: 2px solid #0000ff; /* Optional: blue border for visibility */
+}
+
+.read-only {
+	background-color: #f5f5f5;
+	color: #666;
+	cursor: not-allowed;
+}
+
+.edit-action-buttons {
+	display: flex;
+}

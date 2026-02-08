@@ -1,0 +1,385 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BusinessEntity {
+  id                 Int      @id @default(autoincrement())
+  businessEntityCode String   @unique @db.VarChar(4)
+  businessEntityName String   @db.VarChar(30)
+  street1            String   @db.VarChar(50)
+  street2            String?  @db.VarChar(50)
+  city               String   @db.VarChar(30)
+  state              String   @db.VarChar(30)
+  region             String?  @db.VarChar(50)
+  country            String   @db.VarChar(30)
+  pinCode            String   @db.VarChar(6)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  entityUnitPairs BusinessEntityUnitPair[]
+}
+
+model BusinessUnit {
+  id               Int      @id @default(autoincrement())
+  businessUnitCode String   @unique @db.VarChar(4)
+  businessUnitDesc String   @db.VarChar(30)
+  street1          String   @db.VarChar(50)
+  street2          String?  @db.VarChar(50)
+  city             String   @db.VarChar(30)
+  state            String   @db.VarChar(30)
+  region           String?  @db.VarChar(50)
+  country          String   @db.VarChar(30)
+  pinCode          String   @db.VarChar(6)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  entityUnitPairs            BusinessEntityUnitPair[]
+  businessUnitSalesPairs     BusinessUnitSalesPair[]
+  businessUnitMarketingPairs BusinessUnitMarketingPair[]
+  businessUnitServicePairs   BusinessUnitServicePair[]
+}
+
+model BusinessEntityUnitPair {
+  id                 Int      @id @default(autoincrement())
+  businessEntityCode String   @db.VarChar(4)
+  businessUnitCode   String   @db.VarChar(4)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  businessEntity BusinessEntity @relation(fields: [businessEntityCode], references: [businessEntityCode])
+  businessUnit   BusinessUnit   @relation(fields: [businessUnitCode], references: [businessUnitCode])
+
+  @@unique([businessEntityCode, businessUnitCode])
+}
+
+model SalesChannel {
+  id               Int      @id @default(autoincrement())
+  salesChannelCode String   @unique @db.VarChar(4)
+  salesChannelName String   @db.VarChar(30)
+  salesChannelDesc String?  @db.VarChar(50)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  channelOfficePairs     SalesChannelOfficeTeamPair[]
+  businessUnitSalesPairs BusinessUnitSalesPair[]
+}
+
+model SalesOffice {
+  id               Int      @id @default(autoincrement())
+  salesOfficeId    String   @unique @db.VarChar(4)
+  organizationName String   @db.VarChar(30)
+  salesOfficeDesc  String?  @db.VarChar(50)
+  street1          String   @db.VarChar(50)
+  street2          String?  @db.VarChar(50)
+  city             String   @db.VarChar(30)
+  state            String   @db.VarChar(30)
+  region           String?  @db.VarChar(50)
+  country          String   @db.VarChar(30)
+  pinCode          String   @db.VarChar(6)
+  validFrom        DateTime
+  validTo          DateTime
+  company          String   @db.VarChar(30)
+  parentUnit       String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  officeTeamPairs        SalesChannelOfficeTeamPair[]
+  businessUnitSalesPairs BusinessUnitSalesPair[]
+}
+
+model SalesTeam {
+  id            Int      @id @default(autoincrement())
+  salesTeamCode String   @unique @db.VarChar(4)
+  salesTeamName String   @db.VarChar(30)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  officeTeamPairs        SalesChannelOfficeTeamPair[]
+  businessUnitSalesPairs BusinessUnitSalesPair[]
+}
+
+model SalesChannelOfficeTeamPair {
+  id               Int    @id @default(autoincrement())
+  salesChannelCode String
+  salesOfficeId    String
+  salesTeamCode    String
+
+  salesChannel SalesChannel @relation(fields: [salesChannelCode], references: [salesChannelCode])
+  salesOffice  SalesOffice  @relation(fields: [salesOfficeId], references: [salesOfficeId])
+  salesTeam    SalesTeam    @relation(fields: [salesTeamCode], references: [salesTeamCode])
+
+  @@unique([salesChannelCode, salesOfficeId, salesTeamCode])
+}
+
+model MarketingChannel {
+  id                   Int      @id @default(autoincrement())
+  marketingChannelCode String   @unique @db.VarChar(4)
+  marketingChannelName String   @db.VarChar(30)
+  marketingChannelDesc String?  @db.VarChar(50)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  channelOfficePairs         MarketingChannelOfficeTeamPair[]
+  businessUnitMarketingPairs BusinessUnitMarketingPair[]
+}
+
+model MarketingOffice {
+  id                  Int      @id @default(autoincrement())
+  marketingOfficeId   String   @unique @db.VarChar(4)
+  organizationName    String   @db.VarChar(30)
+  marketingOfficeDesc String?  @db.VarChar(50)
+  street1             String   @db.VarChar(50)
+  street2             String?  @db.VarChar(50)
+  city                String   @db.VarChar(30)
+  state               String   @db.VarChar(30)
+  region              String?  @db.VarChar(50)
+  country             String   @db.VarChar(30)
+  pinCode             String   @db.VarChar(6)
+  validFrom           DateTime
+  validTo             DateTime
+  company             String   @db.VarChar(30)
+  parentUnit          String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  officeTeamPairs            MarketingChannelOfficeTeamPair[]
+  businessUnitMarketingPairs BusinessUnitMarketingPair[]
+}
+
+model MarketingTeam {
+  id                Int      @id @default(autoincrement())
+  marketingTeamCode String   @unique @db.VarChar(4)
+  marketingTeamName String   @db.VarChar(30)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  officeTeamPairs            MarketingChannelOfficeTeamPair[]
+  businessUnitMarketingPairs BusinessUnitMarketingPair[]
+}
+
+model MarketingChannelOfficeTeamPair {
+  id                   Int    @id @default(autoincrement())
+  marketingChannelCode String
+  marketingOfficeId    String
+  marketingTeamCode    String
+
+  marketingChannel MarketingChannel @relation(fields: [marketingChannelCode], references: [marketingChannelCode])
+  marketingOffice  MarketingOffice  @relation(fields: [marketingOfficeId], references: [marketingOfficeId])
+  marketingTeam    MarketingTeam    @relation(fields: [marketingTeamCode], references: [marketingTeamCode])
+
+  @@unique([marketingChannelCode, marketingOfficeId, marketingTeamCode])
+}
+
+model ServiceChannel {
+  id                 Int      @id @default(autoincrement())
+  serviceChannelCode String   @unique @db.VarChar(4)
+  serviceChannelName String   @db.VarChar(30)
+  serviceChannelDesc String?  @db.VarChar(50)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  channelOfficePairs       ServiceChannelOfficeTeamPair[]
+  businessUnitServicePairs BusinessUnitServicePair[]
+}
+
+model ServiceOffice {
+  id                Int      @id @default(autoincrement())
+  serviceOfficeId   String   @unique @db.VarChar(4)
+  organizationName  String   @db.VarChar(30)
+  serviceOfficeDesc String?  @db.VarChar(50)
+  street1           String   @db.VarChar(50)
+  street2           String?  @db.VarChar(50)
+  city              String   @db.VarChar(30)
+  state             String   @db.VarChar(30)
+  region            String?  @db.VarChar(50)
+  country           String   @db.VarChar(30)
+  pinCode           String   @db.VarChar(6)
+  validFrom         DateTime
+  validTo           DateTime
+  company           String   @db.VarChar(30)
+  parentUnit        String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  officeTeamPairs          ServiceChannelOfficeTeamPair[]
+  businessUnitServicePairs BusinessUnitServicePair[]
+}
+
+model ServiceTeam {
+  id              Int      @id @default(autoincrement())
+  serviceTeamCode String   @unique @db.VarChar(4)
+  serviceTeamName String   @db.VarChar(30)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  officeTeamPairs          ServiceChannelOfficeTeamPair[]
+  businessUnitServicePairs BusinessUnitServicePair[]
+}
+
+model ServiceChannelOfficeTeamPair {
+  id                 Int    @id @default(autoincrement())
+  serviceChannelCode String
+  serviceOfficeId    String
+  serviceTeamCode    String
+
+  serviceChannel ServiceChannel @relation(fields: [serviceChannelCode], references: [serviceChannelCode])
+  serviceOffice  ServiceOffice  @relation(fields: [serviceOfficeId], references: [serviceOfficeId])
+  serviceTeam    ServiceTeam    @relation(fields: [serviceTeamCode], references: [serviceTeamCode])
+
+  @@unique([serviceChannelCode, serviceOfficeId, serviceTeamCode])
+}
+
+model BusinessUnitSalesPair {
+  id               String @id @default(uuid())
+  businessUnitCode String
+  salesChannelCode String
+  salesOfficeId    String
+  salesTeamCode    String
+
+  businessUnit BusinessUnit @relation(fields: [businessUnitCode], references: [businessUnitCode])
+  salesChannel SalesChannel @relation(fields: [salesChannelCode], references: [salesChannelCode])
+  salesOffice  SalesOffice  @relation(fields: [salesOfficeId], references: [salesOfficeId])
+  salesTeam    SalesTeam    @relation(fields: [salesTeamCode], references: [salesTeamCode])
+
+  @@unique([businessUnitCode, salesChannelCode, salesOfficeId, salesTeamCode])
+}
+
+model BusinessUnitMarketingPair {
+  id                   String @id @default(uuid())
+  businessUnitCode     String
+  marketingChannelCode String
+  marketingOfficeId    String
+  marketingTeamCode    String
+
+  businessUnit     BusinessUnit     @relation(fields: [businessUnitCode], references: [businessUnitCode])
+  marketingChannel MarketingChannel @relation(fields: [marketingChannelCode], references: [marketingChannelCode])
+  marketingOffice  MarketingOffice  @relation(fields: [marketingOfficeId], references: [marketingOfficeId])
+  marketingTeam    MarketingTeam    @relation(fields: [marketingTeamCode], references: [marketingTeamCode])
+
+  @@unique([businessUnitCode, marketingChannelCode, marketingOfficeId, marketingTeamCode])
+}
+
+model BusinessUnitServicePair {
+  id                 String @id @default(uuid())
+  businessUnitCode   String
+  serviceChannelCode String
+  serviceOfficeId    String
+  serviceTeamCode    String
+
+  businessUnit   BusinessUnit   @relation(fields: [businessUnitCode], references: [businessUnitCode])
+  serviceChannel ServiceChannel @relation(fields: [serviceChannelCode], references: [serviceChannelCode])
+  serviceOffice  ServiceOffice  @relation(fields: [serviceOfficeId], references: [serviceOfficeId])
+  serviceTeam    ServiceTeam    @relation(fields: [serviceTeamCode], references: [serviceTeamCode])
+
+  @@unique([businessUnitCode, serviceChannelCode, serviceOfficeId, serviceTeamCode])
+}
+
+model SalesTeamManager {
+  id String @id @default(uuid())
+
+  // reference to User microservice identity
+  userId String // e.g. the user.userId or user.id from the User MS
+
+  validFrom DateTime
+  validTo   DateTime? // null => "Unlimited"
+  primary   Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MarketingTeamManager {
+  id String @id @default(uuid())
+
+  // reference to User microservice identity
+  userId String // e.g. the user.userId or user.id from the User MS
+
+  validFrom DateTime
+  validTo   DateTime? // null => "Unlimited"
+  primary   Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ServiceTeamManager {
+  id String @id @default(uuid())
+
+  // reference to User microservice identity
+  userId String // e.g. the user.userId or user.id from the User MS
+
+  validFrom DateTime
+  validTo   DateTime? // null => "Unlimited"
+  primary   Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SalesTeamEmployee {
+  id String @id @default(uuid())
+
+  // reference to User microservice identity
+  userId String // e.g. the user.userId or user.id from the User MS
+
+  validFrom DateTime
+  validTo   DateTime? // null => "Unlimited"
+  primary   Boolean   @default(false)
+  job       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MarketingTeamEmployee {
+  id String @id @default(uuid())
+
+  // reference to User microservice identity
+  userId String // e.g. the user.userId or user.id from the User MS
+
+  validFrom DateTime
+  validTo   DateTime? // null => "Unlimited"
+  primary   Boolean   @default(false)
+  job       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ServiceTeamEmployee {
+  id String @id @default(uuid())
+
+  // reference to User microservice identity
+  userId String // e.g. the user.userId or user.id from the User MS
+
+  validFrom DateTime
+  validTo   DateTime? // null => "Unlimited"
+  primary   Boolean   @default(false)
+  job       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Language {
+  EN
+  ES
+  FR
+  DE
+  IT
+  NL
+  ID
+  VI
+}

@@ -1,0 +1,243 @@
+/* CreateNewContact.css */
+
+.cnc-create-container {
+	padding: 30px;
+	width: 100%;
+}
+
+/* Header */
+.cnc-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.cnc-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+	margin: 0;
+}
+
+.cnc-header-buttons {
+	display: flex;
+	gap: 15px;
+}
+
+.cnc-header-buttons button {
+	height: 35px;
+	min-width: 120px;
+	padding: 0 15px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.cnc-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.cnc-save-and-new-button,
+.cnc-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+/* Main Layout */
+.cnc-main-layout {
+	display: flex;
+	gap: 30px;
+	align-items: flex-start;
+}
+
+/* Image Upload Section */
+.cnc-image-section {
+	flex: 0 0 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	border: 1px solid #0f1035;
+}
+
+.cnc-image-upload-circle {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background-color: #f0f4f8;
+	border: 2px dashed #365486;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.2s;
+}
+
+.cnc-image-upload-circle:hover {
+	background-color: #e0e7ff;
+	border-color: #0f1035;
+}
+
+.cnc-image-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.cnc-profile-preview {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.cnc-camera-icon {
+	position: absolute;
+	bottom: 10px;
+	right: 15px;
+	background-color: #365486;
+	border-radius: 50%;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cnc-image-help-text {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #365486;
+	font-weight: 500;
+}
+
+/* Forms Section */
+.cnc-forms-section {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.cnc-form-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+}
+
+.cnc-form-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.cnc-form-content {
+	padding: 40px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 25px;
+}
+
+.cnc-form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.cnc-form-group label {
+	font-size: 14px;
+	color: #365486;
+	font-weight: 500;
+}
+
+.cnc-form-group input,
+.cnc-form-group select,
+.cnc-form-group textarea {
+	width: 100%;
+	height: 38px;
+	padding: 0 10px;
+	border: 1px solid #365486;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #0f1035;
+	outline: none;
+}
+
+.cnc-form-group textarea {
+	height: 80px;
+	resize: vertical;
+	padding: 8px;
+}
+
+.cnc-input-readonly {
+	background-color: #e9ecef !important;
+	color: #64748b !important;
+	cursor: not-allowed;
+	border-color: #ccc !important;
+}
+
+.required-star {
+	color: #d9534f;
+	margin-left: 2px;
+}
+
+/* Full Width Utilities */
+.cnc-full-width {
+	grid-column: 1 / -1;
+}
+
+.cnc-section-header {
+	font-size: 16px;
+	font-weight: 600;
+	color: #0f1035;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #e0e7ff;
+}
+
+.cnc-divider {
+	height: 1px;
+	background-color: #e0e7ff;
+	margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+	.cnc-form-content {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.cnc-main-layout {
+		flex-direction: column;
+	}
+	.cnc-image-section {
+		width: 100%;
+		flex-direction: row;
+		justify-content: center;
+		gap: 20px;
+	}
+	.cnc-form-content {
+		grid-template-columns: 1fr;
+	}
+}

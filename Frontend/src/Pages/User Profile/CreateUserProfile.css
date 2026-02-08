@@ -1,0 +1,461 @@
+.userprof-create-container {
+	padding: 30px;
+}
+
+.userprof-create-header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 45px;
+}
+
+.userprof-create-heading {
+	font-size: 32px;
+	font-weight: 700;
+	color: #0f1035;
+}
+
+.userprof-create-header-container-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.userprof-create-header-container-buttons button {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.userprof-create-save-button {
+	background-color: #365486;
+	color: #dcf2f1;
+}
+
+.userprof-create-cancel-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.userprof-create-save-and-new-button {
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.userprof-create-options-button-container {
+	position: relative;
+}
+
+.userprof-create-options-button {
+	width: 30px !important;
+	background-color: #ffffff;
+	color: #0f1035;
+}
+
+.userprof-create-menu-modal-container {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background: white;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	padding: 5px;
+	min-width: 150px;
+	z-index: 1000;
+}
+
+.userprof-create-menu-modal-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.userprof-create-menu-modal-list li {
+	padding: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #0f1035;
+	transition: all 0.2s ease-in-out;
+}
+
+.userprof-create-menu-modal-list li:hover {
+	background-color: #dcf2f1;
+}
+
+.userprof-create-form-container {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+
+.userprof-create-form-heading {
+	position: absolute;
+	left: 45px;
+	top: -25px;
+	padding: 10px;
+	background-image: linear-gradient(
+		to bottom,
+		#f9fafb 0%,
+		#f9fafb 50%,
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	color: #0f1035;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.userprof-create-form form,
+.userprof-create-terms-content {
+	padding: 40px;
+}
+
+.userprof-create-table-container {
+	padding: 30px 40px 40px 40px;
+}
+
+.userprof-create-form-row {
+	display: flex;
+	gap: 40px;
+	margin-bottom: 10px;
+}
+
+.userprof-create-form-group {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.userprof-create-form-group label {
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	margin: 0;
+}
+
+.userprof-create-form-group input,
+.userprof-create-form-group select {
+	width: 100%;
+	height: 35px;
+	padding: 0 5px;
+	border: 1px solid #365486;
+	color: #365486;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 5px;
+	outline: none;
+}
+
+.userprof-create-form-group input::placeholder {
+	color: #365486;
+	font-size: 14px;
+}
+
+.userprof-create-input-icon-btn {
+	position: absolute;
+	right: 5px;
+	background: #dcf2f1;
+	border: 1px solid #365486;
+	height: 28px;
+	width: 28px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	padding: 0;
+}
+
+.userprof-create-input-icon-btn:disabled {
+	cursor: not-allowed !important;
+	opacity: 0.7; /* optional for better UX */
+}
+
+/* Modal overlay & container */
+.userprof-create-org-modal-overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(18, 24, 35, 0.45);
+	z-index: 1200;
+	padding: 24px;
+	backdrop-filter: blur(2px);
+}
+
+.userprof-create-org-modal {
+	width: min(800px, 96%);
+	max-height: 86vh;
+	background: #fff;
+	border: none;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+/* Header */
+.userprof-create-org-modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 12px 20px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.userprof-create-org-modal-title {
+	margin: 0;
+	font-size: 14px;
+	color: #0f1035;
+	font-weight: 600;
+}
+
+.userprof-create-org-modal-close {
+	position: absolute;
+	right: 12px;
+	top: 12px;
+	border: none;
+	color: #0f1035;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.userprof-create-org-modal-close:hover {
+	color: #ff0000;
+}
+
+/* Toolbar */
+.userprof-create-org-modal-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+	padding: 10px 16px;
+	border-bottom: 1px solid #0f1035;
+}
+
+.org-toolbar-left .org-filter-badge {
+	font-size: 13px;
+	color: #5b6b7a;
+}
+
+.userprof-create-org-toolbar-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.userprof-create-org-toolbar-search-container {
+	position: relative;
+	flex: 1 1 auto; /* takes remaining space */
+	max-width: 800px; /* don't grow infinitely on very wide screens */
+	min-width: 320px;
+}
+
+.userprof-create-org-toolbar-search {
+	width: 100%;
+	height: 35px;
+	padding: 10px 16px 10px 44px; /* room for left icon */
+	border: 1px solid #0f1035;
+	border-radius: 9999px;
+	font-size: 14px;
+	outline: none;
+}
+
+.userprof-create-org-toolbar-search::placeholder {
+	color: #0f1035;
+	font-size: 14px;
+	text-align: left;
+}
+
+.userprof-create-org-toolbar-search-icon {
+	position: absolute;
+	left: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.userprof-create-icon-btn {
+	height: 35px;
+	width: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+/* Body / table */
+.userprof-create-org-modal-body {
+	overflow: auto;
+	padding: 8px 12px 0 12px;
+	flex: 1 1 auto;
+	overflow-y: auto;
+}
+
+/* Horizontal scrollbar styling (WebKit) – matches Image A subtle look */
+.userprof-create-org-modal-body::-webkit-scrollbar {
+	width: 6px;
+}
+
+.userprof-create-org-modal-body::-webkit-scrollbar-track {
+	background: #dcf2f1;
+}
+
+.userprof-create-org-modal-body::-webkit-scrollbar-thumb {
+	background: #365486;
+	border-radius: 5px;
+}
+
+.userprof-create-org-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+	color: #0f1035;
+}
+
+.userprof-create-org-table thead th {
+	text-align: left;
+	padding: 12px 12px;
+	background: #ffffff;
+	border-bottom: 1px solid #0f1035;
+	font-weight: 600;
+	color: #0f1035;
+}
+
+.userprof-create-org-table tbody td {
+	padding: 10px 12px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #365486;
+	border-bottom: 1px solid #365486;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.userprof-create-org-row.selected {
+	background-color: #dcf2f1;
+	outline: 1px dotted #365486;
+}
+
+/* no results row */
+.no-results td {
+	padding: 30px;
+	text-align: center;
+	color: #7a8895;
+}
+
+/* footer */
+.userprof-create-org-modal-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 12px 16px;
+	border-top: 1px solid #0f1035;
+}
+
+.userprof-create-modal-btn {
+	height: 30px;
+	width: 120px;
+	border: 1px solid #0f1035;
+	border-radius: 5px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.userprof-create-org-modal-footer-right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.userprof-create-modal-confirm-btn {
+	background: #365486;
+	color: #dcf2f1;
+}
+
+.userprof-create-modal-cancel-btn {
+	background: #ffffff;
+	color: #0f1035;
+}
+
+.userprof-create-modal-clear-btn {
+	background: #ffffff;
+	color: #0f1035;
+}
+
+.userprof-create-modal-btn[disabled] {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+/* small responsive tweaks */
+@media (max-width: 720px) {
+	.userprof-create-org-modal {
+		width: 100%;
+		height: 96vh;
+		border-radius: 6px;
+	}
+	.userprof-create-org-toolbar-search {
+		width: 140px;
+	}
+}
+
+.userprof-create-org-row.selected {
+	background-color: #dcf2f1; /* subtle highlight */
+	outline: 1px solid #365486;
+}
+
+.userprof-create-org-row:focus {
+	outline: 1px dashed #365486;
+}
+
+.userprof-create-org-row {
+	cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.table-header {
+		flex-direction: column;
+	}
+}
+
+.rotate-once {
+	animation: rotateOnce 0.2s linear;
+}
+
+@keyframes rotateOnce {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

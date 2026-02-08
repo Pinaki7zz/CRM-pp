@@ -1,0 +1,469 @@
+{
+  "info": {
+    "name": "CRM LinkedIn Integration API",
+    "description": "Complete CRM API with LinkedIn integration",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3003"
+    },
+    {
+      "key": "bearer_token",
+      "value": ""
+    },
+    {
+      "key": "user_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "01. Auth - Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"name\": \"Test User\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "02. Auth - Login User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login successful\", function () {",
+              "    pm.response.to.have.status(200);",
+              "    ",
+              "    const responseJson = pm.response.json();",
+              "    ",
+              "    pm.expect(responseJson).to.have.property('token');",
+              "    pm.expect(responseJson).to.have.property('user');",
+              "    ",
+              "    // Save token and user info",
+              "    pm.environment.set(\"bearer_token\", responseJson.token);",
+              "    pm.environment.set(\"user_id\", responseJson.user.id);",
+              "    pm.environment.set(\"user_email\", responseJson.user.email);",
+              "    ",
+              "    console.log(\"✅ Token saved:\", responseJson.token.substring(0, 20) + \"...\");",
+              "    console.log(\"✅ User ID:\", responseJson.user.id);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "03. Integration - Create LinkedIn Integration",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Integration created\", function () {",
+              "    pm.response.to.have.status(201);",
+              "    ",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson).to.have.property('integration');",
+              "    pm.environment.set(\"integration_id\", responseJson.integration.id);",
+              "    ",
+              "    console.log(\"✅ Integration ID:\", responseJson.integration.id);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"providerType\": \"linkedin\",\n  \"providerName\": \"LinkedIn\",\n  \"clientId\": \"78abc123def456ghi789\",\n  \"clientSecretKey\": \"xyz789abc123def456ghi789jkl012mno345\",\n  \"authorizedEndpointURL\": \"https://www.linkedin.com/oauth/v2/authorization\",\n  \"tokenEndpointURL\": \"https://www.linkedin.com/oauth/v2/accessToken\",\n  \"userInfoEndpointURL\": \"https://api.linkedin.com/v2/me\",\n  \"defaultScopes\": \"profile email w_member_social\",\n  \"callBackURL\": \"http://localhost:3003/auth/linkedin/callback\",\n  \"userId\": {{user_id}}\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/integrations",
+          "host": ["{{base_url}}"],
+          "path": ["integrations"]
+        }
+      }
+    },
+    {
+      "name": "04. Credentials - Create Identity Provider",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"identityProviderName\": \"LinkedIn IDP\",\n  \"authenticationProtocol\": \"oauth2\",\n  \"authenticationFlowType\": \"authorization_code\",\n  \"clientId\": \"78abc123def456ghi789\",\n  \"clientSecretKey\": \"xyz789abc123def456ghi789jkl012mno345\",\n  \"authorizedEndpointURL\": \"https://www.linkedin.com/oauth/v2/authorization\",\n  \"tokenEndpointURL\": \"https://www.linkedin.com/oauth/v2/accessToken\",\n  \"userInfoEndpointURL\": \"https://api.linkedin.com/v2/me\",\n  \"checkboxCredentialsBody\": true\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/credentials/identity-provider",
+          "host": ["{{base_url}}"],
+          "path": ["credentials", "identity-provider"]
+        }
+      }
+    },
+    {
+      "name": "05. Credentials - Create External Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"externalCredentialName\": \"LinkedIn External\",\n  \"authenticationProtocol\": \"oauth2\",\n  \"authenticationFlowType\": \"authorization_code\",\n  \"identityProvider\": \"LinkedIn IDP\",\n  \"scope\": \"profile email\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/credentials/external-body",
+          "host": ["{{base_url}}"],
+          "path": ["credentials", "external-body"]
+        }
+      }
+    },
+    {
+      "name": "06. Credentials - Create Principal (Not Configured)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Principal created\", function () {",
+              "    pm.response.to.have.status(201);",
+              "    ",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson).to.have.property('credential');",
+              "    pm.environment.set(\"principal_id\", responseJson.credential.id);",
+              "    ",
+              "    console.log(\"✅ Principal ID:\", responseJson.credential.id);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"principalName\": \"test@example.com\",\n  \"principalType\": \"user\",\n  \"status\": \"NOT_CONFIGURED\",\n  \"scope\": \"profile email\",\n  \"externalBodyId\": 1,\n  \"integrationId\": {{integration_id}}\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/credentials/principal",
+          "host": ["{{base_url}}"],
+          "path": ["credentials", "principal"]
+        }
+      }
+    },
+    {
+      "name": "07. Credentials - Create Named Credential",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"credentialName\": \"LinkedIn Named Credential\",\n  \"baseURL\": \"https://api.linkedin.com\",\n  \"externalCredential\": \"LinkedIn External\",\n  \"enabledForCallouts\": true,\n  \"generateAuthorizationHeader\": false\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/credentials/named-credential",
+          "host": ["{{base_url}}"],
+          "path": ["credentials", "named-credential"]
+        }
+      }
+    },
+    {
+      "name": "08. LinkedIn External - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"externalCredentialName\": \"LinkedIn External Cred\",\n  \"authenticationProtocol\": \"oauth2\",\n  \"authenticationFlowType\": \"authorization_code\",\n  \"scope\": \"profile email w_member_social\",\n  \"providerName\": \"LinkedIn\",\n  \"integrationId\": {{integration_id}}\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/linkedin-external",
+          "host": ["{{base_url}}"],
+          "path": ["linkedin-external"]
+        }
+      }
+    },
+    {
+      "name": "09. Auth - Initiate LinkedIn (Manual)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/auth/linkedin/initiate",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "linkedin", "initiate"]
+        },
+        "description": "This will redirect to LinkedIn. Copy the URL and open in browser to get auth code."
+      }
+    },
+    {
+      "name": "10. Auth - LinkedIn Token Exchange",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"LinkedIn auth successful\", function () {",
+              "    pm.response.to.have.status(200);",
+              "    ",
+              "    const responseJson = pm.response.json();",
+              "    pm.expect(responseJson).to.have.property('message');",
+              "    ",
+              "    if (responseJson.principalUpdated) {",
+              "        console.log(\"✅ Principal status updated to CONFIGURED!\");",
+              "    }",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"PASTE_YOUR_LINKEDIN_AUTH_CODE_HERE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/linkedin/token-exchange",
+          "host": ["{{base_url}}"],
+          "path": ["auth", "linkedin", "token-exchange"]
+        }
+      }
+    },
+    {
+      "name": "11. Leads - Generate Leads",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"software engineer\",\n  \"limit\": 5\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/leads/generate",
+          "host": ["{{base_url}}"],
+          "path": ["leads", "generate"]
+        }
+      }
+    },
+    {
+      "name": "12. Leads - Get Leads",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/leads",
+          "host": ["{{base_url}}"],
+          "path": ["leads"]
+        }
+      }
+    },
+    {
+      "name": "13. Integration - Get All",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/integrations",
+          "host": ["{{base_url}}"],
+          "path": ["integrations"]
+        }
+      }
+    },
+    {
+      "name": "14. Credentials - Get All Identity Providers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/credentials/identity-provider",
+          "host": ["{{base_url}}"],
+          "path": ["credentials", "identity-provider"]
+        }
+      }
+    },
+    {
+      "name": "15. Credentials - Get All Principals",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/credentials/principal",
+          "host": ["{{base_url}}"],
+          "path": ["credentials", "principal"]
+        }
+      }
+    },
+    {
+      "name": "16. LinkedIn External - Get All",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearer_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/linkedin-external",
+          "host": ["{{base_url}}"],
+          "path": ["linkedin-external"]
+        }
+      }
+    }
+  ]
+}

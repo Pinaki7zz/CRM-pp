@@ -1,0 +1,160 @@
+.airtel-connect {
+	background-color: #ffffff;
+	color: #333;
+	padding: 20px;
+	border-top: 3px solid red;
+	border-radius: 8px;
+	width: 100%;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), -2px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.connect-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	align-items: center;
+}
+
+.provider-dropdown {
+	background-color: transparent;
+	color: #333;
+	border: 1px solid #ccc;
+	font-size: 18px;
+	padding: 5px;
+}
+
+.install-button {
+	padding: 8px 15px;
+	background-color: #3b82f6;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+.install-button:hover {
+	background-color: #2563eb;
+}
+
+.connect-box {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 15px;
+	margin-bottom: 20px;
+	text-align: center;
+	background-color: #f9f9f9;
+}
+
+.connect-title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.integration-box {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: #f9f9f9;
+}
+
+.integration-title {
+	font-size: 16px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.steps-container {
+	margin-bottom: 20px;
+}
+
+.steps {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.step {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	opacity: 0.7;
+	font-size: 14px;
+	color: #666;
+}
+
+.step.active {
+	opacity: 1;
+	color: #3b82f6;
+}
+
+.instructions-box {
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 15px;
+	border: 1px solid #ddd;
+}
+
+.instructions-title {
+	font-size: 14px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.code-block {
+	background-color: #f3f3f3;
+	border-radius: 4px;
+	padding: 15px;
+	margin-bottom: 20px;
+	font-family: monospace;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	color: #333;
+}
+
+.code-block pre {
+	margin: 5px 0;
+}
+
+.resources {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.resource-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.resource-icon {
+	width: 40px;
+	height: 40px;
+	background-color: #3b82f6;
+	border-radius: 4px;
+}
+
+.resource-text {
+	font-size: 12px;
+	line-height: 1.4;
+	color: #333;
+}
+
+.action-footer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.action-button {
+	padding: 8px 15px;
+	background-color: #3b82f6;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+.action-button:hover {
+	background-color: #2563eb;
+}
